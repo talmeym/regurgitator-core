@@ -8,7 +8,7 @@ public class SubstituteValueTest {
 
 	@Test
 	public void testThis() {
-		SubstituteValue toTest = new SubstituteValue("ID", "token", "nekot");
+		SubstituteValue toTest = new SubstituteValue("token", "nekot");
 		assertEquals("1234nekot1234nekot1234nekot1234", toTest.process("1234token1234token1234token1234"));
 	}
 }
