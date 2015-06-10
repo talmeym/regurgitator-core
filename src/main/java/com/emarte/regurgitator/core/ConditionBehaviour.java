@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-interface ConditionBehaviour {
+public interface ConditionBehaviour {
 	public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation);
 
 	public static enum DefaultImpl implements ConditionBehaviour {
