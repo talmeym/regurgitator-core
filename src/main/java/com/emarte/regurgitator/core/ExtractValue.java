@@ -10,7 +10,7 @@ class ExtractValue implements ValueProcessor {
 	private final String format;
 	private final int index;
 
-	public ExtractValue(String format, int index) {
+	ExtractValue(String format, int index) {
 		this.format = format;
 		this.index = index;
 	}

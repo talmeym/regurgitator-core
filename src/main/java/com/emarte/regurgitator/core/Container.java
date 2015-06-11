@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-class Container<TYPE extends HasId> extends Identifiable {
+abstract class Container<TYPE extends HasId> extends Identifiable {
 
     private final List<TYPE> items;
     private final Map<Object, TYPE> itemsById;

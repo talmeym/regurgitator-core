@@ -8,7 +8,7 @@ final class SubstituteValue implements ValueProcessor {
 	private final String token;
 	private final String replacement;
 
-	public SubstituteValue(String token, String replacement) {
+	SubstituteValue(String token, String replacement) {
 		this.token = token;
 		this.replacement = replacement;
 	}
