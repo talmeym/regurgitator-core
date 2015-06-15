@@ -3,12 +3,12 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 public interface RulesBehaviour {
-	public List<Object> evaluate(Object rulesId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId);
+	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId);
 
 	public static enum DefaultImpl implements RulesBehaviour {
 		FIRST_MATCH {
 			@Override
-			public List<Object> evaluate(Object rulesId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
+			public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 				if(evaluatedStepIds.size() > 0) {
 					Object firstMatch = evaluatedStepIds.get(0);
 					log.debug("Returning first rule match '" + firstMatch + "'");
@@ -20,12 +20,12 @@ public interface RulesBehaviour {
 					return Arrays.asList(defaultStepId);
 				}
 
-				throw new IllegalStateException("No rules evaluated true and no default specified in rules '" + rulesId + "'");
+				throw new IllegalStateException("No rules evaluated true and no default specified in decision '" + decisionId + "'");
 			}
 		},
 		ALL_MATCHES {
 			@Override
-			public List<Object> evaluate(Object rulesId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
+			public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 				if(evaluatedStepIds.size() > 0) {
 					log.debug("Returning all rule matches '" + evaluatedStepIds + "'");
 					return evaluatedStepIds;
@@ -36,12 +36,12 @@ public interface RulesBehaviour {
 					return Arrays.asList(defaultStepId);
 				}
 
-				throw new IllegalStateException("No rules evaluated true and no default specified in rules '" + rulesId + "'");
+				throw new IllegalStateException("No rules evaluated true and no default specified in decision '" + decisionId + "'");
 			}
 		},
 		FIRST_MATCH_ONWARDS {
 			@Override
-			public List<Object> evaluate(Object rulesId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
+			public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 				if(evaluatedStepIds.size() > 0) {
 					List<Object> ids = idAndSubsequent(evaluatedStepIds.get(0), allStepIds);
 					log.debug("Returning first rule match and subsequent steps '" + ids + "'");
@@ -54,7 +54,7 @@ public interface RulesBehaviour {
 					return ids;
 				}
 
-				throw new IllegalStateException("No rules evaluated true and no default specified in rules '" + rulesId + "'");
+				throw new IllegalStateException("No rules evaluated true and no default specified in decision '" + decisionId + "'");
 			}
 
 			private List<Object> idAndSubsequent(Object id, List<Object> allIds) {

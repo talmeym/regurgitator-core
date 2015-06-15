@@ -5,11 +5,15 @@ import java.util.*;
 final class Decision extends Container<Step> implements Step {
     private static  final Log log = Log.getLog(Decision.class);
 
-    private final Rules rules;
+	private final List<Rule> rules;
+    private final RulesBehaviour behaviour;
+	private final Object defaultStepId;
 
-    Decision(String id, List<Step> steps, Rules rules) {
+	Decision(String id, List<Step> steps, List<Rule> rules, RulesBehaviour behaviour, Object defaultStepId) {
         super(id, steps);
-        this.rules = rules;
+		this.rules = rules;
+        this.behaviour = behaviour;
+		this.defaultStepId = defaultStepId;
     }
 
     @Override
@@ -23,12 +27,18 @@ final class Decision extends Container<Step> implements Step {
     }
 
     private List<Step> getStepsToRun(Message message) {
-		if(rules != null) {
-            log.debug("Applying rules '" + rules.getId() + "'");
-            return get(rules.runRules(message, ids()));
-        }
+		List<Object> evaluatedIds = new ArrayList<Object>();
+		log.debug("Evaluating all rules");
 
-        log.debug("Running all steps");
-		return getAll();
+		for (Rule rule : rules) {
+			if (rule.evaluate(message)) {
+				log.debug("Rule '" + rule.getId() + "\' passed");
+				evaluatedIds.add(rule.getStepId());
+			} else {
+				log.debug("Rule '" + rule.getId() + "\' did not pass");
+			}
+		}
+
+		return get(behaviour.evaluate(getId(), evaluatedIds, ids(), defaultStepId));
     }
 }

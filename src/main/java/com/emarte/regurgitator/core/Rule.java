@@ -16,16 +16,18 @@ final class Rule extends Container<Condition> {
     }
 
     boolean evaluate(Message message) {
-        for (Condition condition : getAll()) {
+		Object id = getId();
+
+		for (Condition condition : getAll()) {
             if (!condition.isMet(message)) {
-                log.debug("Condition '" + condition.getId() + "' not met in rule '" + getId() + "'");
+                log.debug("Condition '" + condition.getId() + "' not met in rule '" + id + "'");
                 return false;
             } else {
-                log.debug("Condition '" + condition.getId() + "' met in rule '" + getId() + "'");
+                log.debug("Condition '" + condition.getId() + "' met in rule '" + id + "'");
 			}
         }
 
-        log.debug("All conditions met in rule '" + getId() + "'");
+        log.debug("All conditions met in rule '" + id + "'");
         return true;
     }
 }
