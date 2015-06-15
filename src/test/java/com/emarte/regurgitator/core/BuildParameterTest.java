@@ -18,7 +18,7 @@ public class BuildParameterTest {
 
 	private ValueBuilder valueBuilder = new ValueBuilder() {
 		@Override
-		public Object build(Parameters parameters) throws RegurgitatorException {
+		public Object build(Message parameters) throws RegurgitatorException {
 			return BUILT_VALUE;
 		}
 	};

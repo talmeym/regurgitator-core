@@ -15,7 +15,7 @@ final class BuildParameter extends ParameterExtractor {
     @Override
     public Object extractValue(Message message) throws RegurgitatorException {
         log.debug("Building parameter value");
-        Object value = valueBuilder.build(message.getParameters());
+        Object value = valueBuilder.build(message);
 
         if(valueValidator != null) {
             log.debug("Validating built parameter value");
