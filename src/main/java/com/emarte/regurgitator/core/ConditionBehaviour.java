@@ -33,7 +33,8 @@ public interface ConditionBehaviour {
 		},
 		EXISTS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation) {
+			public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean notUsed) {
+				Boolean expectation = Boolean.valueOf(conditionValue.toString());
 				boolean exists = parameter != null;
 				log.debug("Parameter '" + location + (exists ? "' exists" : "' does not exist"));
 				return exists == expectation;
