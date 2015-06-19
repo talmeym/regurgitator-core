@@ -71,8 +71,8 @@ public class ConditionBehaviourTest {
 		ContextLocation location = new ContextLocation("context:location");
 		Parameter parameter = new Parameter(new ParameterPrototype("to-test", ParameterType.DefaultImpl.STRING, ConflictPolicy.REPLACE), "value");
 
-		assertTrue(EXISTS.evaluate(location, parameter, null, true));
-		assertTrue(EXISTS.evaluate(location, null, null, false));
-		assertFalse(EXISTS.evaluate(location, null, null, true));
+		assertTrue(EXISTS.evaluate(location, parameter, "true", false));
+		assertTrue(EXISTS.evaluate(location, null, "false", true));
+		assertFalse(EXISTS.evaluate(location, null, "true", false));
 	}
 }
