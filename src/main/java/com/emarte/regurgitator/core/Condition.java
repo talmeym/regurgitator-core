@@ -16,7 +16,7 @@ final class Condition extends Identifiable {
 		this.behaviour = behaviour;
 	}
 
-	public boolean isMet(Message message) {
+	public boolean isMet(Message message) throws RegurgitatorException {
 		log.debug("Evaluating condition '" + getId() + "'");
 		return behaviour.evaluate(location, message.getContextValue(location), conditionValue, expectation);
 	}

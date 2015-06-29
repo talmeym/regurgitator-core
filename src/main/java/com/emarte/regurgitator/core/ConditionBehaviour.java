@@ -1,12 +1,12 @@
 package com.emarte.regurgitator.core;
 
 public interface ConditionBehaviour {
-	public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation);
+	public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) throws RegurgitatorException;
 
 	public static enum DefaultImpl implements ConditionBehaviour {
 		CONTAINS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation) {
+			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
 				boolean contains = false;
 
 				if(parameter != null) {
@@ -20,7 +20,7 @@ public interface ConditionBehaviour {
 		},
 		EQUALS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation) {
+			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
 				boolean equals = false;
 
 				if(parameter != null) {
@@ -33,8 +33,8 @@ public interface ConditionBehaviour {
 		},
 		EXISTS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean notUsed) {
-				Boolean expectation = Boolean.valueOf(conditionValue.toString());
+			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean notUsed) {
+				Boolean expectation = Boolean.valueOf(conditionValue);
 				boolean exists = parameter != null;
 				log.debug("Parameter '" + location + (exists ? "' exists" : "' does not exist"));
 				return exists == expectation;

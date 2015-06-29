@@ -29,27 +29,27 @@ public class RuleTest {
 	private Rule failingToTest = new Rule("8", failingConditions, "10");
 
 	@Test
-	public void testPass() {
+	public void testPass() throws RegurgitatorException {
 		assertEquals("9", passingToTest.getStepId());
 		assertTrue(passingToTest.evaluate(buildMessage()));
 	}
 
 	@Test
-	public void testFail() {
+	public void testFail() throws RegurgitatorException {
 		assertEquals("10", failingToTest.getStepId());
 		assertFalse(failingToTest.evaluate(buildMessage()));
 	}
 
 	private static class PassingConditionBehaviour implements ConditionBehaviour {
 		@Override
-		public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation) {
+		public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
 			return true;
 		}
 	}
 
 	private static class FailingConditionBehaviour implements ConditionBehaviour {
 		@Override
-		public boolean evaluate(ContextLocation location, Parameter parameter, Object conditionValue, boolean expectation) {
+		public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
 			return false;
 		}
 	}

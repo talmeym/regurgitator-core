@@ -15,7 +15,7 @@ final class Rule extends Container<Condition> {
         return stepId;
     }
 
-    boolean evaluate(Message message) {
+    boolean evaluate(Message message) throws RegurgitatorException {
 		Object id = getId();
 
 		for (Condition condition : getAll()) {
