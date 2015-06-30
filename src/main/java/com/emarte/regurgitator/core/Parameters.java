@@ -2,6 +2,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
+import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
+
 public class Parameters extends Container<Parameter> {
     private static final Log log = Log.getLog(Parameters.class);
 
@@ -10,7 +12,7 @@ public class Parameters extends Container<Parameter> {
     }
 
     public void setValue(String name, ParameterType type, Object value) throws RegurgitatorException {
-        setValue(new Parameter(new ParameterPrototype(name, type, ConflictPolicy.REPLACE), value));
+        setValue(new Parameter(new ParameterPrototype(name, type, REPLACE), value));
     }
 
     public Object getValue(Object id) {

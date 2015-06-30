@@ -3,7 +3,8 @@ package com.emarte.regurgitator.core;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.*;
+import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.DefaultImpl;
+import static com.emarte.regurgitator.core.ValueGenerator.DefaultImpl.NUMBER;
 import static junit.framework.Assert.assertEquals;
 
 public class GenerateParameterTest {
@@ -12,9 +13,9 @@ public class GenerateParameterTest {
 	private static final String PARAM_CONTEXT = "context";
 	private static final String SOURCE_ID = "sourceId";
 
-	private ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, NUMBER, PARAM_CONFLICT_POL);
+	private ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, DefaultImpl.NUMBER, PARAM_CONFLICT_POL);
 
-	private GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, ValueGenerator.DefaultImpl.NUMBER);
+	private GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER);
 
 	@Test
 	public void testThis() throws RegurgitatorException {
@@ -28,7 +29,7 @@ public class GenerateParameterTest {
 
 		assertEquals(1, contextParameters.size());
 		Parameter parameter = contextParameters.get(DEST_NAME);
-		assertEquals(NUMBER, parameter.getType());
+		assertEquals(DefaultImpl.NUMBER, parameter.getType());
 	}
 
 	private Message buildMessage() {

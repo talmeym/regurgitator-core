@@ -2,6 +2,8 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
+import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
+import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.STRING;
 import static junit.framework.Assert.assertEquals;
 
 public class IdentifySessionTest {
@@ -15,7 +17,7 @@ public class IdentifySessionTest {
 	@Test
 	public void testHappyPath() throws RegurgitatorException {
 		Message message = buildMessage();
-		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, ParameterType.DefaultImpl.STRING, ConflictPolicy.REPLACE), PARAM_VALUE));
+		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
 
 		toTest.execute(message);
 
@@ -25,7 +27,7 @@ public class IdentifySessionTest {
 	@Test(expected = IllegalStateException.class)
 	public void testUnhappyPath() throws RegurgitatorException {
 		Message message = buildMessage();
-		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", ParameterType.DefaultImpl.STRING, ConflictPolicy.REPLACE), PARAM_VALUE));
+		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
 
 		toTest.execute(message);
 	}

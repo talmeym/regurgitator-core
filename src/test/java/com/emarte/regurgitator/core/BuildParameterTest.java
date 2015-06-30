@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-import org.junit.*;
+import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.STRING;
