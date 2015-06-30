@@ -20,11 +20,11 @@ public class ContextLocation {
 		name = contextSpecified ? location.substring(location.indexOf(SEPARATOR) + 1) : location;
     }
 
-    String getContext() {
+    public String getContext() {
         return context;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 

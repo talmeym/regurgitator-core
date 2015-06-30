@@ -1,13 +1,14 @@
 package com.emarte.regurgitator.core;
 
 public interface ConditionBehaviour {
-	public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) throws RegurgitatorException;
+	public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) throws RegurgitatorException;
 
 	public static enum DefaultImpl implements ConditionBehaviour {
 		CONTAINS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
+			public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 				boolean contains = false;
+				Parameter parameter = message.getContextValue(location);
 
 				if(parameter != null) {
 					ParameterType parameterType = parameter.getType();
@@ -20,8 +21,9 @@ public interface ConditionBehaviour {
 		},
 		EQUALS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean expectation) {
+			public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 				boolean equals = false;
+				Parameter parameter = message.getContextValue(location);
 
 				if(parameter != null) {
 					equals = parameter.getValue().equals(parameter.getType().convert(conditionValue));
@@ -33,8 +35,9 @@ public interface ConditionBehaviour {
 		},
 		EXISTS {
 			@Override
-			public boolean evaluate(ContextLocation location, Parameter parameter, String conditionValue, boolean notUsed) {
+			public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean notUsed) {
 				Boolean expectation = Boolean.valueOf(conditionValue);
+				Parameter parameter = message.getContextValue(location);
 				boolean exists = parameter != null;
 				log.debug("Parameter '" + location + (exists ? "' exists" : "' does not exist"));
 				return exists == expectation;
