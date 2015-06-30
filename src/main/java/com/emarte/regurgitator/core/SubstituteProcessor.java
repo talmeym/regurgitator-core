@@ -2,13 +2,13 @@ package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.stringify;
 
-final class SubstituteValue implements ValueProcessor {
-	private static final Log log = Log.getLog(SubstituteValue.class);
+final class SubstituteProcessor implements ValueProcessor {
+	private static final Log log = Log.getLog(SubstituteProcessor.class);
 
 	private final String token;
 	private final String replacement;
 
-	SubstituteValue(String token, String replacement) {
+	SubstituteProcessor(String token, String replacement) {
 		this.token = token;
 		this.replacement = replacement;
 	}

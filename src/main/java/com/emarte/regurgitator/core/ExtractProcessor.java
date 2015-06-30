@@ -4,13 +4,13 @@ import java.text.*;
 
 import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.stringify;
 
-class ExtractValue implements ValueProcessor {
-	private static final Log log = Log.getLog(ExtractValue.class);
+class ExtractProcessor implements ValueProcessor {
+	private static final Log log = Log.getLog(ExtractProcessor.class);
 
 	private final String format;
 	private final int index;
 
-	ExtractValue(String format, int index) {
+	ExtractProcessor(String format, int index) {
 		this.format = format;
 		this.index = index;
 	}
