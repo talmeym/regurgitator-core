@@ -22,12 +22,14 @@ public class BuildParameterTest {
 			return BUILT_VALUE;
 		}
 	};
+
 	private ValueValidator passingValueValidator = new ValueValidator() {
 		@Override
 		public boolean validate(Object value) throws RegurgitatorException {
 			return true;
 		}
 	};
+
 	private ValueValidator failingValueValidator = new ValueValidator() {
 		@Override
 		public boolean validate(Object value) throws RegurgitatorException {
@@ -40,17 +42,9 @@ public class BuildParameterTest {
 	@Test
 	public void testBasics() throws RegurgitatorException {
 		assertEquals(STEP_ID, toTest.getId());
-		Message message = buildMessage();
+		Message message = new Message(null);
 		toTest.execute(message);
 		assertParametersContent(message);
-	}
-
-	private Message buildMessage() {
-		return new Message(new ResponseCallBack() {
-			@Override
-			public void respond(Message message, Object value) {
-			}
-		});
 	}
 
 	private void assertParametersContent(Message message) {
@@ -65,7 +59,7 @@ public class BuildParameterTest {
 	@Test
 	public void testValidatorPass() throws RegurgitatorException {
 		toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, passingValueValidator);
-		Message message = buildMessage();
+		Message message = new Message(null);
 		toTest.execute(message);
 		assertParametersContent(message);
 	}
@@ -73,7 +67,7 @@ public class BuildParameterTest {
 	@Test(expected = RegurgitatorException.class)
 	public void testValidatorFail() throws RegurgitatorException {
 		toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, failingValueValidator);
-		toTest.execute(buildMessage());
+		toTest.execute(new Message((null)));
 	}
 
 }

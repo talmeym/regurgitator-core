@@ -20,7 +20,7 @@ public class GenerateParameterTest {
 	@Test
 	public void testThis() throws RegurgitatorException {
 		assertEquals(SOURCE_ID, toTest.getId());
-		Message message = buildMessage();
+		Message message = new Message(null);
 
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
@@ -30,13 +30,5 @@ public class GenerateParameterTest {
 		assertEquals(1, contextParameters.size());
 		Parameter parameter = contextParameters.get(DEST_NAME);
 		assertEquals(DefaultImpl.NUMBER, parameter.getType());
-	}
-
-	private Message buildMessage() {
-		return new Message(new ResponseCallBack() {
-			@Override
-			public void respond(Message message, Object value) {
-			}
-		});
 	}
 }

@@ -16,7 +16,7 @@ public class IdentifySessionTest {
 
 	@Test
 	public void testHappyPath() throws RegurgitatorException {
-		Message message = buildMessage();
+		Message message = new Message(null);
 		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
 
 		toTest.execute(message);
@@ -26,17 +26,9 @@ public class IdentifySessionTest {
 
 	@Test(expected = IllegalStateException.class)
 	public void testUnhappyPath() throws RegurgitatorException {
-		Message message = buildMessage();
+		Message message = new Message(null);
 		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
 
 		toTest.execute(message);
-	}
-
-	private Message buildMessage() {
-		return new Message(new ResponseCallBack() {
-			@Override
-			public void respond(Message message, Object value) {
-			}
-		});
 	}
 }

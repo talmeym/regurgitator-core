@@ -30,7 +30,6 @@ public class CreateParameterTest {
 	private CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, null, STATIC_VALUE, null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
-
 		@Override
 		public Object process(Object value) throws RegurgitatorException {
 			return PROCESSED_VALUE;
@@ -39,79 +38,53 @@ public class CreateParameterTest {
 	};
 
 	private CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, null, STATIC_VALUE, valueProcessor);
-
 	private CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, null, NUMBER_VALUE, null);
 
 	@Test
 	public void testSource() throws RegurgitatorException {
 		assertEquals(SOURCE_ID, sourceToTest.getId());
-		Message message = buildMessage();
-
+		Message message = new Message(null);
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
 		assertEquals(1, contextParameters.size());
-
 		sourceToTest.execute(message);
-
-		assertEquals(2, contextParameters.size());
-		Parameter parameter = contextParameters.get(DEST_NAME);
-		assertEquals(STRING, parameter.getType());
-		assertEquals(SOURCE_VALUE, parameter.getValue());
+		assertParameter(contextParameters, DEST_NAME, 2, STRING, SOURCE_VALUE);
 	}
 
 	@Test
 	public void testStatic() throws RegurgitatorException {
 		assertEquals(STATIC_ID, staticToTest.getId());
-		Message message = buildMessage();
-
+		Message message = new Message(null);
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		staticToTest.execute(message);
-
-		assertEquals(1, contextParameters.size());
-		Parameter parameter = contextParameters.get(DEST_NAME);
-		assertEquals(STRING, parameter.getType());
-		assertEquals(STATIC_VALUE, parameter.getValue());
+		assertParameter(contextParameters, DEST_NAME, 1, STRING, STATIC_VALUE);
 	}
 
 	@Test
 	public void testProcessor() throws RegurgitatorException {
 		assertEquals(PROCESSED_ID, processorToTest.getId());
-		Message message = buildMessage();
-
+		Message message = new Message(null);
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		processorToTest.execute(message);
-
-		assertEquals(1, contextParameters.size());
-		Parameter parameter = contextParameters.get(DEST_NAME);
-		assertEquals(STRING, parameter.getType());
-		assertEquals(PROCESSED_VALUE, parameter.getValue());
+		assertParameter(contextParameters, DEST_NAME, 1, STRING, PROCESSED_VALUE);
 	}
 
 	@Test
 	public void testCrossType() throws RegurgitatorException {
 		assertEquals(CROSS_TYPE_ID, crossTypeToTest.getId());
-		Message message = buildMessage();
-
+		Message message = new Message(null);
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		crossTypeToTest.execute(message);
-
-		assertEquals(1, contextParameters.size());
-		Parameter parameter = contextParameters.get(DEST_NAME);
-		assertEquals(NUMBER, parameter.getType());
-		assertEquals(A_NUMBER, parameter.getValue());
+		assertParameter(contextParameters, DEST_NAME, 1, NUMBER, A_NUMBER);
 	}
 
-	private Message buildMessage() {
-		return new Message(new ResponseCallBack() {
-			@Override
-			public void respond(Message message, Object value) {
-			}
-		});
+	private void assertParameter(Parameters parameters, String name, int size, ParameterType type, Object value) {
+		assertEquals(size, parameters.size());
+		Parameter parameter = parameters.get(name);
+		assertEquals(type, parameter.getType());
+		assertEquals(value, parameter.getValue());
 	}
 }

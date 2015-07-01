@@ -39,7 +39,7 @@ public class CreateResponseTest {
 	@Test
 	public void testSource() throws RegurgitatorException {
 		assertEquals(SOURCE_ID, sourceToTest.getId());
-		Message message = buildMessage();
+		Message message = new Message(callback);
 
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
@@ -53,7 +53,7 @@ public class CreateResponseTest {
 	@Test
 	public void testStatic() throws RegurgitatorException {
 		assertEquals(STATIC_ID, staticToTest.getId());
-		Message message = buildMessage();
+		Message message = new Message(callback);
 
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
@@ -66,7 +66,7 @@ public class CreateResponseTest {
 	@Test
 	public void testProcessor() throws RegurgitatorException {
 		assertEquals(PROCESSED_ID, processorToTest.getId());
-		Message message = buildMessage();
+		Message message = new Message(callback);
 
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
@@ -74,10 +74,6 @@ public class CreateResponseTest {
 		processorToTest.execute(message);
 
 		assertEquals(PROCESSED_VALUE, callback.getValue());
-	}
-
-	private Message buildMessage() {
-		return new Message(callback);
 	}
 
 	private class CollectingResponseCallBack implements ResponseCallBack {

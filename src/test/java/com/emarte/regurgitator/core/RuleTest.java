@@ -31,13 +31,13 @@ public class RuleTest {
 	@Test
 	public void testPass() throws RegurgitatorException {
 		assertEquals("9", passingToTest.getStepId());
-		assertTrue(passingToTest.evaluate(buildMessage()));
+		assertTrue(passingToTest.evaluate(new Message(null)));
 	}
 
 	@Test
 	public void testFail() throws RegurgitatorException {
 		assertEquals("10", failingToTest.getStepId());
-		assertFalse(failingToTest.evaluate(buildMessage()));
+		assertFalse(failingToTest.evaluate(new Message(null)));
 	}
 
 	private static class PassingConditionBehaviour implements ConditionBehaviour {
@@ -52,13 +52,5 @@ public class RuleTest {
 		public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 			return false;
 		}
-	}
-
-	private Message buildMessage() {
-		return new Message(new ResponseCallBack() {
-			@Override
-			public void respond(Message message, Object value) {
-			}
-		});
 	}
 }
