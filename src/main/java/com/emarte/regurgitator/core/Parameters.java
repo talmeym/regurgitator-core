@@ -45,7 +45,7 @@ public class Parameters extends Container<Parameter> {
 
     public String toString() {
         List<Parameter> all = getAll();
-        StringBuilder buffer = new StringBuilder("parameters[");
+        StringBuilder buffer = new StringBuilder(getId() + "[");
 
         for(Parameter parameter: all) {
             buffer.append(parameter.getId()).append("=").append(parameter.getValue()).append(",");

@@ -53,4 +53,16 @@ public class Message {
 
         return contextData.get(context);
     }
+
+	@Override
+	public String toString() {
+		StringBuilder buffer = new StringBuilder("message[");
+
+		for(Parameters context: contextData.values()) {
+			buffer.append(context.toString()).append(",");
+		}
+
+		buffer.append("]");
+		return buffer.toString();
+	}
 }
