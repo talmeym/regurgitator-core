@@ -42,12 +42,22 @@ public class RuleTest {
 
 	private static class PassingConditionBehaviour implements ConditionBehaviour {
 		@Override
+		public Object getId() {
+			return "PASSING";
+		}
+
+		@Override
 		public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 			return true;
 		}
 	}
 
 	private static class FailingConditionBehaviour implements ConditionBehaviour {
+		@Override
+		public Object getId() {
+			return "FAILING";
+		}
+
 		@Override
 		public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 			return false;

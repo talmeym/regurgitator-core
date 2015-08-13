@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.*;
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.STRING;
+import static com.emarte.regurgitator.core.type.DefaultTypes.STRING;
 import static org.junit.Assert.assertEquals;
 
 public class ParametersTest {

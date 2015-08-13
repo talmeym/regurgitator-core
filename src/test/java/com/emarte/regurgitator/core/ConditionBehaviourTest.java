@@ -1,15 +1,18 @@
 package com.emarte.regurgitator.core;
 
+import com.emarte.regurgitator.core.behaviour.condition.*;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static com.emarte.regurgitator.core.ConditionBehaviour.DefaultImpl.*;
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.*;
+import static com.emarte.regurgitator.core.type.DefaultTypes.*;
 import static junit.framework.Assert.*;
 
 public class ConditionBehaviourTest {
+	private static ConditionBehaviour CONTAINS = new ContainsBehaviour();
+	private static ConditionBehaviour EQUALS = new EqualsBehaviour();
+	private static ConditionBehaviour EXISTS = new ExistsBehaviour();
 
 	@Test
 	public void testContains() throws RegurgitatorException {
