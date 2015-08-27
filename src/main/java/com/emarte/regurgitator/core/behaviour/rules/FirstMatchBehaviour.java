@@ -8,11 +8,6 @@ public class FirstMatchBehaviour implements RulesBehaviour {
 	private Log log = Log.getLog(FirstMatchBehaviour.class);
 
 	@Override
-	public Object getId() {
-		return "FIRST_MATCH";
-	}
-
-	@Override
 	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			Object firstMatch = evaluatedStepIds.get(0);

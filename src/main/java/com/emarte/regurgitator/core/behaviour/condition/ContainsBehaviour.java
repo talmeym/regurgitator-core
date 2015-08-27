@@ -6,11 +6,6 @@ public class ContainsBehaviour implements ConditionBehaviour {
 	private Log log = Log.getLog(ContainsBehaviour.class);
 
 	@Override
-	public Object getId() {
-		return "CONTAINS";
-	}
-
-	@Override
 	public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 		boolean contains = false;
 		Parameter parameter = message.getContextValue(location);

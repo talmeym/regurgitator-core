@@ -5,10 +5,6 @@ import java.util.*;
 public class SetOfStringType extends AbstractCollectionType<Set<String>> {
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "SET_OF_STRING";
-	}
-
 	@Override
 	public Set<String> createNew() {
 		return new LinkedHashSet<String>();

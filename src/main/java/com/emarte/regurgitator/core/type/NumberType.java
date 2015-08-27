@@ -5,10 +5,6 @@ import java.util.Collection;
 public class NumberType extends AbstractSingleType<Long> {
 	private static DecimalType DECIMAL = new DecimalType();
 
-	public String getId() {
-		return "NUMBER";
-	}
-
 	@Override
 	public Long createNew() {
 		return 0l;

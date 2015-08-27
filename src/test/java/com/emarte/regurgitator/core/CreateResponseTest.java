@@ -24,7 +24,6 @@ public class CreateResponseTest {
 	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE, null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
-
 		@Override
 		public Object process(Object value) throws RegurgitatorException {
 			return PROCESSED_VALUE;

@@ -6,10 +6,6 @@ public class ListOfDecimalType extends AbstractCollectionType<List<Double>> {
 	private static DecimalType DECIMAL = new DecimalType();
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "LIST_OF_DECIMAL";
-	}
-
 	@Override
 	public List<Double> createNew() {
 		return new ArrayList<Double>();

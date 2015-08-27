@@ -6,10 +6,6 @@ public class ListOfNumberType extends AbstractCollectionType<List<Long>> {
 	private static NumberType NUMBER = new NumberType();
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "LIST_OF_NUMBER";
-	}
-
 	@Override
 	public List<Long> createNew() {
 		return new ArrayList<Long>();

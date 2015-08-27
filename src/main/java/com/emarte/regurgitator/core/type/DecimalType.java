@@ -3,10 +3,6 @@ package com.emarte.regurgitator.core.type;
 import java.util.Collection;
 
 public class DecimalType extends AbstractSingleType<Double> {
-	public String getId() {
-		return "DECIMAL";
-	}
-
 	@Override
 	public Double createNew() {
 		return 0d;

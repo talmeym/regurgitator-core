@@ -8,11 +8,6 @@ public class AllMatchesBehaviour implements RulesBehaviour {
 	private Log log = Log.getLog(AllMatchesBehaviour.class);
 
 	@Override
-	public Object getId() {
-		return "ALL_MATCHES";
-	}
-
-	@Override
 	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			log.debug("Returning all rule matches '" + evaluatedStepIds + "'");

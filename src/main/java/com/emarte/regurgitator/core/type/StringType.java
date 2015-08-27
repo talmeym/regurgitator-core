@@ -7,10 +7,6 @@ import java.util.*;
 import static com.emarte.regurgitator.core.type.DefaultTypes.STRING;
 
 public class StringType implements ParameterType<String> {
-	public String getId() {
-		return "STRING";
-	}
-
 	@Override
 	public String createNew() {
 		return "";

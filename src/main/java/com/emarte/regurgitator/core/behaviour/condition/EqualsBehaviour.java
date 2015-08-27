@@ -6,11 +6,6 @@ public class EqualsBehaviour implements ConditionBehaviour {
 	private static Log log = Log.getLog(EqualsBehaviour.class);
 
 	@Override
-	public Object getId() {
-		return "EQUALS";
-	}
-
-	@Override
 	public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
 		boolean equals = false;
 		Parameter parameter = message.getContextValue(location);

@@ -8,11 +8,6 @@ public class FirstMatchOnwardsBehaviour implements RulesBehaviour {
 	private Log log = Log.getLog(FirstMatchOnwardsBehaviour.class);
 
 	@Override
-	public Object getId() {
-		return "FIRST_MATCH_ONWARDS";
-	}
-
-	@Override
 	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			List<Object> ids = idAndSubsequent(evaluatedStepIds.get(0), allStepIds);

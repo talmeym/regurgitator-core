@@ -6,10 +6,6 @@ public class SetOfDecimalType extends AbstractCollectionType<Set<Double>> {
 	private static DecimalType DECIMAL = new DecimalType();
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "SET_OF_DECIMAL";
-	}
-
 	@Override
 	public Set<Double> createNew() {
 		return new LinkedHashSet<Double>();

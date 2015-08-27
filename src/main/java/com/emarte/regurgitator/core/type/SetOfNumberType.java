@@ -6,10 +6,6 @@ public class SetOfNumberType extends AbstractCollectionType<Set<Long>> {
 	private static NumberType NUMBER = new NumberType();
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "SET_OF_NUMBER";
-	}
-
 	@Override
 	public Set<Long> createNew() {
 		return new LinkedHashSet<Long>();

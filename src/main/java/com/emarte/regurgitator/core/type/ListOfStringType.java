@@ -5,10 +5,6 @@ import java.util.*;
 public class ListOfStringType extends AbstractCollectionType<List<String>> {
 	private static StringType STRING = new StringType();
 
-	public String getId() {
-		return "LIST_OF_STRING";
-	}
-
 	@Override
 	public List<String> createNew() {
 		return new ArrayList<String>();

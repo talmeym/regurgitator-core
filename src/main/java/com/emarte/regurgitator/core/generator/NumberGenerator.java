@@ -8,11 +8,6 @@ public class NumberGenerator implements ValueGenerator {
 	private static Random RANDOM = new Random();
 
 	@Override
-	public Object getId() {
-		return "NUMBER";
-	}
-
-	@Override
 	public Object generate() throws RegurgitatorException {
 		return RANDOM.nextLong();
 	}
