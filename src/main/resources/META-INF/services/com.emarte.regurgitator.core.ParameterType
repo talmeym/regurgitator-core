@@ -1,9 +1,0 @@
-com.emarte.regurgitator.core.types.StringType
-com.emarte.regurgitator.core.types.NumberType
-com.emarte.regurgitator.core.types.DecimalType
-com.emarte.regurgitator.core.types.ListOfStringType
-com.emarte.regurgitator.core.types.ListOfNumberType
-com.emarte.regurgitator.core.types.ListOfDecimalType
-com.emarte.regurgitator.core.types.SetOfStringType
-com.emarte.regurgitator.core.types.SetOfNumberType
-com.emarte.regurgitator.core.types.SetOfDecimalType

@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static com.emarte.regurgitator.core.type.DefaultTypes.*;
+import static com.emarte.regurgitator.core.type.CoreTypes.*;
 import static junit.framework.Assert.*;
 
 public class ConditionBehaviourTest {
@@ -35,7 +35,7 @@ public class ConditionBehaviourTest {
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", false));
 		assertFalse(CONTAINS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", true));
 
-		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_STRING, REPLACE);
+		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_OF_STRING, REPLACE);
 
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "one,two", true));
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "three", false));
@@ -70,7 +70,7 @@ public class ConditionBehaviourTest {
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", false));
 		assertFalse(EQUALS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", true));
 
-		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_STRING, REPLACE);
+		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_OF_STRING, REPLACE);
 
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))),"one,two", true));
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "one,three", false));

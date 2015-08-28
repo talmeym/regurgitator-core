@@ -4,7 +4,7 @@ import com.emarte.regurgitator.core.*;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.type.DefaultTypes.STRING;
+import static com.emarte.regurgitator.core.type.CoreTypes.STRING;
 
 public class StringType implements ParameterType<String> {
 	@Override
