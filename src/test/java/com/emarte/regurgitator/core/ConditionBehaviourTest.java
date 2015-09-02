@@ -4,12 +4,14 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static com.emarte.regurgitator.core.ConditionBehaviour.DefaultImpl.*;
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.*;
+import static com.emarte.regurgitator.core.CoreTypes.*;
 import static junit.framework.Assert.*;
 
 public class ConditionBehaviourTest {
+	private static ConditionBehaviour CONTAINS = new ContainsBehaviour();
+	private static ConditionBehaviour EQUALS = new EqualsBehaviour();
+	private static ConditionBehaviour EXISTS = new ExistsBehaviour();
 
 	@Test
 	public void testContains() throws RegurgitatorException {
@@ -32,7 +34,7 @@ public class ConditionBehaviourTest {
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", false));
 		assertFalse(CONTAINS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", true));
 
-		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_STRING, REPLACE);
+		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_OF_STRING, REPLACE);
 
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "one,two", true));
 		assertTrue(CONTAINS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "three", false));
@@ -67,7 +69,7 @@ public class ConditionBehaviourTest {
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", false));
 		assertFalse(EQUALS.evaluate(location, buildMessage(new Parameter(decimalPrototype, 5.0d)), "5.1", true));
 
-		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_STRING, REPLACE);
+		ParameterPrototype listStringPrototype = new ParameterPrototype("to-test", LIST_OF_STRING, REPLACE);
 
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))),"one,two", true));
 		assertTrue(EQUALS.evaluate(location, buildMessage(new Parameter(listStringPrototype, Arrays.asList("one", "two"))), "one,three", false));

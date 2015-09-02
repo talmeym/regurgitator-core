@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.STRING;
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertEquals;
 
 public class CreateResponseTest {
@@ -24,7 +24,6 @@ public class CreateResponseTest {
 	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE, null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
-
 		@Override
 		public Object process(Object value) throws RegurgitatorException {
 			return PROCESSED_VALUE;

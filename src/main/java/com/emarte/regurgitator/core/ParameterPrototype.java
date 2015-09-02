@@ -25,7 +25,7 @@ public final class ParameterPrototype {
 
     public void validateValue(Object value) {
         if (!type.validate(value)) {
-            throw new IllegalArgumentException("Invalid type: name=" + getName() + " type=" + type.getName() + ", argClass=" + value.getClass().getName());
+            throw new IllegalArgumentException("Invalid type: name=" + getName() + " type=" + type.getClass().getName() + ", argClass=" + value.getClass().getName());
         }
     }
 }

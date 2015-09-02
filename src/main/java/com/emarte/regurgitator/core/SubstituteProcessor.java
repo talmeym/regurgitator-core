@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-import static com.emarte.regurgitator.core.ParameterType.DefaultImpl.stringify;
+import static com.emarte.regurgitator.core.StringType.stringify;
 
 final class SubstituteProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(SubstituteProcessor.class);
