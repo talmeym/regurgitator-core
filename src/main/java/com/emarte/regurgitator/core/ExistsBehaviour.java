@@ -1,6 +1,4 @@
-package com.emarte.regurgitator.core.behaviour.condition;
-
-import com.emarte.regurgitator.core.*;
+package com.emarte.regurgitator.core;
 
 public class ExistsBehaviour implements ConditionBehaviour {
 	private Log log = Log.getLog(ExistsBehaviour.class);

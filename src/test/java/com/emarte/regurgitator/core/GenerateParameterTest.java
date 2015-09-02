@@ -1,7 +1,5 @@
 package com.emarte.regurgitator.core;
 
-import com.emarte.regurgitator.core.generator.NumberGenerator;
-import com.emarte.regurgitator.core.type.CoreTypes;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;

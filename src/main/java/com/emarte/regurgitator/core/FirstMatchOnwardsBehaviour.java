@@ -1,6 +1,4 @@
-package com.emarte.regurgitator.core.behaviour.rules;
-
-import com.emarte.regurgitator.core.*;
+package com.emarte.regurgitator.core;
 
 import java.util.*;
 

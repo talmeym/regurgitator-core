@@ -1,6 +1,4 @@
-package com.emarte.regurgitator.core.behaviour.condition;
-
-import com.emarte.regurgitator.core.*;
+package com.emarte.regurgitator.core;
 
 public class EqualsParamBehaviour implements ConditionBehaviour {
 	private static Log log = Log.getLog(EqualsParamBehaviour.class);
@@ -14,7 +12,8 @@ public class EqualsParamBehaviour implements ConditionBehaviour {
 			Parameter comparisonParameter = message.getContextValue(new ContextLocation(conditionValue));
 
 			if(comparisonParameter != null) {
-				equals = parameter.getValue().equals(parameter.getType().convert(comparisonParameter.getValue()));
+				ParameterType parameterType = parameter.getType();
+				equals = parameter.getValue().equals(parameterType.convert(comparisonParameter.getValue()));
 			}
 
 		}

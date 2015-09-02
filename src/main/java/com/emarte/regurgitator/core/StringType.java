@@ -1,10 +1,8 @@
-package com.emarte.regurgitator.core.type;
-
-import com.emarte.regurgitator.core.*;
+package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.type.CoreTypes.STRING;
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class StringType implements ParameterType<String> {
 	@Override

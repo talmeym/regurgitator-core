@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.type.CoreTypes.*;
+import static com.emarte.regurgitator.core.CoreTypes.*;
 import static org.junit.Assert.assertEquals;
 
 public class ParameterTypeTest {

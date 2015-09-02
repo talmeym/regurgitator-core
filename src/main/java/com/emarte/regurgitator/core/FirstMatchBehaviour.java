@@ -1,17 +1,16 @@
-package com.emarte.regurgitator.core.behaviour.rules;
-
-import com.emarte.regurgitator.core.*;
+package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class AllMatchesBehaviour implements RulesBehaviour {
-	private Log log = Log.getLog(AllMatchesBehaviour.class);
+public class FirstMatchBehaviour implements RulesBehaviour {
+	private Log log = Log.getLog(FirstMatchBehaviour.class);
 
 	@Override
 	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
-			log.debug("Returning all rule matches '" + evaluatedStepIds + "'");
-			return evaluatedStepIds;
+			Object firstMatch = evaluatedStepIds.get(0);
+			log.debug("Returning first rule match '" + firstMatch + "'");
+			return Arrays.asList(firstMatch);
 		}
 
 		if(defaultStepId != null) {

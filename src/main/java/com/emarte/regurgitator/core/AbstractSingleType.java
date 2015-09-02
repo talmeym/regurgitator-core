@@ -1,6 +1,4 @@
-package com.emarte.regurgitator.core.type;
-
-import com.emarte.regurgitator.core.ParameterType;
+package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 

@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.Collection;
 
 public interface ParameterType<TYPE> {
 	public TYPE createNew();

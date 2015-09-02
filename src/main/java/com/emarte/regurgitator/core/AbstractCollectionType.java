@@ -1,8 +1,6 @@
-package com.emarte.regurgitator.core.type;
+package com.emarte.regurgitator.core;
 
-import com.emarte.regurgitator.core.ParameterType;
-
-import java.util.*;
+import java.util.Collection;
 
 public abstract class AbstractCollectionType<TYPE extends Collection> implements ParameterType<TYPE> {
 	@Override

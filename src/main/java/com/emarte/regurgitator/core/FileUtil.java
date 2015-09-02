@@ -33,7 +33,7 @@ public class FileUtil {
         }
     }
 
-	public static String toString(InputStream input) throws IOException {
+	public static String streamToString(InputStream input) throws IOException {
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
 		int bytesRead = 0;

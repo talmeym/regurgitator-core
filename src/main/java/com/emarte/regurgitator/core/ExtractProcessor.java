@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.text.*;
 
-import static com.emarte.regurgitator.core.type.StringType.stringify;
+import static com.emarte.regurgitator.core.StringType.stringify;
 
 class ExtractProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(ExtractProcessor.class);
