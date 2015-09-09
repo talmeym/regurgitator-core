@@ -15,7 +15,7 @@ public class GenerateParameterTest {
 
 	private static ValueGenerator NUMBER = new NumberGenerator();
 
-	private GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER);
+	private GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, null);
 
 	@Test
 	public void testThis() throws RegurgitatorException {

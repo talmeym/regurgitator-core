@@ -5,8 +5,8 @@ final class GenerateParameter extends ParameterExtractor {
 
     private final ValueGenerator generator;
 
-    GenerateParameter(Object id, ParameterPrototype prototype, String context, ValueGenerator generator) {
-        super(id, prototype, context);
+    GenerateParameter(Object id, ParameterPrototype prototype, String context, ValueGenerator generator, ValueProcessor processor) {
+        super(id, prototype, context, processor);
         this.generator = generator;
     }
 

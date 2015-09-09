@@ -23,20 +23,6 @@ public class BuildParameterTest {
 		}
 	};
 
-	private ValueValidator passingValueValidator = new ValueValidator() {
-		@Override
-		public boolean validate(Object value) throws RegurgitatorException {
-			return true;
-		}
-	};
-
-	private ValueValidator failingValueValidator = new ValueValidator() {
-		@Override
-		public boolean validate(Object value) throws RegurgitatorException {
-			return false;
-		}
-	};
-
 	private BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, null);
 
 	@Test
@@ -55,19 +41,4 @@ public class BuildParameterTest {
 		assertEquals(PARAM_TYPE, parameter.getType());
 		assertEquals(BUILT_VALUE, parameter.getValue());
 	}
-
-	@Test
-	public void testValidatorPass() throws RegurgitatorException {
-		toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, passingValueValidator);
-		Message message = new Message(null);
-		toTest.execute(message);
-		assertParametersContent(message);
-	}
-
-	@Test(expected = RegurgitatorException.class)
-	public void testValidatorFail() throws RegurgitatorException {
-		toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, failingValueValidator);
-		toTest.execute(new Message((null)));
-	}
-
 }

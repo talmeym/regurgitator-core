@@ -5,13 +5,11 @@ final class CreateParameter extends ParameterExtractor  {
 
     private final ContextLocation source;
     private final String staticValue;
-	private final ValueProcessor processor;
 
     CreateParameter(Object id, ParameterPrototype prototype, String context, ContextLocation source, String staticValue, ValueProcessor processor) {
-        super(id, prototype, context);
+        super(id, prototype, context, processor);
         this.source = source;
         this.staticValue = staticValue;
-		this.processor = processor;
     }
 
 	@Override
@@ -30,11 +28,6 @@ final class CreateParameter extends ParameterExtractor  {
 		} else {
 			log.debug("Using static value");
 			value = staticValue;
-		}
-
-		if(processor != null) {
-			log.debug("Processing value");
-			value = processor.process(value);
 		}
 
 		return value;

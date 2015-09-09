@@ -20,18 +20,8 @@ public class CreateResponseTest {
 
 	private ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null, null);
-	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE, null);
-
-	private ValueProcessor valueProcessor = new ValueProcessor() {
-		@Override
-		public Object process(Object value) throws RegurgitatorException {
-			return PROCESSED_VALUE;
-		}
-
-	};
-
-	private CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, null, STATIC_VALUE, valueProcessor);
+	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null);
+	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE);
 
 	private CollectingResponseCallBack callback = new CollectingResponseCallBack();
 
@@ -60,19 +50,6 @@ public class CreateResponseTest {
 		staticToTest.execute(message);
 
 		assertEquals(STATIC_VALUE, callback.getValue());
-	}
-
-	@Test
-	public void testProcessor() throws RegurgitatorException {
-		assertEquals(PROCESSED_ID, processorToTest.getId());
-		Message message = new Message(callback);
-
-		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
-		assertEquals(0, contextParameters.size());
-
-		processorToTest.execute(message);
-
-		assertEquals(PROCESSED_VALUE, callback.getValue());
 	}
 
 	private class CollectingResponseCallBack implements ResponseCallBack {
