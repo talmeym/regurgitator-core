@@ -7,6 +7,7 @@ import java.util.*;
 import static com.emarte.regurgitator.core.CoreTypes.*;
 import static org.junit.Assert.assertEquals;
 
+@SuppressWarnings({"unchecked"})
 public class ParameterTypeTest {
 	@Test
 	public void test_concat_STRING() {

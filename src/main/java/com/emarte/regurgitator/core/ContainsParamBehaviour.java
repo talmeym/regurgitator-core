@@ -4,9 +4,8 @@ public class ContainsParamBehaviour implements ConditionBehaviour {
 	private static Log log = Log.getLog(ContainsParamBehaviour.class);
 
 	@Override
-	public boolean evaluate(ContextLocation location, Message message, String conditionValue, boolean expectation) {
+	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
 		boolean contains = false;
-		Parameter parameter = message.getContextValue(location);
 
 		if(parameter != null) {
 			Parameter comparisonParameter = message.getContextValue(new ContextLocation(conditionValue));
@@ -18,7 +17,7 @@ public class ContainsParamBehaviour implements ConditionBehaviour {
 
 		}
 
-		log.debug("Parameter '" + location + (contains ? "' contains" : "' does not contain") + " parameter '" + conditionValue + "'");
+		log.debug("Parameter '" + parameter + (contains ? "' contains" : "' does not contain") + " parameter '" + conditionValue + "'");
 		return contains == expectation;
 	}
 }
