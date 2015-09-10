@@ -2,12 +2,12 @@ package com.emarte.regurgitator.core;
 
 final class CreateResponse extends Identifiable implements Step {
     private final Log log = Log.getLog(this);
-	private final ContextLocation location;
+	private final ContextLocation source;
 	private final String staticValue;
 
-	CreateResponse(String id, ContextLocation location, String staticValue) {
+	CreateResponse(String id, ContextLocation source, String staticValue) {
         super(id);
-		this.location = location;
+		this.source = source;
 		this.staticValue = staticValue;
 	}
 
@@ -15,14 +15,14 @@ final class CreateResponse extends Identifiable implements Step {
     public void execute(Message message) throws RegurgitatorException {
 		Object value;
 
-		if(location != null) {
-			Parameter parameter = message.getContextValue(location);
+		if(source != null) {
+			Parameter parameter = message.getContextValue(source);
 
 			if(parameter == null) {
-				throw new RegurgitatorException("No value found at context location '" + location + "'");
+				throw new RegurgitatorException("No value found at context location '" + source + "'");
 			}
 
-			log.debug("Retrieved value from context location '" + location + "'");
+			log.debug("Retrieved value from context location '" + source + "'");
 			value = parameter.getValue();
 		} else {
 			log.debug("Using static value");
