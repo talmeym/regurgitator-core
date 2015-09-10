@@ -16,18 +16,18 @@ final class Rule extends Container<Condition> {
     }
 
     boolean evaluate(Message message) throws RegurgitatorException {
-		Object id = getId();
+		log.debug("Evaluating conditions");
 
 		for (Condition condition : getAll()) {
             if (!condition.isMet(message)) {
-                log.debug("Condition '" + condition.getId() + "' not met in rule '" + id + "'");
+                log.debug("Condition '" + condition.getId() + "' not met");
                 return false;
             } else {
-                log.debug("Condition '" + condition.getId() + "' met in rule '" + id + "'");
+                log.debug("Condition '" + condition.getId() + "' met");
 			}
         }
 
-        log.debug("All conditions met in rule '" + id + "'");
+        log.debug("All conditions met");
         return true;
     }
 }

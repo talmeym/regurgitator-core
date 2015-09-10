@@ -12,7 +12,7 @@ final class IdentifySession extends Identifiable implements Step {
     @Override
     public void execute(Message message) throws RegurgitatorException {
         Parameter parameter = message.getContextValue(location);
-        log.debug("Setting session id from context '" + location + '\'');
+        log.debug("Setting message session id from context location '" + location + '\'');
 
         if(parameter == null) {
             throw new IllegalStateException("No session id value found in context location '" + location + '\'');
@@ -21,7 +21,6 @@ final class IdentifySession extends Identifiable implements Step {
         Object value = parameter.getValue();
 
         if(message.getSession() == null) {
-            log.debug("Setting session id in message to '" + value + "'");
             message.setSessionId(value);
         } else {
             log.warn("Session already identified");

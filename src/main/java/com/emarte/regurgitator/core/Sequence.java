@@ -12,7 +12,7 @@ final class Sequence extends Container<Step> implements Step {
     @Override
     public void execute(Message message) throws RegurgitatorException {
         for(Step step : getAll()) {
-            log.debug("Executing step");
+            log.debug("Executing step '" + step.getId() + "'");
             step.execute(message);
         }
     }

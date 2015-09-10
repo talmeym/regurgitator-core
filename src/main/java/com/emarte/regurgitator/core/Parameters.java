@@ -31,10 +31,10 @@ public class Parameters extends Container<Parameter> {
         Object id = parameter.getId();
 
         if (contains(id)) {
-            log.debug("Merging parameter '" + id + "' into '" + getId() + "'");
+            log.debug("Merging parameter '" + id + "'");
             get(id).merge(parameter);
         } else {
-            log.debug("Adding parameter '" + id + "' into '" + getId() + "' with value '" + parameter.getValue() + "'");
+            log.debug("Adding parameter '" + id + "' with value '" + parameter.getValue() + "'");
             add(parameter);
         }
     }

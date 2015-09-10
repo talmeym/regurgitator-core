@@ -17,7 +17,7 @@ final class Condition extends Identifiable {
 
 	public boolean isMet(Message message) throws RegurgitatorException {
 		Parameter parameter = message.getContextValue(location);
-		log.debug("Evaluating condition '" + getId() + "' for parameter '" + location + "'");
+		log.debug("Evaluating parameter '" + location + "'");
 		return behaviour.evaluate(parameter, message, conditionValue, expectation);
 	}
 }
