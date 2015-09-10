@@ -1,8 +1,7 @@
 package com.emarte.regurgitator.core;
 
 final class IdentifySession extends Identifiable implements Step {
-    private static final Log log = Log.getLog(IdentifySession.class);
-
+    private final Log log = Log.getLog(this);
     private final ContextLocation location;
 
     IdentifySession(Object id, ContextLocation location) {

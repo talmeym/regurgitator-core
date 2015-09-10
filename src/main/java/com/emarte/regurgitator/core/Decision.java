@@ -3,8 +3,7 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 final class Decision extends Container<Step> implements Step {
-    private static  final Log log = Log.getLog(Decision.class);
-
+    private final Log log = Log.getLog(this);
 	private final List<Rule> rules;
     private final RulesBehaviour behaviour;
 	private final Object defaultStepId;
@@ -39,6 +38,7 @@ final class Decision extends Container<Step> implements Step {
 			}
 		}
 
-		return get(behaviour.evaluate(getId(), evaluatedIds, ids(), defaultStepId));
+		log.debug("Applying rules behaviour");
+		return get(behaviour.evaluate(evaluatedIds, ids(), defaultStepId));
     }
 }

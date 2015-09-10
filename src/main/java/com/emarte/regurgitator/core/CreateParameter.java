@@ -1,8 +1,7 @@
 package com.emarte.regurgitator.core;
 
 final class CreateParameter extends ParameterExtractor  {
-    private final Log log = Log.getLog(getClass());
-
+    private final Log log = Log.getLog(this);
     private final ContextLocation source;
     private final String staticValue;
 
@@ -26,7 +25,7 @@ final class CreateParameter extends ParameterExtractor  {
 			log.debug("Retrieved value from context location '" + source + "'");
 			value = parameter.getValue();
 		} else {
-			log.debug("Using static value");
+			log.debug("Using static value '" + staticValue + "'");
 			value = staticValue;
 		}
 

@@ -1,8 +1,7 @@
 package com.emarte.regurgitator.core;
 
 public final class Regurgitator extends Identifiable {
-    private static final Log log = Log.getLog(Regurgitator.class);
-
+    private final Log log = Log.getLog(this);
     private final Step rootStep;
 
     public Regurgitator(String name, Step rootStep) {

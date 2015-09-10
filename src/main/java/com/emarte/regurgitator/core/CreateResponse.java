@@ -1,8 +1,7 @@
 package com.emarte.regurgitator.core;
 
 final class CreateResponse extends Identifiable implements Step {
-    private static final Log log = Log.getLog(CreateResponse.class);
-
+    private final Log log = Log.getLog(this);
 	private final ContextLocation location;
 	private final String staticValue;
 

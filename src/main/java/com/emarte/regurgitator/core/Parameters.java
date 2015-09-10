@@ -5,7 +5,7 @@ import java.util.*;
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 
 public class Parameters extends Container<Parameter> {
-    private static final Log log = Log.getLog(Parameters.class);
+    private final Log log = Log.getLog(this);
 
     Parameters(Object id) {
         super(id, new ArrayList<Parameter>());

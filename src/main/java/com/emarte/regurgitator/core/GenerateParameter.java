@@ -1,8 +1,7 @@
 package com.emarte.regurgitator.core;
 
 final class GenerateParameter extends ParameterExtractor {
-    private static final Log log = Log.getLog(GenerateParameter.class);
-
+    private final Log log = Log.getLog(this);
     private final ValueGenerator generator;
 
     GenerateParameter(Object id, ParameterPrototype prototype, String context, ValueGenerator generator, ValueProcessor processor) {

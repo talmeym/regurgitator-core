@@ -6,7 +6,7 @@ public class FirstMatchOnwardsBehaviour implements RulesBehaviour {
 	private Log log = Log.getLog(FirstMatchOnwardsBehaviour.class);
 
 	@Override
-	public List<Object> evaluate(Object decisionId, List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
+	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			List<Object> ids = idAndSubsequent(evaluatedStepIds.get(0), allStepIds);
 			log.debug("Returning first rule match and subsequent steps '" + ids + "'");
@@ -19,7 +19,7 @@ public class FirstMatchOnwardsBehaviour implements RulesBehaviour {
 			return ids;
 		}
 
-		throw new IllegalStateException("No rules evaluated true and no default specified in decision '" + decisionId + "'");
+		throw new IllegalStateException("No rules evaluated true and no default specified in decision");
 	}
 
 	private List<Object> idAndSubsequent(Object id, List<Object> allIds) {
