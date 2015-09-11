@@ -7,7 +7,7 @@ public class ExistsBehaviour implements ConditionBehaviour {
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean notUsed) {
 		Boolean expectation = Boolean.valueOf(conditionValue);
 		boolean exists = parameter != null;
-		log.debug("Parameter '" + parameter + (exists ? "' exists" : "' does not exist"));
+		log.debug("Parameter " + (exists ? "exists" : "does not exist"));
 		return exists == expectation;
 	}
 }

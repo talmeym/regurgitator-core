@@ -17,7 +17,7 @@ public class EqualsParamBehaviour implements ConditionBehaviour {
 
 		}
 
-		log.debug("Parameter '" + parameter + (equals ? "' equals" : "' does not equal") + " parameter '" + conditionValue + "'");
+		log.debug("Parameter " + (equals ? "equals" : "does not equal") + " parameter '" + conditionValue + "'");
 		return equals == expectation;
 	}
 }
