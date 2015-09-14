@@ -23,7 +23,7 @@ public class Message {
     }
 
     void setSessionId(Object sessionId) {
-        contextData.put(SESSION_CONTEXT, SessionCache.getSession(sessionId));
+        contextData.put(SESSION_CONTEXT, Session.getSession(sessionId));
     }
 
     public Session getSession() {
