@@ -44,7 +44,7 @@ public final class Parameter implements HasId {
         return value;
     }
 
-	void merge(Parameter parameter) throws RegurgitatorException {
+	void merge(Parameter parameter) {
 		Object newValue = getType().convert(parameter.getValue());
 		value = parameter.getConflictPolicy().resolveConflict(value, newValue, getType());
 		log.debug("Merged resulted in value '" + newValue + "'");

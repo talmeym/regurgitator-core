@@ -11,8 +11,12 @@ public class Parameters extends Container<Parameter> {
         super(id, new ArrayList<Parameter>());
     }
 
-    public void setValue(String name, ParameterType type, Object value) throws RegurgitatorException {
-        setValue(new Parameter(new ParameterPrototype(name, type, REPLACE), value));
+    public void setValue(String name, ParameterType type, Object value) {
+        setValue(name, type, REPLACE, value);
+    }
+
+    public void setValue(String name, ParameterType type, ConflictPolicy policy, Object value) {
+		setValue(new Parameter(new ParameterPrototype(name, type, policy), value));
     }
 
     public Object getValue(Object id) {
@@ -27,7 +31,7 @@ public class Parameters extends Container<Parameter> {
         return super.contains(id);
     }
 
-    public void setValue(Parameter parameter) throws RegurgitatorException {
+    public void setValue(Parameter parameter) {
         Object id = parameter.getId();
 
         if (contains(id)) {
