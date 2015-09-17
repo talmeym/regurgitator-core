@@ -17,6 +17,7 @@ public class CreateParameterTest {
 	private static final String PROCESSED_VALUE = "processedValue";
 	private static final String SOURCE_ID = "sourceId";
 	private static final String STATIC_ID = "staticId";
+	private static final String SOURCE_AND_STATIC_ID = "sourceAndStatic";
 	private static final String PROCESSED_ID = "processedId";
 	private static final String CROSS_TYPE_ID = "crossTypeId";
 	private static final String NUMBER_VALUE = "25";
@@ -28,6 +29,7 @@ public class CreateParameterTest {
 
 	private CreateParameter sourceToTest = new CreateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, SOURCE, null, null);
 	private CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, null, STATIC_VALUE, null);
+	private CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, SOURCE, STATIC_VALUE, null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
 		@Override
@@ -48,7 +50,7 @@ public class CreateParameterTest {
 		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
 		assertEquals(1, contextParameters.size());
 		sourceToTest.execute(message);
-		assertParameter(contextParameters, DEST_NAME, 2, STRING, SOURCE_VALUE);
+		assertParameter(contextParameters, 2, DEST_NAME, STRING, SOURCE_VALUE);
 	}
 
 	@Test
@@ -58,7 +60,28 @@ public class CreateParameterTest {
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
 		staticToTest.execute(message);
-		assertParameter(contextParameters, DEST_NAME, 1, STRING, STATIC_VALUE);
+		assertParameter(contextParameters, 1, DEST_NAME, STRING, STATIC_VALUE);
+	}
+
+	@Test
+	public void testSourceAndStatic_sourceFound() throws RegurgitatorException {
+		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
+		Message message = new Message(null);
+		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
+		assertEquals(1, contextParameters.size());
+		sourceAndStaticToTest.execute(message);
+		assertParameter(contextParameters, 2, DEST_NAME, STRING, SOURCE_VALUE);
+	}
+
+	@Test
+	public void testSourceAndStatic_sourceNotFound() throws RegurgitatorException {
+		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
+		Message message = new Message(null);
+		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+		assertEquals(0, contextParameters.size());
+		sourceAndStaticToTest.execute(message);
+		assertParameter(contextParameters, 1, DEST_NAME, STRING, STATIC_VALUE);
 	}
 
 	@Test
@@ -68,7 +91,7 @@ public class CreateParameterTest {
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
 		processorToTest.execute(message);
-		assertParameter(contextParameters, DEST_NAME, 1, STRING, PROCESSED_VALUE);
+		assertParameter(contextParameters, 1, DEST_NAME, STRING, PROCESSED_VALUE);
 	}
 
 	@Test
@@ -78,10 +101,10 @@ public class CreateParameterTest {
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
 		crossTypeToTest.execute(message);
-		assertParameter(contextParameters, DEST_NAME, 1, NUMBER, A_NUMBER);
+		assertParameter(contextParameters, 1, DEST_NAME, NUMBER, A_NUMBER);
 	}
 
-	private void assertParameter(Parameters parameters, String name, int size, ParameterType type, Object value) {
+	private void assertParameter(Parameters parameters, int size, String name, ParameterType type, Object value) {
 		assertEquals(size, parameters.size());
 		Parameter parameter = parameters.get(name);
 		assertEquals(type, parameter.getType());

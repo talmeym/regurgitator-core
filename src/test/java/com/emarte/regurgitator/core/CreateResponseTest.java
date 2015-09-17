@@ -13,15 +13,15 @@ public class CreateResponseTest {
 	private static final String SOURCE_VALUE = "value";
 	private static final ContextLocation SOURCE = new ContextLocation("context:name");
 	private static final String STATIC_VALUE = "staticValue";
-	private static final String PROCESSED_VALUE = "processedValue";
 	private static final String SOURCE_ID = "sourceId";
 	private static final String STATIC_ID = "staticId";
-	private static final String PROCESSED_ID = "processedId";
+	private static final String SOURCE_AND_STATIC_ID = "sourceAndStatic";
 
 	private ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
 	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null);
 	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE);
+	private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, SOURCE, STATIC_VALUE);
 
 	private CollectingResponseCallBack callback = new CollectingResponseCallBack();
 
@@ -48,6 +48,33 @@ public class CreateResponseTest {
 		assertEquals(0, contextParameters.size());
 
 		staticToTest.execute(message);
+
+		assertEquals(STATIC_VALUE, callback.getValue());
+	}
+
+	@Test
+	public void testSourceAndStatic_sourceFound() throws RegurgitatorException {
+		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
+		Message message = new Message(callback);
+
+		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
+		assertEquals(1, contextParameters.size());
+
+		sourceAndStaticToTest.execute(message);
+
+		assertEquals(SOURCE_VALUE, callback.getValue());
+	}
+
+	@Test
+	public void testSourceAndStatic_sourceNotFound() throws RegurgitatorException {
+		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
+		Message message = new Message(callback);
+
+		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+		assertEquals(0, contextParameters.size());
+
+		sourceAndStaticToTest.execute(message);
 
 		assertEquals(STATIC_VALUE, callback.getValue());
 	}
