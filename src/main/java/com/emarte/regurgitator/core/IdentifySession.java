@@ -20,7 +20,7 @@ final class IdentifySession extends Identifiable implements Step {
 
         Object value = parameter.getValue();
 
-        if(message.getSession() == null) {
+        if(!message.hasSession()) {
             message.setSessionId(value);
         } else {
             log.warn("Session already identified");

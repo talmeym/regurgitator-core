@@ -26,8 +26,18 @@ public class Message {
         contextData.put(SESSION_CONTEXT, Session.getSession(sessionId));
     }
 
+	public boolean hasSession() {
+		return contextData.containsKey(SESSION_CONTEXT);
+	}
+
     public Session getSession() {
-        return (Session) contextData.get(SESSION_CONTEXT);
+		Parameters session = contextData.get(SESSION_CONTEXT);
+
+		if(session == null) {
+            throw new IllegalArgumentException("Session not found");
+		}
+
+		return (Session) session;
     }
 
     public Parameters getParameters() {
