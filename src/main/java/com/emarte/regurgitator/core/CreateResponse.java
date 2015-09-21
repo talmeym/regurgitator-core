@@ -4,11 +4,13 @@ final class CreateResponse extends Identifiable implements Step {
     private final Log log = Log.getLog(this);
 	private final ContextLocation source;
 	private final String staticValue;
+	private final ValueProcessor valueProcessor;
 
-	CreateResponse(String id, ContextLocation source, String staticValue) {
+	CreateResponse(String id, ContextLocation source, String staticValue, ValueProcessor valueProcessor) {
         super(id);
 		this.source = source;
 		this.staticValue = staticValue;
+		this.valueProcessor = valueProcessor;
 	}
 
     @Override
@@ -30,6 +32,10 @@ final class CreateResponse extends Identifiable implements Step {
 		} else {
 			log.debug("Using static value '" + staticValue + "'");
 			value = staticValue;
+		}
+
+		if(valueProcessor != null) {
+			value = valueProcessor.process(value);
 		}
 
 		message.getResponseCallback().respond(message, value);

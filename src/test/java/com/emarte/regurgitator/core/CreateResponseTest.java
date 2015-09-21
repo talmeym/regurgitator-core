@@ -11,17 +11,29 @@ public class CreateResponseTest {
 	private static final ConflictPolicy PARAM_CONFLICT_POL = REPLACE;
 	private static final String PARAM_CONTEXT = "context";
 	private static final String SOURCE_VALUE = "value";
+	private static final String PROCESSED_VALUE = "processedValue";
 	private static final ContextLocation SOURCE = new ContextLocation("context:name");
 	private static final String STATIC_VALUE = "staticValue";
 	private static final String SOURCE_ID = "sourceId";
 	private static final String STATIC_ID = "staticId";
 	private static final String SOURCE_AND_STATIC_ID = "sourceAndStatic";
+	private static final String PROCESSED_ID = "processedId";
 
 	private ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null);
-	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE);
-	private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, SOURCE, STATIC_VALUE);
+	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null, null);
+	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE, null);
+	private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, SOURCE, STATIC_VALUE, null);
+
+	private ValueProcessor valueProcessor = new ValueProcessor() {
+		@Override
+		public Object process(Object value) throws RegurgitatorException {
+			return PROCESSED_VALUE;
+		}
+
+	};
+
+	private CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, null, STATIC_VALUE, valueProcessor);
 
 	private CollectingResponseCallBack callback = new CollectingResponseCallBack();
 
@@ -77,6 +89,19 @@ public class CreateResponseTest {
 		sourceAndStaticToTest.execute(message);
 
 		assertEquals(STATIC_VALUE, callback.getValue());
+	}
+
+	@Test
+	public void testProcessor() throws RegurgitatorException {
+		assertEquals(PROCESSED_ID, processorToTest.getId());
+		Message message = new Message(callback);
+
+		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+		assertEquals(0, contextParameters.size());
+
+		processorToTest.execute(message);
+
+		assertEquals(PROCESSED_VALUE, callback.getValue());
 	}
 
 	private class CollectingResponseCallBack implements ResponseCallBack {
