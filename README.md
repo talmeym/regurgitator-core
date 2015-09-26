@@ -11,8 +11,8 @@ it can work with http to mock/stub http services, or be embedded within any othe
 
 it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go!
 
-constructs
-----------
+steps
+-----
 
 regurgitator-core provides the following basic steps:
 - sequence - a collection of steps, run one after another
@@ -22,6 +22,13 @@ regurgitator-core provides the following basic steps:
 - generate-parameter - create a piece of information from scratch, using a ``value generator``
 
 regurgittor-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
+
+constructs
+----------
+
+regurgitator uses the following set of constructs / concepts to do it's processing:
+- ``ParameterType`` - each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter
+
 
 modules
 -------
