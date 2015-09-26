@@ -7,5 +7,5 @@ it can be configured using xml or json or extended to use any other document for
 
 it can work with http to mock/stub http services, or can be embedded within any other request / response mechanism.
 
-it is separated out into relevant components, so you only have to include what you need in your project, configure it to do what you want, deploy and go.
+it is separated out into relevant components, so you only have to include the parts you need in your project; configure it to do what you want; deploy it and go.
 
