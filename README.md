@@ -10,3 +10,8 @@ it can work with http to mock/stub http services, or be embedded within any othe
 
 it is separated out into modular components, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go.
 
+#components
+
+regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
+
+regurgitator-xml, regurgitator-json - configure what regurgitator can do for you using an extendable document format
