@@ -15,9 +15,8 @@ constructs
 ----------
 
 regurgitator-core provides the following basic steps:
-- sequence -- a collections of steps, run one after another
-- decision -- a collection of steps where rules and conditions dictate which steps are run
--
+- sequence--a collections of steps, run one after another
+- decision--a collection of steps where rules and conditions dictate which steps are run
 
 modules
 -------
