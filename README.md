@@ -16,9 +16,11 @@ constructs
 
 regurgitator-core provides the following basic steps:
 - sequence - a collections of steps, run one after another
-- decision - a collection of steps where rules and conditions dictate which steps are run
-- build-paramerer - build a piece of information using a ``value builder``
+- decision - a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
 - create-parameter - store a piece of information, with a name and a type, to be used in a response
+- build-paramerer - build a piece of information using a ``value builder``, which can incorporate other parameters
+- generate-parameter - create a piece of information from scratch, using a ``value generator``
+
 
 modules
 -------
