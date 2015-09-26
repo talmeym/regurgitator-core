@@ -18,7 +18,7 @@ regurgitator-core provides the following basic steps:
 - sequence - a collection of steps, run one after another
 - decision - a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
 - create-parameter - store a piece of information, with a name and a type, to be used in a response
-- build-paramerer - build a parameter using a ``value builder``, which can incorporate other parameters
+- build-paramerer - build a parameter using a ``value builder``, incorporating other parameters
 - generate-parameter - create a parameter from scratch, using a ``value generator``
 - identify-session - use the value of an parameter to identify / look up a session object, to hold information between requests
 
