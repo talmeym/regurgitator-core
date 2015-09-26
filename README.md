@@ -7,3 +7,5 @@ it can be configured using xml or json or extended to use any other document for
 
 it can work with http to mock out http services, or made to work with any other request / response mechanism.
 
+it is separated out into relevant components, so you only have to include what you need in your project, configure it to do what you want, deploy and go.
+
