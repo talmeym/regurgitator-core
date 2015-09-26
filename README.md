@@ -25,6 +25,6 @@ regurgitator-core provides the following basic steps:
 modules
 -------
 
-regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
-
-regurgitator-xml, regurgitator-json - configure what regurgitator can do for you using an extendable document format
+- regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
+- regurgitator-xml,
+- regurgitator-json - configure what regurgitator will do for you using a document file
