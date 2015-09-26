@@ -8,9 +8,17 @@ it can be configured using xml or json or extended to use any other document for
 
 it can work with http to mock/stub http services, or be embedded within any other request / response mechanism.
 
-it is separated out into modular components, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go.
+it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go.
 
-#components
+#constructs
+
+steps
+
+core steps included in this module are:
+- sequence
+- decision
+
+#modules
 
 regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
 
