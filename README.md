@@ -1,2 +1,3 @@
 # regurgitator-core
-Regurgitator is a simple extendable processing engine, ideal for regurgitating canned or clever response to incoming requests. This component is the core part of the framework.
+Regurgitator is a simple extendable java processing engine, designed for regurgitating canned or clever responses to incoming requests.
+#
