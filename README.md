@@ -1,4 +1,5 @@
-# regurgitator
+regurgitator
+============
 regurgitator is a modular, extendable java processing engine designed for regurgitating canned or clever responses to incoming requests.
 
 it provides a series of executable steps and constructs, that can be hand or file configured to do whatever you need it to do when a request needs to be processed.
@@ -10,15 +11,15 @@ it can work with http to mock/stub http services, or be embedded within any othe
 
 it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go.
 
-#constructs
+constructs
+----------
 
-steps
-
-core steps included in this module are:
+regurgitator-core provides the following steps:
 - sequence
 - decision
 
-#modules
+modules
+-------
 
 regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
 
