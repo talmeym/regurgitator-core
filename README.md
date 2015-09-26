@@ -9,7 +9,7 @@ it can be configured using xml or json or extended to use any other document for
 
 it can work with http to mock/stub http services, or be embedded within any other request / response mechanism.
 
-it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go.
+it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go!
 
 constructs
 ----------
@@ -21,6 +21,7 @@ regurgitator-core provides the following basic steps:
 - build-paramerer - build a piece of information using a ``value builder``, which can incorporate other parameters
 - generate-parameter - create a piece of information from scratch, using a ``value generator``
 
+regurgittor-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
 modules
 -------
