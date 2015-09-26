@@ -14,9 +14,10 @@ it is separated out into modules, so you only have to include the parts you need
 constructs
 ----------
 
-regurgitator-core provides the following steps:
-- sequence
-- decision
+regurgitator-core provides the following basic steps:
+- sequence -- a collections of steps, run one after another
+- decision -- a collection of steps where rules and conditions dictate which steps are run
+-
 
 modules
 -------
