@@ -21,6 +21,7 @@ regurgitator-core provides the following basic steps:
 - build-paramerer - build a parameter using a ``value builder``, incorporating other parameters
 - generate-parameter - create a parameter from scratch, using a ``value generator``
 - identify-session - use the value of an parameter to identify / look up a session object, to hold information between requests
+- create-response - return a response from regurgitator; either a static value or from a parameter
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
