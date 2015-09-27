@@ -22,14 +22,13 @@ regurgitator-core provides the following basic steps:
 - generate-parameter - create a parameter from scratch, using a ``value generator``
 - identify-session - use the value of an parameter to identify / look up a session object, to hold information between requests
 
-regurgittor-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
+regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
 constructs
 ----------
 
 regurgitator uses the following set of constructs / concepts to do it's processing:
 - ``parameter type`` - each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter
-
 
 modules
 -------
