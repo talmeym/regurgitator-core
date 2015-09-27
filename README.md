@@ -28,9 +28,9 @@ regurgitator-core provides the basics of regurgitator; usable with minimal depen
 constructs
 ----------
 
-regurgitator uses the following set of constructs / concepts to do it's processing:
-- ``parameter type`` - each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types
-
+regurgitator uses the following set of constructs / concepts to provide it's processing:
+- ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types
+- ``value processor`` steps that involve parameters can have extra processing applied after their initial value has been created, built or generated
 
 modules
 -------
