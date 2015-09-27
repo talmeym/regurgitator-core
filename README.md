@@ -29,7 +29,7 @@ constructs
 ----------
 
 regurgitator uses the following set of constructs / concepts to do it's processing:
-- ``parameter type`` - each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter
+- ``parameter type`` - each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``string``, ``number``, ``decimal``, along with lists and sets
 
 modules
 -------
