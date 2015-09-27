@@ -1,9 +1,9 @@
 regurgitator
 ============
-regurgitator is a modular, extendable java processing engine designed for regurgitating canned or clever responses to incoming requests.
+regurgitator is a modular, light-weight, extendable java-based processing engine designed for regurgitating canned or clever responses to incoming requests.
 
-it provides a series of executable steps and constructs, that can be hand or file configured to do whatever you need regurgitator to do when a request needs to be processed.
-you can also add your own steps, for whatever it doesn't do out of the box.
+it provides a series of executable steps and constructs, that can be combined and configured to do whatever you need regurgitator to do when a request is received.
+you can also add your own steps, for whatever it doesn't do out of the box. 
 
 it can be configured using xml or json files or extended to use any other document format.
 
