@@ -2,12 +2,12 @@ regurgitator
 ============
 regurgitator is a modular, light-weight, extendable java-based processing engine designed to regurgitate canned or clever responses to incoming requests.
 
-it provides a series of executable steps and constructs, that can be combined and configured to apply the simple or complex processing you require when a request is received.
+it provides a series of executable ``steps`` and ``constructs``, that can be combined and configured to apply simple or complex processing as you require, when a request is received.
 you can also add your own steps, for whatever it doesn't do out of the box. 
 
-it can be configured using xml or json files or extended to use any other document format.
+it can be configured using ``xml`` or ``json`` files or extended to use any other document format.
 
-it can work with http to mock/stub http services, or be embedded within any other request / response mechanism.
+it can work with ``http`` to mock/stub http services, or be embedded within any other request / response mechanism.
 
 it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go!
 
@@ -36,6 +36,7 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``rule-behaviour`` rules determine how ``decision`` steps choose which child step to execute; their behaviour govern what to do if more than rule passes.
 - ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed.
 
+just as custom steps can be added to extend regurgitator to your needs, you can provide your own construct implementations to further extend the capabilities of the framework. 
 
 modules
 -------
