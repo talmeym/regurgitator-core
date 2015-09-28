@@ -47,7 +47,7 @@ modules
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
 - [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
 
-message
--------
+messages
+--------
 
 incoming requests are modelled as a ``messages``. regurgitator takes a message in for processing, which can be pre-populated with relevant parameters, and uses a ``response-callback`` within the message to pass back responses. all parameters are stored in the message in ``contexts``, which group sets of parameters together. the default context is 'parameters', aimed to store all working parameters for a given request-response cycle.
