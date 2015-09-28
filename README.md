@@ -49,8 +49,8 @@ some important modules
 
 each of the above modules has a separate configuration module for each of the ways in which it can be configured, eg.
 
-- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration using a namespaced, schema validated xml document.
-- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) allows configuration using a json document.
+- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration of core using a namespaced, schema validated xml document.
+- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) allows configuration of core using a json document.
 
 
 messages
