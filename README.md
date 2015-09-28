@@ -40,6 +40,6 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 modules
 -------
 
-``regurgitator-core`` the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
-``regurgitator-xml``
-``regurgitator-json`` configure what regurgitator will do for you using a document file
+- ``regurgitator-core`` the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
+- ``regurgitator-xml``
+- ``regurgitator-json`` configure what regurgitator will do for you using a document file
