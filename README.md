@@ -15,13 +15,13 @@ steps
 -----
 
 regurgitator-core provides the following basic steps:
-- ``sequence`` a collection of steps, run one after another
-- ``decision`` a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
-- ``create-parameter`` store a piece of information, with a name and a type, to be used in a response
-- ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters
-- ``generate-parameter`` create a parameter from scratch, using a ``value generator``
-- ``create-response`` return a response from regurgitator; either a static value or from a parameter
-- ``identify-session`` use the value of a parameter to identify / look up a session object, to hold information between requests
+- ``sequence`` a collection of steps, run one after another.
+- ``decision`` a collection of steps where ``rules`` and ``conditions`` dictate which steps are run.
+- ``create-parameter`` store a piece of information, with a name and a type, to be used in a response.
+- ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters.
+- ``generate-parameter`` create a parameter from scratch, using a ``value generator``.
+- ``create-response`` return a response from regurgitator; either a static value or from a parameter.
+- ``identify-session`` use the value of a parameter to identify / look up a session object, to hold information between requests.
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
@@ -32,16 +32,16 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types
 - ``value builder`` aggregates the values of many parameters into one. provided builders include support for popular templating engines. 
 - ``value generator`` create parameter values from scratch, such as random numbers
-- ``value processor`` all steps that involve parameters can have extra processing wired in, to alter their initial value after it has been created, built or generated
-- ``rule-behaviour`` rules determine how ``decision`` steps choose which child step to execute; their behaviour govern what to do if more than rule passes
-- ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed
+- ``value processor`` all steps that involve parameters can have extra processing wired in, to alter their initial value after it has been created, built or generated.
+- ``rule-behaviour`` rules determine how ``decision`` steps choose which child step to execute; their behaviour govern what to do if more than rule passes.
+- ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed.
 
 
 modules
 -------
 
-- [regurgitator-core](https://github.com/talmeym/regurgitator-core) the core set of steps and contructs to accept a request, process it and product a response (or many).
-- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) provides configuration using a namespaced, schema validated xml document
-- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) provides configuration using a json document
-- [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations
-- [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including a regurgitator servlet
+- [regurgitator-core](https://github.com/talmeym/regurgitator-core) the core set of steps and contructs to accept a request, process it and produce responses.
+- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) provides configuration using a namespaced, schema validated xml document.
+- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) provides configuration using a json document.
+- [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
+- [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
