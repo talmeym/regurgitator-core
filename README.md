@@ -41,7 +41,7 @@ just as custom steps can be added to extend regurgitator to meet your needs, you
 modules
 -------
 
-- [regurgitator-core](https://github.com/talmeym/regurgitator-core) the core set of steps and contructs to accept a request, process it and produce responses.
+- [regurgitator-core](https://github.com/talmeym/regurgitator-core) provides the core steps and contructs to accept a request, process it and produce responses.
 - [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) provides configuration using a namespaced, schema validated xml document.
 - [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) provides configuration using a json document.
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
