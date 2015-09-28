@@ -46,3 +46,8 @@ modules
 - [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) provides configuration using a json document.
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
 - [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
+
+message
+-------
+
+incoming requests are modelled as a ``messages``. regurgitator takes a message in for processing, which can be pre-populated with relevant parameters, and uses a ``response-callback`` within the message to pass back responses. all parameters are stored in the message in ``contexts``, which are like categories of parameter. the default context is 'parameters'.
