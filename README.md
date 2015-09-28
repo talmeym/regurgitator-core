@@ -44,10 +44,14 @@ modules
 some important modules
 
 - [regurgitator-core](https://github.com/talmeym/regurgitator-core) provides the core steps and contructs to accept a request, process it and produce responses.
-- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration using a namespaced, schema validated xml document.
-- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) allows configuration using a json document.
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
 - [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
+
+each of the above modules has a separate configuration module for each of the ways in which it can be configured, eg.
+
+- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration using a namespaced, schema validated xml document.
+- [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) allows configuration using a json document.
+
 
 messages
 --------
