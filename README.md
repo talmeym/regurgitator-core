@@ -50,4 +50,4 @@ modules
 messages
 --------
 
-incoming requests are modelled as a ``messages``. regurgitator takes a message in for processing, which can be pre-populated with relevant parameters, and uses a ``response-callback`` within the message to pass back responses. all parameters are stored in the message in ``contexts``, which group sets of parameters together. the default context is 'parameters', aimed to store all working parameters for a given request-response cycle.
+incoming requests are modelled as a ``messages``. regurgitator takes a message in for processing, which can be pre-populated with relevant parameters, and uses a ``response-callback`` within the message to pass back responses. each parameter is stored in the message under a ``context``, which is a group of related parameters. the default context is 'parameters'.
