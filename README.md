@@ -33,7 +33,18 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``value builder`` aggregates the values of many parameters into one. provided builders include support for popular templating engines. 
 - ``value processor`` all steps that involve parameters can have extra processing wired in, to alter their initial value after it has been created, built or generated
 - ``rule-behaviour`` rules determine how ``decision`` steps choose which child step to execute; their behaviour govern what to do if more than rule passes
-- ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition has behaviour to govern how they evaluate a given condition value
+- ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed
+
+decision
+  |->  step 1
+  |->  step 2
+  |->  rule-behaviour
+  |->  rule 1
+        |-> condition 1
+        |-> condition 2
+  |->  rule 2
+        |-> condition 3
+        |-> condition 4
 
 modules
 -------
