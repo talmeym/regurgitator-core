@@ -41,7 +41,7 @@ just as custom steps can be added to extend regurgitator to meet your needs, you
 modules
 -------
 
-some important modules
+some important modules:
 
 - [regurgitator-core](https://github.com/talmeym/regurgitator-core) provides the core steps and contructs to accept a request, process it and produce responses.
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
