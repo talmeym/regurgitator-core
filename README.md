@@ -41,7 +41,7 @@ modules
 -------
 
 - ``regurgitator-core`` the core set of steps and contructs to accept a request, process it and product a response (or many).
-- ``regurgitator-xml`` configure regurgitator using a namespaced, schema validated xml document
+- ``[regurgitator-xml](https://github.com/talmeym/regurgitator-xml)`` configure regurgitator using a namespaced, schema validated xml document
 - ``regurgitator-json`` configure regurgitator using a json document
 - ``regurgitator-extensions`` provides useful extension steps and construct implementations
 - ``regurgitator-extensions-web`` provides support for http, including a regurgitator servlet
