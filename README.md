@@ -47,7 +47,6 @@ some important modules
 - [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration using a namespaced, schema validated xml document.
 - [regurgitator-core-json](https://github.com/talmeym/regurgitator-core-json) allows configuration using a json document.
 - [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
-extensions using a json document.
 - [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
 
 messages
