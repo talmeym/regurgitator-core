@@ -36,15 +36,15 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed
 
 decision  
-  |->  step 1  
-  |->  step 2  
-  |->  rule-behaviour  
-  |->  rule 1  
-        |-> condition 1  
-        |-> condition 2  
-  |->  rule 2  
-        |-> condition 3  
-        |-> condition 4  
+..|->  step 1  
+..|->  step 2  
+..|->  rule-behaviour  
+..|->  rule 1  
+........|-> condition 1  
+........|-> condition 2  
+..|->  rule 2  
+........|-> condition 3  
+........|-> condition 4  
 
 modules
 -------
