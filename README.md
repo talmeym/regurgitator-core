@@ -36,7 +36,7 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``rule-behaviour`` rules determine how ``decision`` steps choose which child step to execute; their behaviour govern what to do if more than rule passes.
 - ``condition-behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates the value of a parameter; it's behaviour governs the kind of evaluation performed.
 
-just as custom steps can be added to extend regurgitator to your needs, you can provide your own construct implementations to further extend the capabilities of the framework. 
+just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
 
 modules
 -------
