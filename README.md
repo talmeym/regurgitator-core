@@ -1,13 +1,13 @@
 regurgitator
 ============
-regurgitator is a modular, light-weight, extendable java-based processing engine designed to regurgitate canned or clever responses to incoming requests.
+regurgitator is a modular, light-weight, extendable java-based processing engine designed to 'regurgitate' canned or clever responses to incoming requests.
 
-it provides a series of executable steps and constructs, that can be combined and configured to apply the simple or complex processing you require when a request is received.
+it provides a series of executable ``steps`` and ``constructs``, that can be combined and configured to apply simple or complex processing logic (as you require), when a request is received.
 you can also add your own steps, for whatever it doesn't do out of the box. 
 
-it can be configured using xml or json files or extended to use any other document format.
+it can be configured using ``xml`` or ``json`` files or extended to use any other document format.
 
-it can work with http to mock/stub http services, or be embedded within any other request / response mechanism.
+it can work with ``http`` to mock/stub http services, or be embedded within any other request / response mechanism.
 
 it is separated out into modules, so you only have to include the parts you need into your project, then configure it to do what you want, deploy it and go!
 
@@ -15,13 +15,13 @@ steps
 -----
 
 regurgitator-core provides the following basic steps:
-- ``sequence`` a collection of steps, run one after another
-- ``decision`` a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
-- ``create-parameter`` store a piece of information, with a name and a type, to be used in a response
-- ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters
-- ``generate-parameter`` create a parameter from scratch, using a ``value generator``
-- ``identify-session`` use the value of an parameter to identify / look up a session object, to hold information between requests
-- ``create-response`` return a response from regurgitator; either a static value or from a parameter
+- ``sequence`` a collection of steps, run one after another.
+- ``decision`` a collection of steps where ``rules`` and ``conditions`` dictate which steps are run.
+- ``create-parameter`` store a piece of information, with a name and a type, to be used in a response.
+- ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters.
+- ``generate-parameter`` create a parameter from scratch, using a ``value generator``.
+- ``create-response`` return a response from regurgitator; either a static value or from a parameter.
+- ``identify-session`` use the value of a parameter to identify / look up a session object, to hold information between requests.
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
@@ -29,12 +29,31 @@ constructs
 ----------
 
 regurgitator uses the following set of constructs / concepts to provide it's processing:
-- ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types
-- ``value processor`` steps that involve parameters can have extra processing applied after their initial value has been created, built or generated
+- ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types.
+- ``value builder`` aggregates the values of many parameters into one. provided builders include support for popular templating engines. 
+- ``value generator`` create parameter values from scratch, such as random numbers.
+- ``value processor`` all steps that involve parameters can have extra processing wired in, to alter their initial value after it has been created, built or generated.
+- ``rules behaviour`` rules determine how ``decision`` steps choose which child step to execute; ``rules behaviour`` govern what to do if more than rule passes.
+- ``condition behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates a parameter; its behaviour governs the kind of evaluation performed.
+
+just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
 
 modules
 -------
 
-- regurgitator-core - the core set of steps and contructs that allow regurgitator to accept a request, process it and product a response (or many).
-- regurgitator-xml,
-- regurgitator-json - configure what regurgitator will do for you using a document file
+some important modules:
+
+- [regurgitator-core](https://github.com/talmeym/regurgitator-core) provides the core steps and contructs to accept a request, process it and produce responses.
+- [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions) provides useful extension steps and construct implementations.
+- [regurgitator-extensions-web](https://github.com/talmeym/regurgitator-extensions-web) provides support for http, including the regurgitator servlet.
+
+each of the above modules has a separate configuration module for each way in which it can be configured, eg.
+
+- [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration of core using a namespaced, schema validated xml document.
+- [regurgitator-extensions-json](https://github.com/talmeym/regurgitator-core-json) allows configuration of extensions using a json document.
+
+
+messages
+--------
+
+an incoming request is modelled as a ``message``, given to regurgitator for processing. A message may be pre-populated with relevant parameters, and provides a ``response-callback`` through which responses can be given. each parameter is stored in the message under a ``context``, which is a group of related parameters. the default context is simply 'parameters'. some more specific contexts (for http) include 'request-headers', 'response-payload' and 'global-metadata'.
