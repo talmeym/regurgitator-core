@@ -73,7 +73,7 @@ below is an pom.xml excert for including regurgitator in your java maven project
 	<groupId>my.group.id</groupId>
 	<artifactId>my-artifact</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>My Artifact</name>
 
     <repositories>
