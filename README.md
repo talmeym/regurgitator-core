@@ -57,3 +57,47 @@ messages
 --------
 
 an incoming request is modelled as a ``message``, given to regurgitator for processing. A message may be pre-populated with relevant parameters, and provides a ``response-callback`` through which responses can be given. each parameter is stored in the message under a ``context``, which is a group of related parameters. the default context is simply 'parameters'. some more specific contexts (for http) include 'request-headers', 'response-payload' and 'global-metadata'.
+
+getting started
+---------------
+
+below is am example pom.xml for using regurgitator in your maven project:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>my.group.id</groupId>
+	<artifactId>my-artifact</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+	<name>My Artifact</name>
+
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+	</properties>
+
+    <repositories>
+        <repository>
+            <id>regurgitator-mvn-repo</id>
+            <url>https://raw.github.com/talmeym/regurgitator-binaries/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.emarte.regurgitator</groupId>
+			<artifactId>regurgitator-extensions-web-xml</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+</project>
+```
