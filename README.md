@@ -61,7 +61,7 @@ an incoming request is modelled as a ``message``, given to regurgitator for proc
 getting started
 ---------------
 
-below is am example pom.xml for using regurgitator in your maven project:
+below is am example pom.xml for including regurgitator in your java maven project:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
