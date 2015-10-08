@@ -80,10 +80,6 @@ below is an example pom.xml for a maven project that includes regurgitator:
         <repository>
             <id>regurgitator-mvn-repo</id>
             <url>https://raw.github.com/talmeym/regurgitator-binaries/mvn-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
         </repository>
     </repositories>
 
