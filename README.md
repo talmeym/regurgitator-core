@@ -66,15 +66,15 @@ below is an example pom.xml for a maven project that includes regurgitator:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>my.group.id</groupId>
-	<artifactId>my-artifact</artifactId>
-	<version>0.0.1</version>
-	<packaging>jar</packaging>
-	<name>My Artifact</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>my.group.id</groupId>
+    <artifactId>my-artifact</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>My Artifact</name>
 
     <repositories>
         <repository>
@@ -83,13 +83,13 @@ below is an example pom.xml for a maven project that includes regurgitator:
         </repository>
     </repositories>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.emarte.regurgitator</groupId>
-			<artifactId>regurgitator-extensions-web-xml</artifactId>
-			<version>0.0.1</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.emarte.regurgitator</groupId>
+            <artifactId>regurgitator-all</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>
 ```
 
