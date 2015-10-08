@@ -64,9 +64,17 @@ getting started
 below is an pom.xml excert for including regurgitator in your java maven project:
 
 ```xml
-<project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    [...]
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>my.group.id</groupId>
+	<artifactId>my-artifact</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+	<name>My Artifact</name>
 
     <repositories>
         <repository>
