@@ -52,7 +52,6 @@ each of the above modules has a separate configuration module for each way in wh
 - [regurgitator-core-xml](https://github.com/talmeym/regurgitator-core-xml) allows configuration of core using a namespaced, schema validated xml document.
 - [regurgitator-extensions-json](https://github.com/talmeym/regurgitator-core-json) allows configuration of extensions using a json document.
 
-
 messages
 --------
 
