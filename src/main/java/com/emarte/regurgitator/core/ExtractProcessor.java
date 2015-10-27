@@ -15,7 +15,7 @@ class ExtractProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value) throws RegurgitatorException {
+	public Object process(Object value, Message message) throws RegurgitatorException {
 		String string = stringify(value);
 
 		try {

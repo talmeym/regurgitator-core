@@ -35,7 +35,7 @@ final class CreateResponse extends Identifiable implements Step {
 		}
 
 		if(valueProcessor != null) {
-			value = valueProcessor.process(value);
+			value = valueProcessor.process(value, message);
 		}
 
 		message.getResponseCallback().respond(message, value);

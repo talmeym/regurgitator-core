@@ -22,13 +22,14 @@ public abstract class ParameterExtractor extends Identifiable implements Step {
 
     @Override
     public final void execute(Message message) throws RegurgitatorException {
-		Object value = prototype.getType().convert(extractValue(message));
+		ParameterType type = prototype.getType();
+		Object value = extractValue(message);
 
 		if(processor != null) {
-			value = processor.process(value);
+			value = processor.process(value, message);
 		}
 
-		message.getContext(context).setValue(new Parameter(prototype, value));
+		message.getContext(context).setValue(new Parameter(prototype, type.convert(value)));
     }
 
     public abstract Object extractValue(Message message) throws RegurgitatorException;

@@ -13,7 +13,7 @@ final class SubstituteProcessor implements ValueProcessor {
 		this.replacement = replacement;
 	}
 
-	public Object process(Object value) {
+	public Object process(Object value, Message message) {
 		log.debug("Substituting '" + token + "' for '" + replacement + "'");
 		return stringify(value).replaceAll(token, replacement);
 	}

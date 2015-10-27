@@ -27,7 +27,7 @@ public class CreateResponseTest {
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
 		@Override
-		public Object process(Object value) throws RegurgitatorException {
+		public Object process(Object value, Message message) throws RegurgitatorException {
 			return PROCESSED_VALUE;
 		}
 
