@@ -40,7 +40,6 @@ public class IndexProcessor implements ValueProcessor {
 			valueToUse = staticValue;
 		}
 
-
 		long index = Long.parseLong(stringify(valueToUse)), i = 0l;
 		Collection collection = (Collection) value;
 		log.debug("Finding index '" + index + "' of value '" + collection + "'");
