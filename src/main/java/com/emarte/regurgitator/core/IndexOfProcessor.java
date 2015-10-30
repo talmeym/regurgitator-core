@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import java.util.Collection;
 
 public class IndexOfProcessor implements ValueProcessor {
-	private Log log = Log.getLog(this);
+	private Log log = Log.getLog(IndexOfProcessor.class);
 
 	private final ContextLocation source;
 	private final String staticValue;
@@ -39,6 +39,8 @@ public class IndexOfProcessor implements ValueProcessor {
 			log.debug("Using static value '" + staticValue + "'");
 			valueToFind = staticValue;
 		}
+
+		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + value + "'");
 
 		long index = 0l, lastIndex = -1l;
 
