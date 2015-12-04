@@ -12,16 +12,16 @@ public final class Session extends Parameters {
 			throw new IllegalArgumentException("Cannot retrieve session: session id not known");
 		}
 
-		Caching.Cache cache = Caching.getCache(Session.class);
+		Cache<Session> cache = Caching.getCache(Session.class);
 
-		if(cache.hasValue(id)) {
+		if(cache.contains(id)) {
 			log.debug("Found existing session for id '" + id + "'");
-			return (Session) cache.getValue(id);
+			return cache.get(id);
 		}
 
 		log.debug("Creating and storing new session for id '" + id + "'");
 		Session session = new Session(id);
-		cache.setValue(id, session);
+		cache.set(id, session);
 		return session;
 	}
 }
