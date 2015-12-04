@@ -3,7 +3,8 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 public final class Parameter implements HasId {
-    private Log log = Log.getLog(getClass());
+    private static final Log log = Log.getLog(Parameter.class);
+
     private final ParameterPrototype prototype;
     private Object value;
 

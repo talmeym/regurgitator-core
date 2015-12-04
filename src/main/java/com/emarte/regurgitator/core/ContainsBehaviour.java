@@ -1,7 +1,7 @@
 package com.emarte.regurgitator.core;
 
 public class ContainsBehaviour implements ConditionBehaviour {
-	private Log log = Log.getLog(ContainsBehaviour.class);
+	private static final Log log = Log.getLog(ContainsBehaviour.class);
 
 	@Override
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {

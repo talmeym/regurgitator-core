@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 public class AllMatchesBehaviour implements RulesBehaviour {
-	private Log log = Log.getLog(AllMatchesBehaviour.class);
+	private static final Log log = Log.getLog(AllMatchesBehaviour.class);
 
 	@Override
 	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {

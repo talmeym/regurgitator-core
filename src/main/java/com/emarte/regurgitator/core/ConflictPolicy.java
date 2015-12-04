@@ -38,7 +38,7 @@ public enum ConflictPolicy {
         }
     };
 
-    private static Log log = Log.getLog(ConflictPolicy.class);
+    private static final Log log = Log.getLog(ConflictPolicy.class);
 
     abstract Object resolveConflict(Object existingValue, Object newValue, ParameterType type);
 }

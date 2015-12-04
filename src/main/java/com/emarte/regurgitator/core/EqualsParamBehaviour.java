@@ -1,7 +1,7 @@
 package com.emarte.regurgitator.core;
 
 public class EqualsParamBehaviour implements ConditionBehaviour {
-	private static Log log = Log.getLog(EqualsParamBehaviour.class);
+	private static final Log log = Log.getLog(EqualsParamBehaviour.class);
 
 	@Override
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {

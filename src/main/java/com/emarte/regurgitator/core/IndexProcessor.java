@@ -5,7 +5,7 @@ import java.util.Collection;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public class IndexProcessor implements ValueProcessor {
-	private Log log = Log.getLog(this);
+	private static final Log log = Log.getLog(IndexProcessor.class);
 
 	private final ContextLocation source;
 	private final String staticValue;

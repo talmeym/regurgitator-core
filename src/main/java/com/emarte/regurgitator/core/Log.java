@@ -48,7 +48,7 @@ public class Log {
 		return new Log(clazz);
 	}
 
-	public static Log getLog(Object object) {
+	public static Log getLog(HasId object) {
 		return new Log(object);
 	}
 }
