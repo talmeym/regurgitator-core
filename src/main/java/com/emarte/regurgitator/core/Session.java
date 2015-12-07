@@ -1,5 +1,7 @@
 package com.emarte.regurgitator.core;
 
+import static com.emarte.regurgitator.core.CacheProvider.Cache;
+
 public final class Session extends Parameters {
 	private static final Log log = Log.getLog(Session.class);
 

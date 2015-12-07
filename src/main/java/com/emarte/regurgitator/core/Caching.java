@@ -2,6 +2,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.ServiceLoader;
 
+import static com.emarte.regurgitator.core.CacheProvider.Cache;
+
 public class Caching {
 	private static final Log log = Log.getLog(Caching.class);
 	private static final ServiceLoader<CacheProvider> CACHE_PROVIDERS = ServiceLoader.load(CacheProvider.class);
