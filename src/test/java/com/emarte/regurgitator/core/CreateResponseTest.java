@@ -21,9 +21,9 @@ public class CreateResponseTest {
 
 	private ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, SOURCE, null, null);
-	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, null, STATIC_VALUE, null);
-	private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, SOURCE, STATIC_VALUE, null);
+	private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), null);
+	private CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), null);
+	private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
 		@Override
@@ -33,7 +33,7 @@ public class CreateResponseTest {
 
 	};
 
-	private CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, null, STATIC_VALUE, valueProcessor);
+	private CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), valueProcessor);
 
 	private CollectingResponseCallBack callback = new CollectingResponseCallBack();
 

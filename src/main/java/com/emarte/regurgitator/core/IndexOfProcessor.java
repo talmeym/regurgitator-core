@@ -5,13 +5,11 @@ import java.util.Collection;
 public class IndexOfProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(IndexOfProcessor.class);
 
-	private final ContextLocation source;
-	private final String staticValue;
+	private final ValueSource valueSource;
 	private final boolean last;
 
-	public IndexOfProcessor(ContextLocation source, String staticValue, boolean last) {
-		this.source = source;
-		this.staticValue = staticValue;
+	public IndexOfProcessor(ValueSource valueSource, boolean last) {
+		this.valueSource = valueSource;
 		this.last = last;
 	}
 
@@ -21,27 +19,9 @@ public class IndexOfProcessor implements ValueProcessor {
 			throw new RegurgitatorException("Parameter is not a collection");
 		}
 
-		Object valueToFind;
-
-		if (source != null) {
-			Parameter parameter = message.getContextValue(source);
-
-			if (parameter != null) {
-				log.debug("Retrieved value from context location '" + source + "'");
-				valueToFind = parameter.getValue();
-			} else if (staticValue != null) {
-				log.debug("defaulting to static value '" + staticValue + "'");
-				valueToFind = staticValue;
-			} else {
-				throw new RegurgitatorException("No value found at context location '" + source + "'");
-			}
-		} else {
-			log.debug("Using static value '" + staticValue + "'");
-			valueToFind = staticValue;
-		}
+		Object valueToFind = valueSource.getValue(message, log);
 
 		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + value + "'");
-
 		long index = 0l, lastIndex = -1l;
 
 		for(Object object: (Collection) value) {

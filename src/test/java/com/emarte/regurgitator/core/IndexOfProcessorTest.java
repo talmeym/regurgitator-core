@@ -8,9 +8,9 @@ import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertEquals;
 
 public class IndexOfProcessorTest {
-	private IndexOfProcessor sourceToTest = new IndexOfProcessor(new ContextLocation("context:location"), null, false);
-	private IndexOfProcessor staticToTest = new IndexOfProcessor(null, "THAT", false);
-	private IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ContextLocation("context:location"), "THAT", false);
+	private IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), null), false);
+	private IndexOfProcessor staticToTest = new IndexOfProcessor(new ValueSource(null, "THAT"), false);
+	private IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), "THAT"), false);
 
 	@Test
 	public void testSource() throws RegurgitatorException {

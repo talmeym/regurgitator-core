@@ -7,12 +7,10 @@ import static com.emarte.regurgitator.core.StringType.stringify;
 public class IndexProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(IndexProcessor.class);
 
-	private final ContextLocation source;
-	private final String staticValue;
+	private final ValueSource valueSource;
 
-	public IndexProcessor(ContextLocation source, String staticValue) {
-		this.source = source;
-		this.staticValue = staticValue;
+	public IndexProcessor(ValueSource valueSource) {
+		this.valueSource = valueSource;
 	}
 
 	@Override
@@ -21,24 +19,7 @@ public class IndexProcessor implements ValueProcessor {
 			throw new RegurgitatorException("Parameter is not a collection");
 		}
 
-		Object valueToUse;
-
-		if (source != null) {
-			Parameter parameter = message.getContextValue(source);
-
-			if (parameter != null) {
-				log.debug("Retrieved value from context location '" + source + "'");
-				valueToUse = parameter.getValue();
-			} else if (staticValue != null) {
-				log.debug("defaulting to static value '" + staticValue + "'");
-				valueToUse = staticValue;
-			} else {
-				throw new RegurgitatorException("No value found at context location '" + source + "'");
-			}
-		} else {
-			log.debug("Using static value '" + staticValue + "'");
-			valueToUse = staticValue;
-		}
+		Object valueToUse = valueSource.getValue(message, log);
 
 		long index = Long.parseLong(stringify(valueToUse)), i = 0l;
 		Collection collection = (Collection) value;

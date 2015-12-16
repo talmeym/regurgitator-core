@@ -14,7 +14,6 @@ public class ContainsParamBehaviour implements ConditionBehaviour {
 				ParameterType parameterType = parameter.getType();
 				contains = parameterType.contains(parameter.getValue(), parameterType.convert(comparisonParameter.getValue()));
 			}
-
 		}
 
 		log.debug("Parameter " + (contains ? "contains" : "does not contain") + " parameter '" + conditionValue + "'");

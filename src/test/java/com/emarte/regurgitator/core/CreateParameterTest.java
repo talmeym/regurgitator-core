@@ -27,9 +27,9 @@ public class CreateParameterTest {
 	private ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, STRING, PARAM_CONFLICT_POL);
 	private ParameterPrototype crossTypePrototype = new ParameterPrototype(DEST_NAME, NUMBER, PARAM_CONFLICT_POL);
 
-	private CreateParameter sourceToTest = new CreateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, SOURCE, null, null);
-	private CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, null, STATIC_VALUE, null);
-	private CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, SOURCE, STATIC_VALUE, null);
+	private CreateParameter sourceToTest = new CreateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, null), null);
+	private CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), null);
+	private CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, STATIC_VALUE), null);
 
 	private ValueProcessor valueProcessor = new ValueProcessor() {
 		@Override
@@ -39,8 +39,8 @@ public class CreateParameterTest {
 
 	};
 
-	private CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, null, STATIC_VALUE, valueProcessor);
-	private CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, null, NUMBER_VALUE, null);
+	private CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), valueProcessor);
+	private CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, new ValueSource(null, NUMBER_VALUE), null);
 
 	@Test
 	public void testSource() throws RegurgitatorException {

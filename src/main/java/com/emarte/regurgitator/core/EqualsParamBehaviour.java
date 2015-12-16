@@ -14,7 +14,6 @@ public class EqualsParamBehaviour implements ConditionBehaviour {
 				ParameterType parameterType = parameter.getType();
 				equals = parameter.getValue().equals(parameterType.convert(comparisonParameter.getValue()));
 			}
-
 		}
 
 		log.debug("Parameter " + (equals ? "equals" : "does not equal") + " parameter '" + conditionValue + "'");
