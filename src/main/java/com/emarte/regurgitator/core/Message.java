@@ -12,14 +12,12 @@ public class Message {
         this.callback = callback;
     }
 
-    public Message(ResponseCallBack callback, Object sessionId) {
-        this.callback = callback;
+    public Message(Message message, boolean includeSession) {
+        this.callback = message.callback;
 
-        if(sessionId == null) {
-            throw new IllegalArgumentException("Session id cannot be null");
+        if(includeSession && message.hasSession()) {
+			contextData.put(SESSION_CONTEXT, message.getSession());
         }
-
-        setSessionId(sessionId);
     }
 
     void setSessionId(Object sessionId) {
