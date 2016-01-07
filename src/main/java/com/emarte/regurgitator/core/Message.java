@@ -12,11 +12,15 @@ public class Message {
         this.callback = callback;
     }
 
-    public Message(Message message, boolean includeSession) {
+    public Message(Message message, boolean includeSession, boolean includeParameters) {
         this.callback = message.callback;
 
         if(includeSession && message.hasSession()) {
 			contextData.put(SESSION_CONTEXT, message.getSession());
+        }
+
+        if(includeParameters) {
+			contextData.put(PARAMETER_CONTEXT, message.getContext(PARAMETER_CONTEXT));
         }
     }
 
