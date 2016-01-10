@@ -19,8 +19,8 @@ public class Message {
 			contextData.put(SESSION_CONTEXT, message.getSession());
         }
 
-        if(includeParameters) {
-			contextData.put(PARAMETER_CONTEXT, message.getContext(PARAMETER_CONTEXT));
+        if(includeParameters && message.contextData.containsKey(PARAMETER_CONTEXT)) {
+			contextData.put(PARAMETER_CONTEXT, message.contextData.get(PARAMETER_CONTEXT));
         }
     }
 
