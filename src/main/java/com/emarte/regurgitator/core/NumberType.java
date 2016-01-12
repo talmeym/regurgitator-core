@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-public class NumberType extends AbstractSingleType<Long> {
+public final class NumberType extends AbstractSingleType<Long> {
 	private static DecimalType DECIMAL = new DecimalType();
 
 	@Override
