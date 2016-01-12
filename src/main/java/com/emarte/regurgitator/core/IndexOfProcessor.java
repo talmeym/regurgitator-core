@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-public class IndexOfProcessor implements ValueProcessor {
+final class IndexOfProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(IndexOfProcessor.class);
 
 	private final ValueSource valueSource;

@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class ListOfStringType extends AbstractCollectionType<List<String>> {
+public final class ListOfStringType extends AbstractCollectionType<List<String>> {
 	private static StringType STRING = new StringType();
 
 	@Override

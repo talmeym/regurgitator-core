@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Random;
 
-public class NumberGenerator implements ValueGenerator {
+final class NumberGenerator implements ValueGenerator {
 	private static Random RANDOM = new Random();
 
 	private final Integer max;

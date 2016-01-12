@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import static com.emarte.regurgitator.core.StringType.stringify;
 
-public class IndexProcessor implements ValueProcessor {
+final class IndexProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(IndexProcessor.class);
 
 	private final ValueSource valueSource;

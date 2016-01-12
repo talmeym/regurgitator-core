@@ -4,7 +4,7 @@ import java.text.*;
 
 import static com.emarte.regurgitator.core.StringType.stringify;
 
-class ExtractProcessor implements ValueProcessor {
+final class ExtractProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(ExtractProcessor.class);
 
 	private final String format;

@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class SetOfStringType extends AbstractCollectionType<Set<String>> {
+public final class SetOfStringType extends AbstractCollectionType<Set<String>> {
 	private static StringType STRING = new StringType();
 
 	@Override

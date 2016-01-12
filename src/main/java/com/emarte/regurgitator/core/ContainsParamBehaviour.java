@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-public class ContainsParamBehaviour implements ConditionBehaviour {
+final class ContainsParamBehaviour implements ConditionBehaviour {
 	private static final Log log = Log.getLog(ContainsParamBehaviour.class);
 
 	@Override

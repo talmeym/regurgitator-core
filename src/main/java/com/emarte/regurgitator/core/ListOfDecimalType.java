@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class ListOfDecimalType extends AbstractCollectionType<List<Double>> {
+public final class ListOfDecimalType extends AbstractCollectionType<List<Double>> {
 	private static DecimalType DECIMAL = new DecimalType();
 	private static StringType STRING = new StringType();
 

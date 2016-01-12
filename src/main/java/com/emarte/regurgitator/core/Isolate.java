@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.List;
 
-public class Isolate extends Container<Step> implements Step {
+final class Isolate extends Container<Step> implements Step {
 	private static final Log log = Log.getLog(Isolate.class);
 
 	private boolean includeSession;

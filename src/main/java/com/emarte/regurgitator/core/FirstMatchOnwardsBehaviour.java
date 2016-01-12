@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class FirstMatchOnwardsBehaviour implements RulesBehaviour {
+final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
 	private static final Log log = Log.getLog(FirstMatchOnwardsBehaviour.class);
 
 	@Override

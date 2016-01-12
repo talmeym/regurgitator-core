@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class SetOfDecimalType extends AbstractCollectionType<Set<Double>> {
+public final class SetOfDecimalType extends AbstractCollectionType<Set<Double>> {
 	private static DecimalType DECIMAL = new DecimalType();
 	private static StringType STRING = new StringType();
 

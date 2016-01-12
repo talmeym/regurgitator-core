@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.io.*;
 
-public class FileUtil {
+public final class FileUtil {
 
     static final String CLASSPATH = "classpath:";
 

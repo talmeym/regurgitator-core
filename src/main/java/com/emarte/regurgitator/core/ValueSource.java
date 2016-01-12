@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-public class ValueSource {
+public final class ValueSource {
 
 	private final ContextLocation source;
 	private final String value;

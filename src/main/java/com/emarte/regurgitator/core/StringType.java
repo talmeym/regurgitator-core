@@ -4,7 +4,7 @@ import java.util.*;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 
-public class StringType implements ParameterType<String> {
+public final class StringType implements ParameterType<String> {
 	@Override
 	public String createNew() {
 		return "";

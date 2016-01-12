@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-public class SizeProcessor implements ValueProcessor {
+final class SizeProcessor implements ValueProcessor {
 	@Override
 	public Object process(Object value, Message message) throws RegurgitatorException {
 		if(!(value instanceof Collection)) {

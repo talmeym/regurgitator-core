@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-public class EqualsBehaviour implements ConditionBehaviour {
+final class EqualsBehaviour implements ConditionBehaviour {
 	private static final Log log = Log.getLog(EqualsBehaviour.class);
 
 	@Override

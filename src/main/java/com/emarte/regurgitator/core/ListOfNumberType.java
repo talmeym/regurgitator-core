@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public class ListOfNumberType extends AbstractCollectionType<List<Long>> {
+public final class ListOfNumberType extends AbstractCollectionType<List<Long>> {
 	private static NumberType NUMBER = new NumberType();
 	private static StringType STRING = new StringType();
 
