@@ -1,6 +1,6 @@
 package com.emarte.regurgitator.core;
 
-final class CreateResponse extends Identifiable implements Step {
+public final class CreateResponse extends Identifiable implements Step {
     private final Log log = Log.getLog(this);
 	private final ValueSource valueSource;
 	private final ValueProcessor valueProcessor;
