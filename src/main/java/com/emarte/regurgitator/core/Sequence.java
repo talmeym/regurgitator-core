@@ -4,13 +4,21 @@ import java.util.List;
 
 final class Sequence extends Container<Step> implements Step {
     private final Log log = Log.getLog(this);
+	private final Isolate isolate;
 
-    Sequence(String id, List<Step> items) {
+	Sequence(String id, List<Step> items, Isolate isolate) {
         super(id, items);
-    }
+		this.isolate = isolate;
+	}
+
+	Sequence(String id, Sequence sequence) {
+        this(id, sequence.getAll(), sequence.isolate);
+	}
 
     @Override
     public void execute(Message message) throws RegurgitatorException {
+		message = isolate != null ? isolate.getNewMessage(message) : message;
+
         for(Step step : getAll()) {
             log.debug("Executing step '" + step.getId() + "'");
             step.execute(message);
