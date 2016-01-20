@@ -17,7 +17,10 @@ final class Sequence extends Container<Step> implements Step {
 
     @Override
     public void execute(Message message) throws RegurgitatorException {
-		message = isolate != null ? isolate.getNewMessage(message) : message;
+		if(isolate != null) {
+			log.debug("Isolating execution with new message");
+			message = isolate.getNewMessage(message);
+		}
 
         for(Step step : getAll()) {
             log.debug("Executing step '" + step.getId() + "'");

@@ -4,8 +4,8 @@ public final class Regurgitator extends Identifiable {
     private final Log log = Log.getLog(this);
     private final Step rootStep;
 
-    public Regurgitator(String name, Step rootStep) {
-        super(name);
+    public Regurgitator(String id, Step rootStep) {
+        super(id);
         this.rootStep = rootStep;
     }
 
@@ -13,6 +13,7 @@ public final class Regurgitator extends Identifiable {
         try {
             log.debug("Incoming message");
             rootStep.execute(message);
+			log.debug("Message processed");
         } catch(RegurgitatorException re) {
             throw re;
         } catch (Exception e) {

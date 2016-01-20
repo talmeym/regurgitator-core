@@ -13,12 +13,17 @@ public final class CreateResponse extends Identifiable implements Step {
 
     @Override
     public void execute(Message message) throws RegurgitatorException {
+		execute(message, log);
+    }
+
+	public void execute(Message message, Log log) throws RegurgitatorException {
 		Object value = valueSource.getValue(message, log);
 
 		if(valueProcessor != null) {
 			value = valueProcessor.process(value, message);
 		}
 
+		log.debug("Sending response to callback");
 		message.getResponseCallback().respond(message, value);
-    }
+	}
 }
