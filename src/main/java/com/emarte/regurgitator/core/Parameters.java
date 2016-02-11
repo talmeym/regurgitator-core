@@ -3,12 +3,17 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class Parameters extends Container<Parameter> {
     private final Log log = Log.getLog(this);
 
     Parameters(Object id) {
         super(id, new ArrayList<Parameter>());
+    }
+
+    public void setValue(String name, Object value) {
+        setValue(name, STRING, value);
     }
 
     public void setValue(String name, ParameterType type, Object value) {

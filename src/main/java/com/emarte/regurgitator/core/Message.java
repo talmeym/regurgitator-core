@@ -66,6 +66,10 @@ public class Message {
         return contextData.get(context);
     }
 
+	public Collection<Parameters> contexts() {
+		return contextData.values();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder buffer = new StringBuilder("message[");
