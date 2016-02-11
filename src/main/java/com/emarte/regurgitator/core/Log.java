@@ -32,6 +32,11 @@ public class Log {
         System.out.println("ERROR [" + getIdentifier() + "]: " + message);
     }
 
+    public void error(String message, Throwable throwable) {
+        System.out.println("ERROR [" + getIdentifier() + "]: " + message);
+		throwable.printStackTrace();
+    }
+
 	private String getIdentifier() {
 		String result = clazz.getName();
 
