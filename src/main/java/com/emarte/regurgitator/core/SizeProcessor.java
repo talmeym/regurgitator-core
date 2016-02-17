@@ -5,10 +5,10 @@ import java.util.Collection;
 final class SizeProcessor implements ValueProcessor {
 	private static final Log log = Log.getLog(SizeProcessor.class);
 
-	private boolean lastIndex;
+	private boolean asIndex;
 
-	public SizeProcessor(boolean lastIndex) {
-		this.lastIndex = lastIndex;
+	public SizeProcessor(boolean asIndex) {
+		this.asIndex = asIndex;
 	}
 
 	@Override
@@ -18,7 +18,7 @@ final class SizeProcessor implements ValueProcessor {
 		}
 
 		Collection collection = (Collection) value;
-		log.debug("Returning size of '" + collection + "'" + (lastIndex ? " as last index" : ""));
-		return lastIndex ? collection.size() - 1 : collection.size();
+		log.debug("Returning size of '" + collection + "'" + (asIndex ? " as last index" : ""));
+		return asIndex ? collection.size() - 1 : collection.size();
 	}
 }
