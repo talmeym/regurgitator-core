@@ -51,7 +51,7 @@ public class Message {
     }
 
     public Parameter getContextValue(ContextLocation contextLocation) {
-        return getContext(contextLocation.getContext()).get(contextLocation.getName());
+        return contextData.containsKey(contextLocation.getContext()) ? getContext(contextLocation.getContext()).get(contextLocation.getName()) : null;
     }
 
     public Parameters getContext(String context) {
