@@ -6,7 +6,6 @@ regurgitator is a modular, light-weight, extendable java-based processing framew
 See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
 
 ### steps
------
 
 regurgitator-core provides the following basic steps:
 - ``sequence`` a collection of steps, run one after another.
