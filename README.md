@@ -18,8 +18,7 @@ regurgitator-core provides the following basic steps:
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
-constructs
-----------
+### constructs
 
 regurgitator uses the following set of constructs / concepts to provide it's processing:
 - ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types.
@@ -31,7 +30,6 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
 
-messages
---------
+### messages
 
 an incoming request is modelled as a ``message``, given to regurgitator for processing. A message may be pre-populated with data, each data item being stored as a ``parameter``. each parameter is stored in the message under a ``context``, which holds a group of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web)) include 'request-headers', 'response-payload' and 'global-metadata'. the message also provides a ``response-callback`` through which responses can be given. 
