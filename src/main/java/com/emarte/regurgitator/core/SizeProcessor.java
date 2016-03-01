@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-final class SizeProcessor implements ValueProcessor {
+final class SizeProcessor extends CollectionProcessor {
 	private static final Log log = Log.getLog(SizeProcessor.class);
 
 	private boolean asIndex;
@@ -12,12 +12,7 @@ final class SizeProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value, Message message) throws RegurgitatorException {
-		if(!(value instanceof Collection)) {
-			throw new RegurgitatorException("Parameter is not a collection");
-		}
-
-		Collection collection = (Collection) value;
+	public Object processCollection(Collection collection, Message message) {
 		log.debug("Returning size of '" + collection + "'" + (asIndex ? " as last index" : ""));
 		return asIndex ? collection.size() - 1 : collection.size();
 	}

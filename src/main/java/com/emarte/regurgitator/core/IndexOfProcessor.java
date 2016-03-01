@@ -2,7 +2,7 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-final class IndexOfProcessor implements ValueProcessor {
+final class IndexOfProcessor extends CollectionProcessor {
 	private static final Log log = Log.getLog(IndexOfProcessor.class);
 
 	private final ValueSource valueSource;
@@ -14,17 +14,13 @@ final class IndexOfProcessor implements ValueProcessor {
 	}
 
 	@Override
-	public Object process(Object value, Message message) throws RegurgitatorException {
-		if(!(value instanceof Collection)) {
-			throw new RegurgitatorException("Parameter is not a collection");
-		}
-
+	public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
 		Object valueToFind = valueSource.getValue(message, log);
 
-		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + value + "'");
+		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + collection + "'");
 		long index = 0l, lastIndex = -1l;
 
-		for(Object object: (Collection) value) {
+		for(Object object: collection) {
 			if(object.equals(valueToFind)) {
 				if(!last) {
 					return index;

@@ -27,7 +27,6 @@ public class Caching {
 		private static final Log log = Log.getLog(DefaultCacheProvider.class);
 		private static Map<Object, Object> DEFAULT_CACHE_DATA = new HashMap<Object, Object>();
 
-
 		@Override
 		public <TYPE> Cache<TYPE> getCache(Class<TYPE> clazz) {
 			return new DefaultCache<TYPE>(clazz);
