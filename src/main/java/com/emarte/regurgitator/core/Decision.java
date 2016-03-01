@@ -17,15 +17,6 @@ final class Decision extends Container<Step> implements Step {
 
     @Override
     public void execute(Message message) throws RegurgitatorException {
-        List<Step> steps = getStepsToRun(message);
-
-        for(Step step : steps) {
-            log.debug("Executing '" + step.getId() + "'");
-            step.execute(message);
-        }
-    }
-
-    private List<Step> getStepsToRun(Message message) throws RegurgitatorException {
 		List<Object> evaluatedIds = new ArrayList<Object>();
 		log.debug("Evaluating rules");
 
@@ -39,6 +30,12 @@ final class Decision extends Container<Step> implements Step {
 		}
 
 		log.debug("Applying rules behaviour");
-		return get(behaviour.evaluate(evaluatedIds, ids(), defaultStepId));
+		List<Step> steps = get(behaviour.evaluate(evaluatedIds, ids(), defaultStepId));
+
+        for(Step step : steps) {
+            log.debug("Executing '" + step.getId() + "'");
+            step.execute(message);
+        }
     }
+
 }
