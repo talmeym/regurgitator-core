@@ -8,7 +8,7 @@ See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
 ### steps
 
 regurgitator-core provides the following basic steps:
-- ``sequence`` a collection of steps, run one after another.
+- ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another.
 - ``decision`` a collection of steps where ``rules`` and ``conditions`` dictate which steps are run.
 - ``create-parameter`` store a piece of information, with a name and a type, to be used in a response.
 - ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters.
