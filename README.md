@@ -32,3 +32,7 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
 
+messages
+--------
+
+an incoming request is modelled as a ``message``, given to regurgitator for processing. A message may be pre-populated with data, each data item being stored as a ``parameter``. each parameter is stored in the message under a ``context``, which holds a group of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web)) include 'request-headers', 'response-payload' and 'global-metadata'. the message also provides a ``response-callback`` through which responses can be given. 
