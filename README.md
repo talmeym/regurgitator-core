@@ -14,7 +14,7 @@ upon invocation, regurgitator models each incoming request as a ``message``, pas
 regurgitator-core provides the following basic steps:
 - ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another
 - ``decision`` ([xml](https://github.com/talmeym/regurgitator-core-xml#decision), [json](https://github.com/talmeym/regurgitator-core-json#decision)) a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
-- ``create-parameter`` store a piece of information, with a name and a type, to be used in a response
+- ``create-parameter`` store a piece of information as a parameter within the message, with a name and a type
 - ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters
 - ``generate-parameter`` create a parameter from scratch, using a ``value generator``
 - ``create-response`` return a response from regurgitator; either a static value or from a parameter
