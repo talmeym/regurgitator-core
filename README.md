@@ -1,11 +1,10 @@
-regurgitator-core
-=================
+# regurgitator-core
 
 regurgitator is a modular, light-weight, extendable java-based processing framework designed to 'regurgitate' canned or clever responses to incoming requests.
 
 See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
 
-### messages
+## messages
 
 upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return back a response (or responses) to the incoming request, effectively ending the invocation - job done.
 
@@ -13,7 +12,7 @@ upon invocation, regurgitator models each incoming request as a ``message``, pas
 
 a message may be pre-populated with input data before regurgitator is invoked, such as metadata about an http call. each data item is stored in the message as a ``parameter``, stored under a ``context``, which groups a set of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web)) include 'request-headers', 'response-payload' and 'global-metadata'. the message also provides the ``response-callback`` through which responses are sent. see code example [here] (https://github.com/talmeym/regurgitator-all#getting-started)
 
-### steps
+## steps
 
 regurgitator-core provides the following basic steps:
 - ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another
@@ -26,7 +25,7 @@ regurgitator-core provides the following basic steps:
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
-### constructs
+## constructs
 
 regurgitator uses the following set of constructs / concepts to provide it's processing:
 - ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types.
