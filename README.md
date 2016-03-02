@@ -16,12 +16,12 @@ a message may be pre-populated with input data before regurgitator is invoked, s
 
 regurgitator-core provides the following basic steps:
 - ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another
-- ``decision`` ([xml](https://github.com/talmeym/regurgitator-core-xml#decision), [json](https://github.com/talmeym/regurgitator-core-json#decision)) a collection of steps where ``rules`` and ``conditions`` dictate which steps are run
-- ``create-parameter`` store a piece of information as a parameter within the message, with a name and a type
-- ``build-paramerer`` build a parameter using a ``value builder``, incorporating other parameters
-- ``generate-parameter`` create a parameter from scratch, using a ``value generator``
+- ``decision`` ([xml](https://github.com/talmeym/regurgitator-core-xml#decision), [json](https://github.com/talmeym/regurgitator-core-json#decision)) a collection of steps where ``rules`` and ``conditions`` dictate which steps to run
+- ``create-parameter`` store a data item as a parameter within the message, with a name and a type
+- ``build-paramerer`` build a parameter using a ``value builder``, aggregating many parameter values
+- ``generate-parameter`` create a parameter value from scratch, using a ``value generator``
 - ``create-response`` return a response from regurgitator; either a static value or from a parameter
-- ``identify-session`` use the value of a parameter to identify / look up a session object, to hold information between requests
+- ``identify-session`` use the value of a parameter to identify / look up a session object, to hold data between requests
 
 regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
 
