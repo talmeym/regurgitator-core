@@ -7,7 +7,7 @@ See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
 
 ### messages
 
-upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return back a response (or responses) to the incoming request, effectively ending the invocation of regurgitator - job done.
+upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return back a response (or responses) to the incoming request, effectively ending the invocation - job done.
 
 **accept request (message)** => **execute steps (manipulate data)** => **send back response(s)**
 
