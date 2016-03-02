@@ -5,6 +5,10 @@ regurgitator is a modular, light-weight, extendable java-based processing framew
 
 See more at [regurgitator-all](http://github.com/talmeym/regurgitator-all)
 
+### messages
+
+each incoming request is modelled as a ``message``, given to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step when it is executed. depending on its type, each step might read data from, add data to, or agregate together data from within the message. a message may be pre-populated with data, each data item being stored as a ``parameter``. each parameter is stored in the message under a ``context``, which holds a group of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web)) include 'request-headers', 'response-payload' and 'global-metadata'. the message also provides a ``response-callback`` through which responses can be given.
+
 ### steps
 
 regurgitator-core provides the following basic steps:
@@ -29,7 +33,3 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``condition behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates a parameter; its behaviour governs the kind of evaluation performed.
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
-
-### messages
-
-an incoming request is modelled as a ``message``, given to regurgitator for processing. A message may be pre-populated with data, each data item being stored as a ``parameter``. each parameter is stored in the message under a ``context``, which holds a group of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web)) include 'request-headers', 'response-payload' and 'global-metadata'. the message also provides a ``response-callback`` through which responses can be given. 
