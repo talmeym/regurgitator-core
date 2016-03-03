@@ -38,6 +38,7 @@ public abstract class AbstractCollectionType<TYPE extends Collection> implements
 		return collection;
 	}
 
+	@Override
 	public TYPE fromCollection(Collection collection, ParameterType type) {
 		TYPE value = createNew();
 

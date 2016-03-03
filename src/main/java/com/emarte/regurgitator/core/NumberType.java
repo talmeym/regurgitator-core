@@ -2,6 +2,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
+import static com.emarte.regurgitator.core.StringType.stringify;
+
 public final class NumberType extends AbstractSingleType<Long> {
 	private static DecimalType DECIMAL = new DecimalType();
 
@@ -39,7 +41,7 @@ public final class NumberType extends AbstractSingleType<Long> {
 			return Math.round((Double) value);
 		}
 
-		return Long.parseLong(value.toString());
+		return Long.parseLong(stringify(value));
 	}
 
 	@Override
