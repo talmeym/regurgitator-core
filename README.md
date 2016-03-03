@@ -23,7 +23,7 @@ regurgitator-core provides the following basic steps:
 - ``create-response`` return a response from regurgitator; either a static value or from a parameter
 - ``identify-session`` use the value of a parameter to identify / look up a session object, to hold data between requests
 
-regurgitator-core provides the basics of regurgitator; usable with minimal dependencies. other steps and constructs that do have dependencies are provided in [regurgitator-extensions](https://github.com/talmeym/regurgitator-extensions).
+more steps are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#steps), [web](https://github.com/talmeym/regurgitator-extensions-web#steps))
 
 ## constructs
 
@@ -58,4 +58,3 @@ all of the above have list and set types, holding collections of the java type, 
 - ``size-processor`` processes a collection, returning its size
 - ``index-processor`` processes a collection, returning the data item at a given index
 - ``index-of-processor`` processes a collection, returning the index of a given data value
-
