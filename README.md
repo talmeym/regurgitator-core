@@ -54,7 +54,7 @@ all of the above have list and set types, holding collections of the java type, 
 
 #### value processors
 - ``extract-processor`` extract one value from another, using java's java.text.MessageFormat syntax
-- ``substitute-processor`` processes a parameter value, replacing instances of one string with another
+- ``substitute-processor`` processes a string value, replacing instances of one string with another
 - ``size-processor`` processes a collection, returning its size
 - ``index-processor`` processes a collection, returning the data item at a given index
 - ``index-of-processor`` processes a collection, returning the index of a given data value
