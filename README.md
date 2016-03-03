@@ -36,3 +36,12 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 - ``condition behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates a parameter; its behaviour governs the kind of evaluation performed
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
+
+regurgitator-core provides the following basic constructs:
+
+#### parameter types
+- ``STRING`` based on the java.lang.String java type
+- ``NUMBER`` based on the java.lang.Long java type
+- ``DECIMAL`` based on the java.lang.Double java type
+
+all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
