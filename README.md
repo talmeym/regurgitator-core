@@ -59,4 +59,4 @@ all of the above have list and set types, holding collections of the java type, 
 - ``index-processor`` processes a collection, returning the data item at a given index
 - ``index-of-processor`` processes a collection, returning the index of a given data value
 
-more steps are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs))
+more constructs are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs))
