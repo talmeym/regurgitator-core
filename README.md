@@ -37,6 +37,8 @@ regurgitator uses the following set of constructs / concepts to provide it's pro
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
 
+## core constructs
+
 regurgitator-core provides the following basic constructs:
 
 #### parameter types
@@ -45,3 +47,15 @@ regurgitator-core provides the following basic constructs:
 - ``DECIMAL`` based on the java.lang.Double java type
 
 all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
+
+#### value generators
+- ``number-generator`` generates a random number parameter value
+- ``uuid-generator`` generates a unique UUID parameter value
+
+#### value processors
+- ``extract-processor`` extract one value from another, using java's java.text.MessageFormat syntax
+- ``substitute-processor`` processes a parameter value, replacing instances of one string with another
+- ``size-processor`` processes a collection, returning its size
+- ``index-processor`` processes a collection, returning the data item at a given index
+- ``index-of-processor`` processes a collection, returning the index of a given data value
+
