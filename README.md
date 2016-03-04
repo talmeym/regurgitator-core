@@ -17,9 +17,9 @@ a message may be pre-populated with input data before regurgitator is invoked, s
 regurgitator-core provides the following basic steps:
 - ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another
 - ``decision`` ([xml](https://github.com/talmeym/regurgitator-core-xml#decision), [json](https://github.com/talmeym/regurgitator-core-json#decision)) a collection of steps where ``rules`` and ``conditions`` dictate which steps to run
-- ``create-parameter`` store a data item as a parameter within the message, with a name and a type
-- ``build-parameter`` build a parameter using a ``value builder``, aggregating many parameter values
-- ``generate-parameter`` create a parameter value from scratch, using a ``value generator``
+- ``create-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#create-parameter), [json](https://github.com/talmeym/regurgitator-core-json#create-parameter)) store a data item as a parameter within the message, with a name and a type
+- ``build-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#build-parameter), [json](https://github.com/talmeym/regurgitator-core-json#build-parameter)) build a parameter using a ``value builder``, aggregating many parameter values
+- ``generate-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#generate-parameter), [json](https://github.com/talmeym/regurgitator-core-json#generate-parameter)) create a parameter value from scratch, using a ``value generator``
 - ``create-response`` return a response from regurgitator; either a static value or from a parameter
 - ``identify-session`` use the value of a parameter to identify / look up a session object, to hold data between requests
 
@@ -42,9 +42,9 @@ just as custom steps can be added to extend regurgitator to meet your needs, you
 regurgitator-core provides the following basic constructs:
 
 #### parameter types
-- ``STRING`` based on the java.lang.String java type
-- ``NUMBER`` based on the java.lang.Long java type
-- ``DECIMAL`` based on the java.lang.Double java type
+- ``STRING`` based on the ``java.lang.String`` java type
+- ``NUMBER`` based on the ``java.lang.Long`` java type
+- ``DECIMAL`` based on the ``java.lang.Double`` java type
 
 all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
