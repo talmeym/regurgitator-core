@@ -49,8 +49,8 @@ regurgitator-core provides the following basic constructs:
 all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
 #### value generators
-- ``number-generator`` generates a random number parameter value
-- ``uuid-generator`` generates a unique UUID parameter value
+- ``number-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#number-generator), [json](https://github.com/talmeym/regurgitator-core-json#number-generator)) generates a random number parameter value
+- ``uuid-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#uuid-generator), [json](https://github.com/talmeym/regurgitator-core-json#uuid-generator)) generates a unique UUID parameter value
 
 #### value processors
 - ``extract-processor`` extract one value from another, using java's java.text.MessageFormat syntax
