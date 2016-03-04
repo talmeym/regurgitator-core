@@ -20,7 +20,7 @@ regurgitator-core provides the following basic steps:
 - ``create-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#create-parameter), [json](https://github.com/talmeym/regurgitator-core-json#create-parameter)) store a data item as a parameter within the message, with a name and a type
 - ``build-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#build-parameter), [json](https://github.com/talmeym/regurgitator-core-json#build-parameter)) build a parameter using a ``value builder``, aggregating many parameter values
 - ``generate-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#generate-parameter), [json](https://github.com/talmeym/regurgitator-core-json#generate-parameter)) create a parameter value from scratch, using a ``value generator``
-- ``create-response`` return a response from regurgitator; either a static value or from a parameter
+- ``create-response`` ([xml](https://github.com/talmeym/regurgitator-core-xml#create-response), [json](https://github.com/talmeym/regurgitator-core-json#create-response)) return a response from regurgitator; either a static value or from a parameter
 - ``identify-session`` use the value of a parameter to identify / look up a session object, to hold data between requests
 
 more steps are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#steps), [web](https://github.com/talmeym/regurgitator-extensions-web#steps))
