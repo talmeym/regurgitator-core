@@ -57,6 +57,6 @@ all of the above have list and set types, holding collections of the java type, 
 - ``substitute-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#substitute-processor), [json](https://github.com/talmeym/regurgitator-core-json#substitute-processor)) processes a string value, replacing instances of one string with another
 - ``index-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-processor)) processes a collection, returning the data item at a given index
 - ``index-of-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-of-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-of-processor)) processes a collection, returning the index of a given data value
-- ``size-processor`` processes a collection, returning its size
+- ``size-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#size-processor), [json](https://github.com/talmeym/regurgitator-core-json#size-processor)) processes a collection, returning its size
 
 more constructs are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs))
