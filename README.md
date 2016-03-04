@@ -42,9 +42,9 @@ just as custom steps can be added to extend regurgitator to meet your needs, you
 regurgitator-core provides the following basic constructs:
 
 #### parameter types
-- ``STRING`` based on the java.lang.String java type
-- ``NUMBER`` based on the java.lang.Long java type
-- ``DECIMAL`` based on the java.lang.Double java type
+- ``STRING`` based on the ``java.lang.String`` java type
+- ``NUMBER`` based on the ``java.lang.Long`` java type
+- ``DECIMAL`` based on the ``java.lang.Double`` java type
 
 all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
