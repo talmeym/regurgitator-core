@@ -54,7 +54,7 @@ all of the above have list and set types, holding collections of the java type, 
 
 #### value processors
 - ``extract-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#extract-processor), [json](https://github.com/talmeym/regurgitator-core-json#extract-processor)) extract one value from another, using java's java.text.MessageFormat syntax
-- ``substitute-processor`` processes a string value, replacing instances of one string with another
+- ``substitute-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#substitute-processor), [json](https://github.com/talmeym/regurgitator-core-json#substitute-processor)) processes a string value, replacing instances of one string with another
 - ``size-processor`` processes a collection, returning its size
 - ``index-processor`` processes a collection, returning the data item at a given index
 - ``index-of-processor`` processes a collection, returning the index of a given data value
