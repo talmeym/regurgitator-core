@@ -8,7 +8,7 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return back a response (or responses) to the incoming request, effectively ending the invocation - job done.
 
-**accept request (modelled as message)** => **execute steps (manipulate message data)** => **send back response(s)**
+**accept request (as message)** => **execute steps (manipulate message data)** => **send back response(s)**
 
 a message may be pre-populated with input data before regurgitator is invoked, such as metadata about an http call. each data item is stored in the message as a ``parameter``, stored under a ``context``, which groups a set of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web#regurgitator-over-http)) include ``request-headers``, ``response-payload`` and ``global-metadata``. the message also provides the response callback mechanism through which responses are sent back out of regurgitator. see code example [here] (https://github.com/talmeym/regurgitator-all#example-code)
 
