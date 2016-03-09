@@ -6,9 +6,7 @@ import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.*;
-import static com.emarte.regurgitator.core.CoreTypes.LIST_OF_STRING;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 
 public class EqualsBehaviourTest {
 	private static EqualsBehaviour toTest = new EqualsBehaviour();

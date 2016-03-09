@@ -2,10 +2,11 @@ package com.emarte.regurgitator.core;
 
 import java.text.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 final class ExtractProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(ExtractProcessor.class);
+	private static final Log log = getLog(ExtractProcessor.class);
 
 	private final String format;
 	private final int index;

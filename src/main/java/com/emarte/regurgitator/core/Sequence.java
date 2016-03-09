@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.List;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class Sequence extends Container<Step> implements Step {
-    private final Log log = Log.getLog(this);
+    private final Log log = getLog(this);
 	private final Isolate isolate;
 
 	Sequence(String id, List<Step> items, Isolate isolate) {

@@ -1,9 +1,10 @@
 package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public final class Session extends Parameters {
-	private static final Log log = Log.getLog(Session.class);
+	private static final Log log = getLog(Session.class);
 
     public Session(Object id) {
         super(id);

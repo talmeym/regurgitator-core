@@ -3,9 +3,10 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class Caching {
-	private static final Log log = Log.getLog(Caching.class);
+	private static final Log log = getLog(Caching.class);
 	private static final ServiceLoader<CacheProvider> CACHE_PROVIDERS = ServiceLoader.load(CacheProvider.class);
 	private static final CacheProvider DEFAULT_PROVIDER = new DefaultCacheProvider();
 
@@ -24,7 +25,7 @@ public class Caching {
 	}
 
 	private static class DefaultCacheProvider implements CacheProvider {
-		private static final Log log = Log.getLog(DefaultCacheProvider.class);
+		private static final Log log = getLog(DefaultCacheProvider.class);
 		private static Map<Object, Object> DEFAULT_CACHE_DATA = new HashMap<Object, Object>();
 
 		@Override

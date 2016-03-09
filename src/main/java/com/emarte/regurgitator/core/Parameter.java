@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 public final class Parameter implements HasId {
-    private static final Log log = Log.getLog(Parameter.class);
+    private static final Log log = getLog(Parameter.class);
 
     private final ParameterPrototype prototype;
     private Object value;

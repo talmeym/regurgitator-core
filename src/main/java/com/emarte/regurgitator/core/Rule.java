@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.List;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class Rule extends Container<Condition> {
-    private final Log log = Log.getLog(this);
+    private final Log log = getLog(this);
     private final Object stepId;
 
     Rule(String id, List<Condition> conditions, Object stepId) {

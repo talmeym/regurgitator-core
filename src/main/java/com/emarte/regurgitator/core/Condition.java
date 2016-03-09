@@ -1,7 +1,9 @@
 package com.emarte.regurgitator.core;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class Condition extends Identifiable {
-	private final Log log = Log.getLog(this);
+	private final Log log = getLog(this);
 	private final ContextLocation location;
 	private final String conditionValue;
 	private final boolean expectation;

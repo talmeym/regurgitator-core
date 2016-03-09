@@ -4,9 +4,10 @@ import java.util.*;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
+import static com.emarte.regurgitator.core.Log.getLog;
 
 public class Parameters extends Container<Parameter> {
-    private final Log log = Log.getLog(this);
+    private final Log log = getLog(this);
 
     Parameters(Object id) {
         super(id, new ArrayList<Parameter>());

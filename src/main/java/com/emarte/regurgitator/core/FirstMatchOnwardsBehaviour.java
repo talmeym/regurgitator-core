@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
-	private static final Log log = Log.getLog(FirstMatchOnwardsBehaviour.class);
+	private static final Log log = getLog(FirstMatchOnwardsBehaviour.class);
 
 	@Override
 	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {

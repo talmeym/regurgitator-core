@@ -2,11 +2,12 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static java.lang.Long.parseLong;
 
 final class IndexProcessor extends CollectionProcessor {
-	private static final Log log = Log.getLog(IndexProcessor.class);
+	private static final Log log = getLog(IndexProcessor.class);
 
 	private final ValueSource valueSource;
 

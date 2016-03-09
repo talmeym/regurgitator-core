@@ -2,8 +2,6 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
-import java.util.*;
-
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static org.junit.Assert.assertEquals;
 

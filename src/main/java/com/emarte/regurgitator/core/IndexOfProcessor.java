@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class IndexOfProcessor extends CollectionProcessor {
-	private static final Log log = Log.getLog(IndexOfProcessor.class);
+	private static final Log log = getLog(IndexOfProcessor.class);
 
 	private final ValueSource valueSource;
 	private final boolean last;

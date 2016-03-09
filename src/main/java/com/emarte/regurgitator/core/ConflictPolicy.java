@@ -1,5 +1,7 @@
 package com.emarte.regurgitator.core;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 public enum ConflictPolicy {
 	LEAVE {
         @Override
@@ -38,7 +40,7 @@ public enum ConflictPolicy {
         }
     };
 
-    private static final Log log = Log.getLog(ConflictPolicy.class);
+    private static final Log log = getLog(ConflictPolicy.class);
 
     abstract Object resolveConflict(Object existingValue, Object newValue, ParameterType type);
 }

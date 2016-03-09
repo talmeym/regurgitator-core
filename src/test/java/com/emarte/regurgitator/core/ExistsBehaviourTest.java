@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.*;
 
 public class ExistsBehaviourTest {
 	private static ExistsBehaviour toTest = new ExistsBehaviour();

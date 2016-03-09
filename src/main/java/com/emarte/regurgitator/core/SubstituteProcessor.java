@@ -1,9 +1,10 @@
 package com.emarte.regurgitator.core;
 
+import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 final class SubstituteProcessor implements ValueProcessor {
-	private static final Log log = Log.getLog(SubstituteProcessor.class);
+	private static final Log log = getLog(SubstituteProcessor.class);
 
 	private final String token;
 	private final String replacement;

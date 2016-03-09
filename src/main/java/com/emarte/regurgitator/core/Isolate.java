@@ -1,7 +1,9 @@
 package com.emarte.regurgitator.core;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class Isolate {
-	private static final Log log = Log.getLog(Isolate.class);
+	private static final Log log = getLog(Isolate.class);
 	private boolean includeSession;
 	private boolean includeParameters;
 

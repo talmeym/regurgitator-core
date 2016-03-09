@@ -2,8 +2,10 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
+import static com.emarte.regurgitator.core.Log.getLog;
+
 final class Decision extends Container<Step> implements Step {
-    private final Log log = Log.getLog(this);
+    private final Log log = getLog(this);
 	private final List<Rule> rules;
     private final RulesBehaviour behaviour;
 	private final Object defaultStepId;
