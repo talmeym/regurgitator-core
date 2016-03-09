@@ -12,7 +12,7 @@ upon invocation, regurgitator models each incoming request as a ``message``, pas
 
 a message may be pre-populated with input data before regurgitator is invoked, such as metadata about an http call. each data item is stored in the message as a ``parameter``, stored under a ``context``, which groups a set of related parameters together. the default context is simply 'parameters'. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web#regurgitator-over-http)) include ``request-headers``, ``response-payload`` and ``global-metadata``. the message also provides the response callback mechanism through which responses are sent back out of regurgitator. see code example [here] (https://github.com/talmeym/regurgitator-all#example-code).
 
-a message can also be auto-populated with data that persists between requests, with the use of ``global data`` (read [here](https://github.com/talmeym/regurgitator-extensions-web#global-metadata-servlet)) and ``regurgitator sessions`` (read [here](https://github.com/talmeym/regurgitator-core-xml#identify-session)).
+a message can also be auto-populated with data that persists between requests, with the use of [``global data``](https://github.com/talmeym/regurgitator-extensions-web#global-metadata-servlet)) and [``regurgitator sessions``](https://github.com/talmeym/regurgitator-core-xml#identify-session)).
 
 ## steps
 
