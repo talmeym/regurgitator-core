@@ -12,7 +12,7 @@ public class IdentifySessionTest {
 	private static final String CONTEXT = "context";
 	private static final String PARAM_NAME = "name";
 
-	private IdentifySession toTest = new IdentifySession("ID", new ContextLocation(CONTEXT, PARAM_NAME));
+	private IdentifySession toTest = new IdentifySession("ID", new ValueSource(new ContextLocation(CONTEXT, PARAM_NAME), null));
 
 	@Test
 	public void testHappyPath() throws RegurgitatorException {
@@ -24,7 +24,7 @@ public class IdentifySessionTest {
 		assertEquals(PARAM_VALUE, message.getSession().getId());
 	}
 
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = RegurgitatorException.class)
 	public void testUnhappyPath() throws RegurgitatorException {
 		Message message = new Message(null);
 		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
