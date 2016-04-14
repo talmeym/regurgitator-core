@@ -2,18 +2,15 @@ package com.emarte.regurgitator.core;
 
 public class Log {
     private Class clazz;
-	private HasId hasId;
+	private Object id;
 
     private Log(Class clazz) {
         this.clazz = clazz;
     }
 
-	public Log(Object object) {
-		this.clazz = object.getClass();
-
-		if(object instanceof HasId) {
-			hasId = (HasId) object;
-		}
+	public Log(HasId hasId) {
+		this.clazz = hasId.getClass();
+		id = hasId.getId();
 	}
 
 	public void debug(String message) {
@@ -40,8 +37,8 @@ public class Log {
 	private String getIdentifier() {
 		String result = clazz.getName();
 
-		if(hasId != null) {
-			result += ":" + hasId.getId();
+		if(id != null) {
+			result += ":" + id;
 		}
 
 		result += "/" + Thread.currentThread().getId();
@@ -53,7 +50,7 @@ public class Log {
 		return new Log(clazz);
 	}
 
-	public static Log getLog(HasId object) {
-		return new Log(object);
+	public static Log getLog(HasId hasId) {
+		return new Log(hasId);
 	}
 }
