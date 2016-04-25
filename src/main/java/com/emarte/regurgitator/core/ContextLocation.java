@@ -1,10 +1,9 @@
 package com.emarte.regurgitator.core;
 
 public class ContextLocation {
+    private static final String SEPARATOR = ":";
     public static final String SESSION_CONTEXT = "session";
     public static final String PARAMETER_CONTEXT = "parameters";
-
-    static final String SEPARATOR = ":";
 
     private final String context;
     private final String name;
@@ -30,6 +29,6 @@ public class ContextLocation {
 
     @Override
     public String toString() {
-        return context + ":" + name;
+        return context + SEPARATOR + name;
     }
 }
