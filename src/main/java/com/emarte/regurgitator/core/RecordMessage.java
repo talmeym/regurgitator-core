@@ -18,14 +18,14 @@ public class RecordMessage extends Identifiable implements Step {
 			Collection<Parameters> contexts = message.contexts();
 
 			for(Parameters context: contexts) {
-				out.write(context.getId() + "\n\n");
+				out.write("# " + context.getId() + "\n\n");
 
 				for(Object id: context.ids()) {
 					Parameter parameter = context.get(id);
-					out.write(parameter.getId() + "=" + parameter.getValue() + "\n");
+					out.write(context.getId() + "." + parameter.getId() + "=" + parameter.getValue() + "\n");
 				}
 
-				out.write("\n\n");
+				out.write("\n");
 			}
 
 			out.flush();
