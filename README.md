@@ -51,14 +51,14 @@ regurgitator-core provides the following basic constructs:
 all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
 #### value generators
-- ``number-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#number-generator), [json](https://github.com/talmeym/regurgitator-core-json#number-generator)) generates a random number parameter value
-- ``uuid-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#uuid-generator), [json](https://github.com/talmeym/regurgitator-core-json#uuid-generator)) generates a unique UUID parameter value
+- ``number-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#number-generator), [json](https://github.com/talmeym/regurgitator-core-json#number-generator), [yml](https://github.com/talmeym/regurgitator-core-yml#number-generator)) generates a random number parameter value
+- ``uuid-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#uuid-generator), [json](https://github.com/talmeym/regurgitator-core-json#uuid-generator), [yml](https://github.com/talmeym/regurgitator-core-yml#uuid-generator)) generates a unique UUID parameter value
 
 #### value processors
-- ``extract-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#extract-processor), [json](https://github.com/talmeym/regurgitator-core-json#extract-processor)) extract one value from another, using java's java.text.MessageFormat syntax
+- ``extract-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#extract-processor), [json](https://github.com/talmeym/regurgitator-core-json#extract-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#extract-processor)) extract one value from another, using java's java.text.MessageFormat syntax
 - ``substitute-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#substitute-processor), [json](https://github.com/talmeym/regurgitator-core-json#substitute-processor)) processes a string value, replacing instances of one string with another
-- ``index-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-processor)) processes a collection, returning the data item at a given index
-- ``index-of-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-of-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-of-processor)) processes a collection, returning the index of a given data value
-- ``size-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#size-processor), [json](https://github.com/talmeym/regurgitator-core-json#size-processor)) processes a collection, returning its size
+- ``index-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#index-processor)) processes a collection, returning the data item at a given index
+- ``index-of-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-of-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-of-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#index-of-processor)) processes a collection, returning the index of a given data value
+- ``size-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#size-processor), [json](https://github.com/talmeym/regurgitator-core-json#size-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#size-processor)) processes a collection, returning its size
 
 more constructs are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs))
