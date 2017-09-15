@@ -17,7 +17,7 @@ a message can also be auto-populated with data that persists between requests, t
 ## steps
 
 regurgitator-core provides the following basic steps:
-- ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence)) a collection of steps, run one after another
+- ``sequence`` ([xml](https://github.com/talmeym/regurgitator-core-xml#sequence), [json](https://github.com/talmeym/regurgitator-core-json#sequence), [yml](https://github.com/talmeym/regurgitator-core-yml#sequence)) a collection of steps, run one after another
 - ``decision`` ([xml](https://github.com/talmeym/regurgitator-core-xml#decision), [json](https://github.com/talmeym/regurgitator-core-json#decision)) a collection of steps where ``rules`` and ``conditions`` dictate which steps to run
 - ``create-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#create-parameter), [json](https://github.com/talmeym/regurgitator-core-json#create-parameter)) store a data item as a parameter within the message, with a name and a type
 - ``build-parameter`` ([xml](https://github.com/talmeym/regurgitator-core-xml#build-parameter), [json](https://github.com/talmeym/regurgitator-core-json#build-parameter)) build a parameter using a ``value builder``, aggregating many parameter values
