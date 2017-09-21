@@ -14,25 +14,33 @@ public class Log {
 	}
 
 	public void debug(String message) {
-        System.out.println("DEBUG [" + getIdentifier() + "]: " + message);
-    }
+		sysout("DEBUG", message);
+	}
 
 	public void info(String message) {
-        System.out.println("INFO [" + getIdentifier() + "]: " + message);
-    }
+		sysout("INFO", message);
+	}
 
     public void warn(String message) {
-        System.out.println("WARN [" + getIdentifier() + "]: " + message);
-    }
+		sysout("WARN", message);
+	}
 
     public void error(String message) {
-        System.err.println("ERROR [" + getIdentifier() + "]: " + message);
-    }
+		syserr("ERROR", message);
+	}
 
     public void error(String message, Throwable throwable) {
-        System.out.println("ERROR [" + getIdentifier() + "]: " + message);
+		syserr("ERROR", message);
 		throwable.printStackTrace();
     }
+
+	private void sysout(String level, String message) {
+		System.out.println(level + " [" + getIdentifier() + "]: " + message);
+	}
+
+	private void syserr(String level, String message) {
+		System.err.println(level + " [" + getIdentifier() + "]: " + message);
+	}
 
 	private String getIdentifier() {
 		String result = clazz.getName();
