@@ -26,7 +26,7 @@ public class Log {
     }
 
     public void error(String message) {
-        System.out.println("ERROR [" + getIdentifier() + "]: " + message);
+        System.err.println("ERROR [" + getIdentifier() + "]: " + message);
     }
 
     public void error(String message, Throwable throwable) {

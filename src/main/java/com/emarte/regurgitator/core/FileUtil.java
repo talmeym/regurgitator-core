@@ -3,12 +3,11 @@ package com.emarte.regurgitator.core;
 import java.io.*;
 
 public final class FileUtil {
-
-    static final String CLASSPATH = "classpath:";
+    public static final String CLASSPATH_PREFIX = "classpath:";
 
     public static InputStream getInputStreamForFile(String filepath) throws IOException {
-        if (filepath.startsWith(CLASSPATH)) {
-            InputStream inputStream = FileUtil.class.getResourceAsStream(filepath.substring(CLASSPATH.length()));
+        if (filepath.startsWith(CLASSPATH_PREFIX)) {
+            InputStream inputStream = FileUtil.class.getResourceAsStream(filepath.substring(CLASSPATH_PREFIX.length()));
             checkInputStream(inputStream, filepath);
             return inputStream;
         }
