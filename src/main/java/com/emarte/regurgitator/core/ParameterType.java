@@ -15,7 +15,7 @@ public interface ParameterType<TYPE> {
 
 	public boolean contains(TYPE container, TYPE value);
 
-	public Collection toCollectionOf(TYPE value, Collection collection, ParameterType type);
+	public <OTHER, COLLECTION extends Collection<OTHER>> COLLECTION toCollectionOf(TYPE value, COLLECTION collection, ParameterType<OTHER> type);
 
-	public TYPE fromCollection(Collection collection, ParameterType type);
+	public TYPE fromCollection(Collection collection);
 }

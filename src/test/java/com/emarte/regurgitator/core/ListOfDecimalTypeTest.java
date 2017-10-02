@@ -22,12 +22,12 @@ public class ListOfDecimalTypeTest extends TypeTest {
 	@Test
 	public void test_convert_LIST_DECIMAL() {
 		assertEquals(list(1.25d, 2.25d), LIST_OF_DECIMAL.convert("1.25,2.25"));
-		assertEquals(list(125d), LIST_OF_DECIMAL.convert(list(125l)));
+		assertEquals(list(125d), LIST_OF_DECIMAL.convert(list(125L)));
 		assertEquals(list(1.25d), LIST_OF_DECIMAL.convert(list(1.25d)));
 		assertEquals(list(1.25d, 2.25d, 3.25d), LIST_OF_DECIMAL.convert(list("1.25", "2.25", "3.25")));
 		assertEquals(list(1.25d, 2.25d, 3.25d), LIST_OF_DECIMAL.convert(set("1.25", "2.25", "3.25")));
-		assertEquals(list(125d, 225d, 325d), LIST_OF_DECIMAL.convert(list(125l, 225l, 325l)));
-		assertEquals(list(125d, 225d, 325d), LIST_OF_DECIMAL.convert(set(125l, 225l, 325l)));
+		assertEquals(list(125d, 225d, 325d), LIST_OF_DECIMAL.convert(list(125L, 225L, 325L)));
+		assertEquals(list(125d, 225d, 325d), LIST_OF_DECIMAL.convert(set(125L, 225L, 325L)));
 		assertEquals(list(1.25d, 2.25d, 3.25d), LIST_OF_DECIMAL.convert(list(1.25d, 2.25d, 3.25d)));
 		assertEquals(list(1.25d, 2.25d, 3.25d), LIST_OF_DECIMAL.convert(set(1.25d, 2.25d, 3.25d)));
 	}

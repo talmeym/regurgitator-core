@@ -2,8 +2,13 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public final class SetOfStringType extends AbstractCollectionType<Set<String>> {
-	private static StringType STRING = new StringType();
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
+import static java.util.Collections.singletonList;
+
+public final class SetOfStringType extends AbstractCollectionType<String, Set<String>> {
+	public SetOfStringType() {
+		super(STRING);
+	}
 
 	@Override
 	public Set<String> createNew() {
@@ -12,23 +17,24 @@ public final class SetOfStringType extends AbstractCollectionType<Set<String>> {
 
 	@Override
 	public boolean validate(Object value) {
-		return value instanceof Set && validateCollection((Collection) value, STRING);
+		return value instanceof Set && validateCollection((Collection) value);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Set<String> convert(Object value) {
 		if (validate(value)) {
 			return (Set<String>) value;
 		}
 
 		if (value instanceof Collection) {
-			return fromCollection((Collection) value, STRING);
+			return fromCollection((Collection) value);
 		}
 
 		if (STRING.validate(value)) {
-			return (Set<String>) STRING.toCollectionOf((String) value, createNew(), STRING);
+			return STRING.toCollectionOf((String) value, createNew(), STRING);
 		}
 
-		return new LinkedHashSet<String>(Arrays.asList(STRING.convert(value)));
+		return new LinkedHashSet<String>(singletonList(STRING.convert(value)));
 	}
 }

@@ -2,14 +2,13 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
+import static com.emarte.regurgitator.core.CoreTypes.DECIMAL;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public final class NumberType extends AbstractSingleType<Long> {
-	private static DecimalType DECIMAL = new DecimalType();
-
 	@Override
 	public Long createNew() {
-		return 0l;
+		return 0L;
 	}
 
 	@Override
@@ -34,7 +33,7 @@ public final class NumberType extends AbstractSingleType<Long> {
 		}
 
 		if (value instanceof Collection) {
-			return fromCollection((Collection) value, this);
+			return fromCollection((Collection) value);
 		}
 
 		if (DECIMAL.validate(value)) {

@@ -2,7 +2,13 @@ package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-public abstract class AbstractCollectionType<TYPE extends Collection> implements ParameterType<TYPE> {
+public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNER>> implements ParameterType<TYPE> {
+	private ParameterType<INNER> type;
+
+	public AbstractCollectionType(ParameterType<INNER> type) {
+		this.type = type;
+	}
+
 	@Override
 	public TYPE concat(TYPE prefix, TYPE suffix) {
 		TYPE result = createNew();
@@ -19,7 +25,7 @@ public abstract class AbstractCollectionType<TYPE extends Collection> implements
 		return result;
 	}
 
-	public boolean validateCollection(Collection value, ParameterType type) {
+	public boolean validateCollection(Collection value) {
 		for(Object obj: value) {
 			if(!type.validate(obj)) {
 				return false;
@@ -30,7 +36,7 @@ public abstract class AbstractCollectionType<TYPE extends Collection> implements
 	}
 
 	@Override
-	public Collection toCollectionOf(TYPE value, Collection collection, ParameterType type) {
+	public <OTHER, COLLECTION extends Collection<OTHER>> COLLECTION toCollectionOf(TYPE value, COLLECTION collection, ParameterType<OTHER> type) {
 		for(Object obj : value) {
 			collection.add(type.convert(obj));
 		}
@@ -39,7 +45,7 @@ public abstract class AbstractCollectionType<TYPE extends Collection> implements
 	}
 
 	@Override
-	public TYPE fromCollection(Collection collection, ParameterType type) {
+	public TYPE fromCollection(Collection collection) {
 		TYPE value = createNew();
 
 		for(Object obj : collection) {

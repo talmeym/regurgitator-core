@@ -23,11 +23,11 @@ public class ListOfStringTypeTest extends TypeTest {
 	public void test_convert_LIST_STRING() {
 		assertEquals(list("ABC", "DEF", "GHI"), LIST_OF_STRING.convert(list("ABC", "DEF", "GHI")));
 		assertEquals(list("ABC", "DEF", "GHI"), LIST_OF_STRING.convert("ABC,DEF,GHI"));
-		assertEquals(list("125"), LIST_OF_STRING.convert(125l));
+		assertEquals(list("125"), LIST_OF_STRING.convert(125L));
 		assertEquals(list("1.25"), LIST_OF_STRING.convert(1.25d));
-		assertEquals(list("125", "225"), LIST_OF_STRING.convert(list(125l, 225l)));
+		assertEquals(list("125", "225"), LIST_OF_STRING.convert(list(125L, 225L)));
 		assertEquals(list("1.25", "2.25", "3.25"), LIST_OF_STRING.convert(list(1.25d, 2.25d, 3.25d)));
-		assertEquals(list("125", "225"), LIST_OF_STRING.convert(set(125l, 225l)));
+		assertEquals(list("125", "225"), LIST_OF_STRING.convert(set(125L, 225L)));
 		assertEquals(list("1.25", "2.25", "3.25"), LIST_OF_STRING.convert(set(1.25d, 2.25d, 3.25d)));
 	}
 }

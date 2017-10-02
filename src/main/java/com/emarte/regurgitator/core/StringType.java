@@ -32,7 +32,7 @@ public final class StringType implements ParameterType<String> {
 		}
 
 		if (value instanceof Collection) {
-			return fromCollection((Collection) value, this);
+			return fromCollection((Collection) value);
 		}
 
 		return String.valueOf(value);
@@ -44,7 +44,7 @@ public final class StringType implements ParameterType<String> {
 	}
 
 	@Override
-	public Collection toCollectionOf(String value, Collection collection, ParameterType type) {
+	public <TYPE, COLLECTION extends Collection<TYPE>> COLLECTION toCollectionOf(String value, COLLECTION collection, ParameterType<TYPE> type) {
 		String[] strings = value.split(",");
 
 		for (String string : strings) {
@@ -55,11 +55,11 @@ public final class StringType implements ParameterType<String> {
 	}
 
 	@Override
-	public String fromCollection(Collection value, ParameterType type) {
+	public String fromCollection(Collection value) {
 		StringBuilder buffer = new StringBuilder();
 
 		for (Iterator iterator = value.iterator(); iterator.hasNext(); ) {
-			buffer.append(type.convert(iterator.next()));
+			buffer.append(convert(iterator.next()));
 
 			if (iterator.hasNext()) {
 				buffer.append(",");
@@ -70,10 +70,10 @@ public final class StringType implements ParameterType<String> {
 	}
 
 	public static String stringify(Parameter parameter) {
-		return parameter != null ? (String) STRING.convert(parameter.getValue()) : null;
+		return parameter != null ? STRING.convert(parameter.getValue()) : null;
 	}
 
 	public static String stringify(Object value) {
-		return value != null ? (String) STRING.convert(value) : null;
+		return value != null ? STRING.convert(value) : null;
 	}
 }

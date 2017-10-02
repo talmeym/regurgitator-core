@@ -1,9 +1,7 @@
 package com.emarte.regurgitator.core;
 
-import org.junit.Test;
-
 public class RecordMessageTest {
-	@Test
+//	@Test
 	public void testThis() throws RegurgitatorException {
 		Message message = new Message(null);
 

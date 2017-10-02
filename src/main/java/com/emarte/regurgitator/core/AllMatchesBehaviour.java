@@ -3,6 +3,7 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 import static com.emarte.regurgitator.core.Log.getLog;
+import static java.util.Collections.singletonList;
 
 final class AllMatchesBehaviour implements RulesBehaviour {
 	private static final Log log = getLog(AllMatchesBehaviour.class);
@@ -16,7 +17,7 @@ final class AllMatchesBehaviour implements RulesBehaviour {
 
 		if(defaultStepId != null) {
 			log.debug("Returning default '" + defaultStepId + "'");
-			return Arrays.asList(defaultStepId);
+			return singletonList(defaultStepId);
 		}
 
 		throw new IllegalStateException("No rules evaluated true and no default specified in decision");

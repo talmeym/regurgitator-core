@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.*;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static junit.framework.Assert.assertEquals;
 
 public class AllMatchesBehaviourTest {
@@ -22,7 +23,7 @@ public class AllMatchesBehaviourTest {
 	public void testDefault() {
 		List all = asList("1", "2", "3");
 		List<Object> list = toTest.evaluate(new ArrayList<Object>(), all, "4");
-		assertEquals(asList("4"), list);
+		assertEquals(singletonList("4"), list);
 	}
 
 	@Test(expected = IllegalStateException.class)

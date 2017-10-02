@@ -23,11 +23,11 @@ public class SetOfStringTypeTest extends TypeTest {
 	public void test_convert_SET_STRING() {
 		assertEquals(set("ABC", "DEF", "GHI"), SET_OF_STRING.convert(set("ABC", "DEF", "GHI")));
 		assertEquals(set("ABC", "DEF", "GHI"), SET_OF_STRING.convert("ABC,DEF,GHI,ABC"));
-		assertEquals(set("125"), SET_OF_STRING.convert(125l));
+		assertEquals(set("125"), SET_OF_STRING.convert(125L));
 		assertEquals(set("1.25"), SET_OF_STRING.convert(1.25d));
-		assertEquals(set("125", "225"), SET_OF_STRING.convert(list(125l, 225l, 125l)));
+		assertEquals(set("125", "225"), SET_OF_STRING.convert(list(125L, 225L, 125L)));
 		assertEquals(set("1.25", "2.25", "3.25"), SET_OF_STRING.convert(list(1.25d, 2.25d, 3.25d, 1.25d)));
-		assertEquals(set("125", "225"), SET_OF_STRING.convert(set(125l, 225l)));
+		assertEquals(set("125", "225"), SET_OF_STRING.convert(set(125L, 225L)));
 		assertEquals(set("1.25", "2.25", "3.25"), SET_OF_STRING.convert(set(1.25d, 2.25d, 3.25d)));
 	}
 }

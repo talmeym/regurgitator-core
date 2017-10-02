@@ -3,6 +3,8 @@ package com.emarte.regurgitator.core;
 import java.util.*;
 
 import static com.emarte.regurgitator.core.Log.getLog;
+import static java.util.Collections.unmodifiableList;
+import static java.util.Collections.unmodifiableSet;
 
 public final class Parameter implements HasId {
     private static final Log log = getLog(Parameter.class);
@@ -36,11 +38,11 @@ public final class Parameter implements HasId {
     public Object getValue() {
 		if(value instanceof Collection) {
 			if (value instanceof List) {
-				return Collections.unmodifiableList((List) value);
+				return unmodifiableList((List) value);
 			}
 
 			if (value instanceof Set) {
-				return Collections.unmodifiableSet((Set) value);
+				return unmodifiableSet((Set) value);
 			}
 		}
 

@@ -2,6 +2,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
+import static java.util.Collections.unmodifiableList;
+
 public abstract class Container<TYPE extends HasId> extends Identifiable {
 
     private final List<TYPE> items;
@@ -53,7 +55,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
     }
 
     protected List<TYPE> getAll() {
-        return Collections.unmodifiableList(items);
+        return unmodifiableList(items);
     }
 
     protected int size() {

@@ -2,8 +2,13 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-public final class ListOfStringType extends AbstractCollectionType<List<String>> {
-	private static StringType STRING = new StringType();
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
+import static java.util.Collections.singletonList;
+
+public final class ListOfStringType extends AbstractCollectionType<String, List<String>> {
+	public ListOfStringType() {
+		super(STRING);
+	}
 
 	@Override
 	public List<String> createNew() {
@@ -12,23 +17,24 @@ public final class ListOfStringType extends AbstractCollectionType<List<String>>
 
 	@Override
 	public boolean validate(Object value) {
-		return value instanceof List && validateCollection((Collection) value, STRING);
+		return value instanceof List && validateCollection((Collection) value);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<String> convert(Object value) {
 		if (validate(value)) {
 			return (List<String>) value;
 		}
 
 		if (value instanceof Collection) {
-			return fromCollection((Collection) value, STRING);
+			return fromCollection((Collection) value);
 		}
 
 		if (STRING.validate(value)) {
-			return (List<String>) STRING.toCollectionOf((String) value, createNew(), STRING);
+			return STRING.toCollectionOf((String) value, createNew(), STRING);
 		}
 
-		return Arrays.asList(STRING.convert(value));
+		return singletonList(STRING.convert(value));
 	}
 }

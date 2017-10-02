@@ -13,12 +13,12 @@ public class SizeProcessorTest {
 	@Test
 	public void testThis() throws RegurgitatorException {
 		assertEquals(3, toTest.process(Arrays.asList("one", "two", "three"), null));
-		assertEquals(3, toTest.process(new HashSet(Arrays.asList("one", "two", "three")), null));
+		assertEquals(3, toTest.process(new HashSet<String>(Arrays.asList("one", "two", "three")), null));
 	}
 
 	@Test
 	public void testMinusOne() throws RegurgitatorException {
 		assertEquals(2, toTestMinusOne.process(Arrays.asList("one", "two", "three"), null));
-		assertEquals(2, toTestMinusOne.process(new HashSet(Arrays.asList("one", "two", "three")), null));
+		assertEquals(2, toTestMinusOne.process(new HashSet<String>(Arrays.asList("one", "two", "three")), null));
 	}
 }

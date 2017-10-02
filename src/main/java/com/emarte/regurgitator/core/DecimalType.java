@@ -5,7 +5,7 @@ import java.util.Collection;
 public class DecimalType extends AbstractSingleType<Double> {
 	@Override
 	public Double createNew() {
-		return 0d;
+		return 0D;
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class DecimalType extends AbstractSingleType<Double> {
 		}
 
 		if (value instanceof Collection) {
-			return fromCollection((Collection) value, this);
+			return fromCollection((Collection) value);
 		}
 
 		return Double.parseDouble(value.toString());
