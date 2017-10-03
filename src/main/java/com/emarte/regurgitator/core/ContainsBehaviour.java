@@ -6,6 +6,7 @@ final class ContainsBehaviour implements ConditionBehaviour {
 	private static final Log log = getLog(ContainsBehaviour.class);
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
 		boolean contains = false;
 

@@ -33,10 +33,10 @@ public class Caching {
 			return new DefaultCache<TYPE>(clazz);
 		}
 
-		public class DefaultCache<TYPE> implements Cache<TYPE> {
+		private class DefaultCache<TYPE> implements Cache<TYPE> {
 			Class clazz;
 
-			public DefaultCache(Class<TYPE> clazz) {
+			private DefaultCache(Class<TYPE> clazz) {
 				this.clazz = clazz;
 			}
 
@@ -48,7 +48,7 @@ public class Caching {
 			}
 
 			@Override
-			@SuppressWarnings("unchecked cast")
+			@SuppressWarnings("unchecked")
 			public TYPE get(Object key) {
 				String trueKey = trueKey(key);
 				log.debug("Retrieving object using true key of '" + trueKey + "'");
