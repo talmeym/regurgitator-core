@@ -7,11 +7,11 @@ final class NumberGenerator implements ValueGenerator {
 
 	private final Integer max;
 
-	public NumberGenerator(Integer max) {
+	NumberGenerator(Integer max) {
 		this.max = max;
 	}
 
-	public NumberGenerator() {
+	NumberGenerator() {
 		max = null;
 	}
 

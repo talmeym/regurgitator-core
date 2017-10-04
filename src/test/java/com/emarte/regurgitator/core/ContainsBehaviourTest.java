@@ -21,9 +21,9 @@ public class ContainsBehaviourTest {
 
 		ParameterPrototype numberPrototype = new ParameterPrototype("to-test", NUMBER, REPLACE);
 
-		assertTrue(toTest.evaluate(new Parameter(numberPrototype, 5l), new Message(null), "4", true));
-		assertTrue(toTest.evaluate(new Parameter(numberPrototype, 5l), new Message(null), "6", false));
-		assertFalse(toTest.evaluate(new Parameter(numberPrototype, 5l), new Message(null), "6", true));
+		assertTrue(toTest.evaluate(new Parameter(numberPrototype, 5L), new Message(null), "4", true));
+		assertTrue(toTest.evaluate(new Parameter(numberPrototype, 5L), new Message(null), "6", false));
+		assertFalse(toTest.evaluate(new Parameter(numberPrototype, 5L), new Message(null), "6", true));
 
 		ParameterPrototype decimalPrototype = new ParameterPrototype("to-test", DECIMAL, REPLACE);
 

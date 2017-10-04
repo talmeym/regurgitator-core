@@ -3,10 +3,10 @@ package com.emarte.regurgitator.core;
 import java.io.*;
 import java.util.Collection;
 
-public class RecordMessage extends Identifiable implements Step {
+final class RecordMessage extends Identifiable implements Step {
 	private final String folderPath;
 
-	public RecordMessage(Object id, String folderPath) {
+	RecordMessage(Object id, String folderPath) {
 		super(id);
 		this.folderPath = folderPath;
 	}
@@ -46,7 +46,9 @@ public class RecordMessage extends Identifiable implements Step {
 			File file = new File(folder, System.currentTimeMillis() + ".message");
 
 			if(!file.exists()) {
-				file.createNewFile();
+				if(!file.createNewFile()) {
+					throw new IllegalStateException("Cannot create file: " + file.getAbsolutePath());
+				}
 			}
 
 			return new FileWriter(file);

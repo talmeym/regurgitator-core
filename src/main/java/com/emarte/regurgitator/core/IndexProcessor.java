@@ -8,10 +8,9 @@ import static java.lang.Long.parseLong;
 
 final class IndexProcessor extends CollectionProcessor {
 	private static final Log log = getLog(IndexProcessor.class);
-
 	private final ValueSource valueSource;
 
-	public IndexProcessor(ValueSource valueSource) {
+	IndexProcessor(ValueSource valueSource) {
 		this.valueSource = valueSource;
 	}
 
@@ -19,7 +18,7 @@ final class IndexProcessor extends CollectionProcessor {
 	public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
 		Object valueToUse = valueSource.getValue(message, log);
 
-		long index = parseLong(stringify(valueToUse)), i = 0l;
+		long index = parseLong(stringify(valueToUse)), i = 0L;
 		log.debug("Finding index '" + index + "' of value '" + collection + "'");
 
 		if(index < 0 || index >= collection.size()) {

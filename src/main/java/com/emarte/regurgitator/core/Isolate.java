@@ -7,12 +7,12 @@ final class Isolate {
 	private boolean includeSession;
 	private boolean includeParameters;
 
-	public Isolate(boolean includeSession, boolean includeParameters) {
+	Isolate(boolean includeSession, boolean includeParameters) {
 		this.includeSession = includeSession;
 		this.includeParameters = includeParameters;
 	}
 
-	public Message getNewMessage(Message message) throws RegurgitatorException {
+	Message getNewMessage(Message message) throws RegurgitatorException {
 		log.debug("Creating new message: includeSession=" + includeSession + ", includeParameters=" + includeParameters);
 		return new Message(message, includeSession, includeParameters);
 	}

@@ -39,5 +39,4 @@ final class Decision extends Container<Step> implements Step {
             step.execute(message);
         }
     }
-
 }

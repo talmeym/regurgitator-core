@@ -6,10 +6,9 @@ import static com.emarte.regurgitator.core.Log.getLog;
 
 final class SizeProcessor extends CollectionProcessor {
 	private static final Log log = getLog(SizeProcessor.class);
-
 	private boolean asIndex;
 
-	public SizeProcessor(boolean asIndex) {
+	SizeProcessor(boolean asIndex) {
 		this.asIndex = asIndex;
 	}
 

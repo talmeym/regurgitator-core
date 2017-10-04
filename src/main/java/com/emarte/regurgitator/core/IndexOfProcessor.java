@@ -6,11 +6,10 @@ import static com.emarte.regurgitator.core.Log.getLog;
 
 final class IndexOfProcessor extends CollectionProcessor {
 	private static final Log log = getLog(IndexOfProcessor.class);
-
 	private final ValueSource valueSource;
 	private final boolean last;
 
-	public IndexOfProcessor(ValueSource valueSource, boolean last) {
+	IndexOfProcessor(ValueSource valueSource, boolean last) {
 		this.valueSource = valueSource;
 		this.last = last;
 	}
@@ -20,7 +19,7 @@ final class IndexOfProcessor extends CollectionProcessor {
 		Object valueToFind = valueSource.getValue(message, log);
 
 		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + collection + "'");
-		long index = 0l, lastIndex = -1l;
+		long index = 0L, lastIndex = -1L;
 
 		for(Object object: collection) {
 			if(object.equals(valueToFind)) {
@@ -33,7 +32,7 @@ final class IndexOfProcessor extends CollectionProcessor {
 
 			index++;
 		}
+
 		return lastIndex;
 	}
-
 }

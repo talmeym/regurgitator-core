@@ -41,13 +41,10 @@ public class CreateResponseTest {
 	public void testSource() throws RegurgitatorException {
 		assertEquals(SOURCE_ID, sourceToTest.getId());
 		Message message = new Message(callback);
-
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
 		assertEquals(1, contextParameters.size());
-
 		sourceToTest.execute(message);
-
 		assertEquals(SOURCE_VALUE, callback.getValue());
 	}
 
@@ -55,12 +52,9 @@ public class CreateResponseTest {
 	public void testStatic() throws RegurgitatorException {
 		assertEquals(STATIC_ID, staticToTest.getId());
 		Message message = new Message(callback);
-
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		staticToTest.execute(message);
-
 		assertEquals(STATIC_VALUE, callback.getValue());
 	}
 
@@ -68,13 +62,10 @@ public class CreateResponseTest {
 	public void testSourceAndStatic_sourceFound() throws RegurgitatorException {
 		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
 		Message message = new Message(callback);
-
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
 		assertEquals(1, contextParameters.size());
-
 		sourceAndStaticToTest.execute(message);
-
 		assertEquals(SOURCE_VALUE, callback.getValue());
 	}
 
@@ -82,12 +73,9 @@ public class CreateResponseTest {
 	public void testSourceAndStatic_sourceNotFound() throws RegurgitatorException {
 		assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
 		Message message = new Message(callback);
-
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		sourceAndStaticToTest.execute(message);
-
 		assertEquals(STATIC_VALUE, callback.getValue());
 	}
 
@@ -95,12 +83,9 @@ public class CreateResponseTest {
 	public void testProcessor() throws RegurgitatorException {
 		assertEquals(PROCESSED_ID, processorToTest.getId());
 		Message message = new Message(callback);
-
 		Parameters contextParameters = message.getContext(PARAM_CONTEXT);
 		assertEquals(0, contextParameters.size());
-
 		processorToTest.execute(message);
-
 		assertEquals(PROCESSED_VALUE, callback.getValue());
 	}
 
@@ -115,5 +100,5 @@ public class CreateResponseTest {
 		public Object getValue() {
 			return value;
 		}
-	};
+	}
 }
