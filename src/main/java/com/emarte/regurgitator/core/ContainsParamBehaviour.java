@@ -19,7 +19,7 @@ final class ContainsParamBehaviour implements ConditionBehaviour {
 			}
 		}
 
-		log.debug("Parameter " + (contains ? "contains" : "does not contain") + " parameter '" + conditionValue + "'");
+		log.debug("Parameter " + (contains ? "contains" : "does not contain") + " parameter '{}'", conditionValue);
 		return contains == expectation;
 	}
 }

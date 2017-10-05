@@ -14,7 +14,7 @@ final class GenerateParameter extends ParameterExtractor {
     @Override
     public Object extractValue(Message message) throws RegurgitatorException {
         Object value = generator.generate();
-        log.debug("Generated value '" + value + "' for parameter '" + getPrototype().getName() + '\'');
+        log.debug("Generated value '{}' for parameter '{}'", value, getPrototype().getName());
         return value;
     }
 }

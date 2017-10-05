@@ -25,7 +25,7 @@ final class Sequence extends Container<Step> implements Step {
 		}
 
         for(Step step : getAll()) {
-            log.debug("Executing step '" + step.getId() + "'");
+            log.debug("Executing step '{}'", step.getId());
             step.execute(message);
         }
     }

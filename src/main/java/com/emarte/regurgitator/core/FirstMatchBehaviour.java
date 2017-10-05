@@ -12,12 +12,12 @@ final class FirstMatchBehaviour implements RulesBehaviour {
 	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			Object firstMatch = evaluatedStepIds.get(0);
-			log.debug("Returning first rule match '" + firstMatch + "'");
+			log.debug("Returning first rule match '{}'", firstMatch);
 			return singletonList(firstMatch);
 		}
 
 		if(defaultStepId != null) {
-			log.debug("Returning default '" + defaultStepId + "'");
+			log.debug("Returning default '{}'", defaultStepId);
 			return singletonList(defaultStepId);
 		}
 

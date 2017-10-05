@@ -19,7 +19,7 @@ final class IndexProcessor extends CollectionProcessor {
 		Object valueToUse = valueSource.getValue(message, log);
 
 		long index = parseLong(stringify(valueToUse)), i = 0L;
-		log.debug("Finding index '" + index + "' of value '" + collection + "'");
+		log.debug("Finding index '{}' of value '{}'", index, collection);
 
 		if(index < 0 || index >= collection.size()) {
 			throw new RegurgitatorException("Invalid index: " + index);

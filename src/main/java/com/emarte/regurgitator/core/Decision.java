@@ -24,10 +24,10 @@ final class Decision extends Container<Step> implements Step {
 
 		for (Rule rule : rules) {
 			if (rule.evaluate(message)) {
-				log.debug("Rule '" + rule.getId() + "\' passed");
+				log.debug("Rule '{}' passed", rule.getId());
 				evaluatedIds.add(rule.getStepId());
 			} else {
-				log.debug("Rule '" + rule.getId() + "\' did not pass");
+				log.debug("Rule '{}'' did not pass", rule.getId());
 			}
 		}
 
@@ -35,7 +35,7 @@ final class Decision extends Container<Step> implements Step {
 		List<Step> steps = get(behaviour.evaluate(evaluatedIds, ids(), defaultStepId));
 
         for(Step step : steps) {
-            log.debug("Executing '" + step.getId() + "'");
+            log.debug("Executing '{}'", step.getId());
             step.execute(message);
         }
     }

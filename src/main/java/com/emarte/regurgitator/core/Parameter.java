@@ -53,6 +53,6 @@ public final class Parameter implements HasId {
 	void merge(Parameter parameter) {
 		Object newValue = getType().convert(parameter.getValue());
 		value = parameter.getConflictPolicy().resolveConflict(value, newValue, getType());
-		log.debug("Merge resulted in value '" + value + "'");
+		log.debug("Merge resulted in value '{}'", value);
 	}
 }

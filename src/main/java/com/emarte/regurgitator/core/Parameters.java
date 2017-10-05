@@ -41,10 +41,10 @@ public class Parameters extends Container<Parameter> {
         Object id = parameter.getId();
 
         if (contains(id)) {
-            log.debug("Merging parameter '" + id + "'");
+            log.debug("Merging parameter '{}'", id);
             get(id).merge(parameter);
         } else {
-            log.debug("Adding parameter '" + id + "' with value '" + parameter.getValue() + "'");
+            log.debug("Adding parameter '{}' with value '{}'", id, parameter.getValue());
             add(parameter);
         }
     }

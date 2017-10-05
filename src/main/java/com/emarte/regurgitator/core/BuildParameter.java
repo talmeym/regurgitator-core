@@ -16,7 +16,7 @@ final class BuildParameter extends ParameterExtractor {
         log.debug("Building parameter value");
         Object value = valueBuilder.build(message);
 
-        log.debug("Built value for parameter '" + getPrototype().getName() + "'");
+        log.debug("Built value for parameter '{}'", getPrototype().getName());
         return value;
     }
 }

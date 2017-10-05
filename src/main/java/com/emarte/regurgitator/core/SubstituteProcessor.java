@@ -15,7 +15,7 @@ final class SubstituteProcessor implements ValueProcessor {
 	}
 
 	public Object process(Object value, Message message) {
-		log.debug("Substituting '" + token + "' for '" + replacement + "'");
+		log.debug("Substituting '{}' for '{}'", token, replacement);
 		return stringify(value).replaceAll(token, replacement);
 	}
 }

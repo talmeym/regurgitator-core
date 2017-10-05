@@ -6,7 +6,7 @@ import static com.emarte.regurgitator.core.Log.getLog;
 public final class Session extends Parameters {
 	private static final Log log = getLog(Session.class);
 
-    public Session(Object id) {
+    private Session(Object id) {
         super(id);
     }
 
@@ -18,11 +18,11 @@ public final class Session extends Parameters {
 		Cache<Session> cache = Caching.getCache(Session.class);
 
 		if(cache.contains(id)) {
-			log.debug("Found existing session for id '" + id + "'");
+			log.debug("Found existing session for id '{}'", id);
 			return cache.get(id);
 		}
 
-		log.debug("Creating and storing new session for id '" + id + "'");
+		log.debug("Creating and storing new session for id '{}'", id);
 		Session session = new Session(id);
 		cache.set(id, session);
 		return session;

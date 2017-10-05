@@ -13,7 +13,7 @@ final class Isolate {
 	}
 
 	Message getNewMessage(Message message) throws RegurgitatorException {
-		log.debug("Creating new message: includeSession=" + includeSession + ", includeParameters=" + includeParameters);
+		log.debug("Creating new message: includeSession={}, includeParameters={}", includeSession, includeParameters);
 		return new Message(message, includeSession, includeParameters);
 	}
 }

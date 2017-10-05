@@ -14,7 +14,7 @@ final class EqualsBehaviour implements ConditionBehaviour {
 			equals = parameter.getValue().equals(parameterType.convert(conditionValue));
 		}
 
-		log.debug("Parameter " + (equals ? "equals" : "does not equal") + " value '" + conditionValue + "'");
+		log.debug("Parameter " + (equals ? "equals" : "does not equal") + " value '{}'", conditionValue);
 		return equals == expectation;
 	}
 }

@@ -14,7 +14,7 @@ final class IdentifySession extends Identifiable implements Step {
     @Override
     public void execute(Message message) throws RegurgitatorException {
 		Object value = valueSource.getValue(message, log);
-		log.debug("Setting message session id to '" + value + '\'');
+		log.debug("Setting message session id to '{}'", value);
 
         if(!message.hasSession()) {
             message.setSessionId(value);

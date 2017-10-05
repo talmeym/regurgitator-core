@@ -21,7 +21,7 @@ final class ExtractProcessor implements ValueProcessor {
 		String string = stringify(value);
 
 		try {
-			log.debug("Extracting using '" + format + "', index='" + index + "'");
+			log.debug("Extracting using '{}', index='{}'", format, index);
 			MessageFormat formatter = new MessageFormat(format);
 			Object[] objects = formatter.parse(string);
 

@@ -11,13 +11,13 @@ final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
 	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
 			List<Object> ids = idAndSubsequent(evaluatedStepIds.get(0), allStepIds);
-			log.debug("Returning first rule match and subsequent steps '" + ids + "'");
+			log.debug("Returning first rule match and subsequent steps '{}'", ids);
 			return ids;
 		}
 
 		if(defaultStepId != null) {
 			List<Object> ids = idAndSubsequent(defaultStepId, allStepIds);
-			log.debug("Returning default and subsequent steps '" + ids + "'");
+			log.debug("Returning default and subsequent steps '{}'", ids);
 			return ids;
 		}
 

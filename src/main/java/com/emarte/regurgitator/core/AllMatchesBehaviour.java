@@ -11,12 +11,12 @@ final class AllMatchesBehaviour implements RulesBehaviour {
 	@Override
 	public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
 		if(evaluatedStepIds.size() > 0) {
-			log.debug("Returning all rule matches '" + evaluatedStepIds + "'");
+			log.debug("Returning all rule matches '{}'", evaluatedStepIds);
 			return evaluatedStepIds;
 		}
 
 		if(defaultStepId != null) {
-			log.debug("Returning default '" + defaultStepId + "'");
+			log.debug("Returning default '{}'", defaultStepId);
 			return singletonList(defaultStepId);
 		}
 

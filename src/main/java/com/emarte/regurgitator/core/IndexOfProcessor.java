@@ -18,7 +18,7 @@ final class IndexOfProcessor extends CollectionProcessor {
 	public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
 		Object valueToFind = valueSource.getValue(message, log);
 
-		log.debug("Finding " + (last ? "last " : "") + "index of '" + valueToFind + "' in value '" + collection + "'");
+		log.debug("Finding " + (last ? "last " : "") + "index of '{}' in value '{}'", valueToFind, collection);
 		long index = 0L, lastIndex = -1L;
 
 		for(Object object: collection) {

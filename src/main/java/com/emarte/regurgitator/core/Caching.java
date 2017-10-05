@@ -15,7 +15,7 @@ public class Caching {
 			Cache<TYPE> cache = provider.getCache(clazz);
 
 			if(cache != null) {
-				log.debug("Using provided cache: " + provider.getClass().getName());
+				log.debug("Using provided cache: {}", provider.getClass().getName());
 				return cache;
 			}
 		}
@@ -43,7 +43,7 @@ public class Caching {
 			@Override
 			public boolean contains(Object key) {
 				String trueKey = trueKey(key);
-				log.debug("Checking presence of true key '" + trueKey + "'");
+				log.debug("Checking presence of true key '{}'", trueKey);
 				return DEFAULT_CACHE_DATA.containsKey(trueKey);
 			}
 
@@ -51,14 +51,14 @@ public class Caching {
 			@SuppressWarnings("unchecked")
 			public TYPE get(Object key) {
 				String trueKey = trueKey(key);
-				log.debug("Retrieving object using true key of '" + trueKey + "'");
+				log.debug("Retrieving object using true key of '{}'", trueKey);
 				return (TYPE) DEFAULT_CACHE_DATA.get(trueKey);
 			}
 
 			@Override
 			public void set(Object key, TYPE value) {
 				String trueKey = trueKey(key);
-				log.debug("Storing object with true key of '" + trueKey + "'");
+				log.debug("Storing object with true key of '{}'", trueKey);
 				DEFAULT_CACHE_DATA.put(trueKey, value);
 			}
 

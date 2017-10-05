@@ -22,10 +22,10 @@ final class Rule extends Container<Condition> {
 
 		for (Condition condition : getAll()) {
             if (!condition.isMet(message)) {
-                log.debug("Condition '" + condition.getId() + "' not met");
+                log.debug("Condition '{}' not met", condition.getId());
                 return false;
             } else {
-                log.debug("Condition '" + condition.getId() + "' met");
+                log.debug("Condition '{}' met", condition.getId());
 			}
         }
 
