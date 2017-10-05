@@ -6,45 +6,45 @@ import static com.emarte.regurgitator.core.CoreTypes.DECIMAL;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 public final class NumberType extends AbstractSingleType<Long> {
-	@Override
-	public Long createNew() {
-		return 0L;
-	}
+    @Override
+    public Long createNew() {
+        return 0L;
+    }
 
-	@Override
-	public Long concat(Long prefix, Long suffix) {
-		return prefix + suffix;
-	}
+    @Override
+    public Long concat(Long prefix, Long suffix) {
+        return prefix + suffix;
+    }
 
-	@Override
-	public Long remove(Long existingValue, Long newValue) {
-		return existingValue - newValue;
-	}
+    @Override
+    public Long remove(Long existingValue, Long newValue) {
+        return existingValue - newValue;
+    }
 
-	@Override
-	public boolean validate(Object value) {
-		return value instanceof Long;
-	}
+    @Override
+    public boolean validate(Object value) {
+        return value instanceof Long;
+    }
 
-	@Override
-	public Long convert(Object value) {
-		if (validate(value)) {
-			return (Long) value;
-		}
+    @Override
+    public Long convert(Object value) {
+        if (validate(value)) {
+            return (Long) value;
+        }
 
-		if (value instanceof Collection) {
-			return fromCollection((Collection) value);
-		}
+        if (value instanceof Collection) {
+            return fromCollection((Collection) value);
+        }
 
-		if (DECIMAL.validate(value)) {
-			return Math.round((Double) value);
-		}
+        if (DECIMAL.validate(value)) {
+            return Math.round((Double) value);
+        }
 
-		return Long.parseLong(stringify(value));
-	}
+        return Long.parseLong(stringify(value));
+    }
 
-	@Override
-	public boolean contains(Long container, Long contained) {
-		return container >= contained;
-	}
+    @Override
+    public boolean contains(Long container, Long contained) {
+        return container >= contained;
+    }
 }

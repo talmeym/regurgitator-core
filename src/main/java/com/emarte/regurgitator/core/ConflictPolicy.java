@@ -3,7 +3,7 @@ package com.emarte.regurgitator.core;
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public enum ConflictPolicy {
-	LEAVE {
+    LEAVE {
         @Override
         public Object resolveConflict(Object existingValue, Object newValue, ParameterType type) {
             type.validate(existingValue);

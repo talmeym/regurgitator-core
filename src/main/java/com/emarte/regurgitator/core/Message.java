@@ -16,11 +16,11 @@ public class Message {
         this.callback = message.callback;
 
         if(includeSession && message.hasSession()) {
-			contextData.put(SESSION_CONTEXT, message.getSession());
+            contextData.put(SESSION_CONTEXT, message.getSession());
         }
 
         if(includeParameters && message.contextData.containsKey(PARAMETER_CONTEXT)) {
-			contextData.put(PARAMETER_CONTEXT, message.contextData.get(PARAMETER_CONTEXT));
+            contextData.put(PARAMETER_CONTEXT, message.contextData.get(PARAMETER_CONTEXT));
         }
     }
 
@@ -28,18 +28,18 @@ public class Message {
         contextData.put(SESSION_CONTEXT, Session.getSession(sessionId));
     }
 
-	public boolean hasSession() {
-		return contextData.containsKey(SESSION_CONTEXT);
-	}
+    public boolean hasSession() {
+        return contextData.containsKey(SESSION_CONTEXT);
+    }
 
     public Session getSession() {
-		Parameters session = contextData.get(SESSION_CONTEXT);
+        Parameters session = contextData.get(SESSION_CONTEXT);
 
-		if(session == null) {
+        if(session == null) {
             throw new IllegalArgumentException("Session not found");
-		}
+        }
 
-		return (Session) session;
+        return (Session) session;
     }
 
     public Parameters getParameters() {
@@ -66,19 +66,19 @@ public class Message {
         return contextData.get(context);
     }
 
-	public Collection<Parameters> contexts() {
-		return contextData.values();
-	}
+    public Collection<Parameters> contexts() {
+        return contextData.values();
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder buffer = new StringBuilder("message[");
+    @Override
+    public String toString() {
+        StringBuilder buffer = new StringBuilder("message[");
 
-		for(Parameters context: contextData.values()) {
-			buffer.append(context.toString()).append(",");
-		}
+        for(Parameters context: contextData.values()) {
+            buffer.append(context.toString()).append(",");
+        }
 
-		buffer.append("]");
-		return buffer.toString();
-	}
+        buffer.append("]");
+        return buffer.toString();
+    }
 }

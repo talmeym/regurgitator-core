@@ -32,15 +32,15 @@ public final class FileUtil {
         }
     }
 
-	public static String streamToString(InputStream input) throws IOException {
-		ByteArrayOutputStream output = new ByteArrayOutputStream();
-		byte[] buffer = new byte[1024];
-		int bytesRead = 0;
+    public static String streamToString(InputStream input) throws IOException {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int bytesRead = 0;
 
-		while((bytesRead = input.read(buffer)) != -1) {
-			output.write(buffer, 0, bytesRead);
-		}
+        while((bytesRead = input.read(buffer)) != -1) {
+            output.write(buffer, 0, bytesRead);
+        }
 
-		return new String(output.toByteArray());
-	}
+        return new String(output.toByteArray());
+    }
 }

@@ -22,7 +22,7 @@ public class Parameters extends Container<Parameter> {
     }
 
     public void setValue(String name, ParameterType type, ConflictPolicy policy, Object value) {
-		setValue(new Parameter(new ParameterPrototype(name, type, policy), value));
+        setValue(new Parameter(new ParameterPrototype(name, type, policy), value));
     }
 
     public Object getValue(Object id) {
@@ -49,9 +49,9 @@ public class Parameters extends Container<Parameter> {
         }
     }
 
-	public int size() {
-		return super.size();
-	}
+    public int size() {
+        return super.size();
+    }
 
     public String toString() {
         List<Parameter> all = getAll();

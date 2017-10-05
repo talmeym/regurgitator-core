@@ -14,9 +14,9 @@ public class ContextLocation {
     }
 
     public ContextLocation(String location) {
-		boolean contextSpecified = location.contains(SEPARATOR);
-		context = contextSpecified ? location.substring(0, location.indexOf(SEPARATOR)) : PARAMETER_CONTEXT;
-		name = contextSpecified ? location.substring(location.indexOf(SEPARATOR) + 1) : location;
+        boolean contextSpecified = location.contains(SEPARATOR);
+        context = contextSpecified ? location.substring(0, location.indexOf(SEPARATOR)) : PARAMETER_CONTEXT;
+        name = contextSpecified ? location.substring(location.indexOf(SEPARATOR) + 1) : location;
     }
 
     public String getContext() {

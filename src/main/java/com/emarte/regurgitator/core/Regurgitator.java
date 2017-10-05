@@ -15,7 +15,7 @@ public final class Regurgitator extends Identifiable {
         try {
             log.info("Incoming message");
             rootStep.execute(message);
-			log.info("Message processed");
+            log.info("Message processed");
         } catch(RegurgitatorException re) {
             throw re;
         } catch (Exception e) {

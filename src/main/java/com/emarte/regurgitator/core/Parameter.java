@@ -35,24 +35,24 @@ public final class Parameter implements HasId {
         return prototype.getConflictPolicy();
     }
 
-	@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public Object getValue() {
-		if(value instanceof Collection) {
-			if (value instanceof List) {
-				return unmodifiableList((List) value);
-			}
+        if(value instanceof Collection) {
+            if (value instanceof List) {
+                return unmodifiableList((List) value);
+            }
 
-			if (value instanceof Set) {
-				return unmodifiableSet((Set) value);
-			}
-		}
+            if (value instanceof Set) {
+                return unmodifiableSet((Set) value);
+            }
+        }
 
         return value;
     }
 
-	void merge(Parameter parameter) {
-		Object newValue = getType().convert(parameter.getValue());
-		value = parameter.getConflictPolicy().resolveConflict(value, newValue, getType());
-		log.debug("Merge resulted in value '{}'", value);
-	}
+    void merge(Parameter parameter) {
+        Object newValue = getType().convert(parameter.getValue());
+        value = parameter.getConflictPolicy().resolveConflict(value, newValue, getType());
+        log.debug("Merge resulted in value '{}'", value);
+    }
 }

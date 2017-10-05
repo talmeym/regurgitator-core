@@ -28,9 +28,9 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
         itemsById.put(item.getId(), item);
     }
 
-	protected List<Object> ids() {
-		return new ArrayList<Object>(itemsById.keySet());
-	}
+    protected List<Object> ids() {
+        return new ArrayList<Object>(itemsById.keySet());
+    }
 
     protected boolean contains(Object id) {
         return itemsById.containsKey(id);
