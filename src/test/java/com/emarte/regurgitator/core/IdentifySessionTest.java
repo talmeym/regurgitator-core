@@ -8,27 +8,27 @@ import static junit.framework.Assert.assertEquals;
 
 public class IdentifySessionTest {
 
-	private static final String PARAM_VALUE = "value";
-	private static final String CONTEXT = "context";
-	private static final String PARAM_NAME = "name";
+    private static final String PARAM_VALUE = "value";
+    private static final String CONTEXT = "context";
+    private static final String PARAM_NAME = "name";
 
-	private IdentifySession toTest = new IdentifySession("ID", new ValueSource(new ContextLocation(CONTEXT, PARAM_NAME), null));
+    private IdentifySession toTest = new IdentifySession("ID", new ValueSource(new ContextLocation(CONTEXT, PARAM_NAME), null));
 
-	@Test
-	public void testHappyPath() throws RegurgitatorException {
-		Message message = new Message(null);
-		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
+    @Test
+    public void testHappyPath() throws RegurgitatorException {
+        Message message = new Message(null);
+        message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
 
-		toTest.execute(message);
+        toTest.execute(message);
 
-		assertEquals(PARAM_VALUE, message.getSession().getId());
-	}
+        assertEquals(PARAM_VALUE, message.getSession().getId());
+    }
 
-	@Test(expected = RegurgitatorException.class)
-	public void testUnhappyPath() throws RegurgitatorException {
-		Message message = new Message(null);
-		message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
+    @Test(expected = RegurgitatorException.class)
+    public void testUnhappyPath() throws RegurgitatorException {
+        Message message = new Message(null);
+        message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
 
-		toTest.execute(message);
-	}
+        toTest.execute(message);
+    }
 }
