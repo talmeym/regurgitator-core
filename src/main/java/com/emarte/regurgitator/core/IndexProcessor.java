@@ -31,6 +31,6 @@ final class IndexProcessor extends CollectionProcessor {
             }
         }
 
-        throw new RegurgitatorException("should never reach here");
+        throw new RegurgitatorException("Should never reach here");
     }
 }
