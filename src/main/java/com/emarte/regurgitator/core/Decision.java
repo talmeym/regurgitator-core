@@ -27,7 +27,7 @@ final class Decision extends Container<Step> implements Step {
                 log.debug("Rule '{}' passed", rule.getId());
                 evaluatedIds.add(rule.getStepId());
             } else {
-                log.debug("Rule '{}'' did not pass", rule.getId());
+                log.debug("Rule '{}' did not pass", rule.getId());
             }
         }
 
