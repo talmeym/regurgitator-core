@@ -23,7 +23,7 @@ public final class ParameterPrototype {
         return conflictPolicy;
     }
 
-    public void validateValue(Object value) {
+    void validateValue(Object value) {
         if (!type.validate(value)) {
             throw new IllegalArgumentException("Invalid type: name=" + getName() + " type=" + type.getClass().getName() + ", argClass=" + value.getClass().getName());
         }

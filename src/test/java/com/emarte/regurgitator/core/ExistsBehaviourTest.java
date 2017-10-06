@@ -14,4 +14,5 @@ public class ExistsBehaviourTest {
         assertTrue(toTest.evaluate(new Parameter(new ParameterPrototype("to-test", STRING, REPLACE), "value"), new Message(null), "true", false));
         assertTrue(toTest.evaluate(null, new Message(null), "false", true));
         assertFalse(toTest.evaluate(null, new Message(null), "true", false));
-    }}
+    }
+}
