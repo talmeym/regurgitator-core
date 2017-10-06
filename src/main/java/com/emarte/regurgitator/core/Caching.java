@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import java.util.*;
@@ -26,7 +30,7 @@ public class Caching {
 
     private static class DefaultCacheProvider implements CacheProvider {
         private static final Log log = getLog(DefaultCacheProvider.class);
-        private static Map<Object, Object> DEFAULT_CACHE_DATA = new HashMap<Object, Object>();
+        private static final Map<Object, Object> DEFAULT_CACHE_DATA = new HashMap<Object, Object>();
 
         @Override
         public <TYPE> Cache<TYPE> getCache(Class<TYPE> clazz) {
@@ -34,7 +38,7 @@ public class Caching {
         }
 
         private class DefaultCache<TYPE> implements Cache<TYPE> {
-            Class clazz;
+            private final Class clazz;
 
             private DefaultCache(Class<TYPE> clazz) {
                 this.clazz = clazz;

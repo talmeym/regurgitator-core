@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import java.util.*;
@@ -6,7 +10,7 @@ import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static java.util.Collections.singletonList;
 
 public final class ListOfStringType extends AbstractCollectionType<String, List<String>> {
-    public ListOfStringType() {
+    ListOfStringType() {
         super(STRING);
     }
 

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import java.io.*;
@@ -35,7 +39,7 @@ public final class FileUtil {
     public static String streamToString(InputStream input) throws IOException {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
-        int bytesRead = 0;
+        int bytesRead;
 
         while((bytesRead = input.read(buffer)) != -1) {
             output.write(buffer, 0, bytesRead);

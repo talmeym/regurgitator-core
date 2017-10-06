@@ -1,9 +1,13 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import java.util.Random;
 
 final class NumberGenerator implements ValueGenerator {
-    private static Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
 
     private final Integer max;
 

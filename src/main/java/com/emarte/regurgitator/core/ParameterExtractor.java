@@ -1,9 +1,13 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 public abstract class ParameterExtractor extends Identifiable implements Step {
     private final ParameterPrototype prototype;
     private final String context;
-    private ValueProcessor processor;
+    private final ValueProcessor processor;
 
     public ParameterExtractor(Object id, ParameterPrototype prototype, String context, ValueProcessor processor) {
         super(id);

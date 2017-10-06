@@ -1,9 +1,13 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import java.util.Collection;
 
 public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNER>> implements ParameterType<TYPE> {
-    private ParameterType<INNER> type;
+    private final ParameterType<INNER> type;
 
     public AbstractCollectionType(ParameterType<INNER> type) {
         this.type = type;
