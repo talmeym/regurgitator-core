@@ -9,19 +9,19 @@ import java.io.*;
 public final class FileUtil {
     public static final String CLASSPATH_PREFIX = "classpath:";
 
-    public static InputStream getInputStreamForFile(String filepath) throws IOException {
-        if (filepath.startsWith(CLASSPATH_PREFIX)) {
-            InputStream inputStream = FileUtil.class.getResourceAsStream(filepath.substring(CLASSPATH_PREFIX.length()));
-            checkInputStream(inputStream, filepath);
+    public static InputStream getInputStreamForFile(String filePath) throws IOException {
+        if (filePath.startsWith(CLASSPATH_PREFIX)) {
+            InputStream inputStream = FileUtil.class.getResourceAsStream(filePath.substring(CLASSPATH_PREFIX.length()));
+            checkInputStream(inputStream, filePath);
             return inputStream;
         }
 
-        return new FileInputStream(filepath);
+        return new FileInputStream(filePath);
     }
 
-    private static void checkInputStream(InputStream inputStream, String filepath) throws IOException {
+    private static void checkInputStream(InputStream inputStream, String filePath) throws IOException {
         if (inputStream == null) {
-            throw new FileNotFoundException("File not found on classpath: " + filepath);
+            throw new FileNotFoundException("File not found on classpath: " + filePath);
         }
         if (inputStream.available() == 0) {
             throw new IllegalArgumentException("File invalid - file is empty");
@@ -30,7 +30,7 @@ public final class FileUtil {
 
     public static void checkResource(String templateName) {
         try {
-            FileUtil.getInputStreamForFile(templateName);
+            getInputStreamForFile(templateName);
         } catch (IOException ioe) {
             throw new IllegalArgumentException("Error with resource: " + ioe.getMessage());
         }
