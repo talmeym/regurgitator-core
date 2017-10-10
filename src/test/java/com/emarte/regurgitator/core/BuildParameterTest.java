@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -14,16 +18,16 @@ public class BuildParameterTest {
     private static final String PARAM_CONTEXT = "context";
     private static final String BUILT_VALUE = "builtValue";
 
-    private ParameterPrototype prototype = new ParameterPrototype(PARAM_NAME, PARAM_TYPE, PARAM_CONFLICT_POL);
+    private final ParameterPrototype prototype = new ParameterPrototype(PARAM_NAME, PARAM_TYPE, PARAM_CONFLICT_POL);
 
-    private ValueBuilder valueBuilder = new ValueBuilder() {
+    private final ValueBuilder valueBuilder = new ValueBuilder() {
         @Override
         public Object build(Message parameters) throws RegurgitatorException {
             return BUILT_VALUE;
         }
     };
 
-    private BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, null);
+    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, null);
 
     @Test
     public void testBasics() throws RegurgitatorException {

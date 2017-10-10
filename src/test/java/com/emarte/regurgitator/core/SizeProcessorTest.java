@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -7,8 +11,8 @@ import java.util.*;
 import static junit.framework.Assert.assertEquals;
 
 public class SizeProcessorTest {
-    private SizeProcessor toTest = new SizeProcessor(false);
-    private SizeProcessor toTestMinusOne = new SizeProcessor(true);
+    private final SizeProcessor toTest = new SizeProcessor(false);
+    private final SizeProcessor toTestMinusOne = new SizeProcessor(true);
 
     @Test
     public void testThis() throws RegurgitatorException {

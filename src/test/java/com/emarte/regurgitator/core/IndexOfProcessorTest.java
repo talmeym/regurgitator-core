@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -8,9 +12,9 @@ import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertEquals;
 
 public class IndexOfProcessorTest {
-    private IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), null), false);
-    private IndexOfProcessor staticToTest = new IndexOfProcessor(new ValueSource(null, "THAT"), false);
-    private IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), "THAT"), false);
+    private final IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), null), false);
+    private final IndexOfProcessor staticToTest = new IndexOfProcessor(new ValueSource(null, "THAT"), false);
+    private final IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), "THAT"), false);
 
     @Test
     public void testSource() throws RegurgitatorException {

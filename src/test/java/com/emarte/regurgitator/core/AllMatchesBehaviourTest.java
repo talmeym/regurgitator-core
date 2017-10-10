@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -9,7 +13,7 @@ import static java.util.Collections.singletonList;
 import static junit.framework.Assert.assertEquals;
 
 public class AllMatchesBehaviourTest {
-    private static AllMatchesBehaviour toTest = new AllMatchesBehaviour();
+    private static final AllMatchesBehaviour toTest = new AllMatchesBehaviour();
 
     @Test
     public void testHappyPath() {

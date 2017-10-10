@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -11,11 +15,11 @@ public class GenerateParameterTest {
     private static final String PARAM_CONTEXT = "context";
     private static final String SOURCE_ID = "sourceId";
 
-    private ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, CoreTypes.NUMBER, PARAM_CONFLICT_POL);
+    private final ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, CoreTypes.NUMBER, PARAM_CONFLICT_POL);
 
-    private static ValueGenerator NUMBER = new NumberGenerator();
+    private static final ValueGenerator NUMBER = new NumberGenerator();
 
-    private GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, null);
+    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, null);
 
     @Test
     public void testThis() throws RegurgitatorException {

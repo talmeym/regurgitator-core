@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -8,8 +12,8 @@ import static junit.framework.Assert.*;
 
 public class RuleTest {
 
-    private static List<Condition> passingConditions = new ArrayList<Condition>();
-    private static List<Condition> failingConditions = new ArrayList<Condition>();
+    private static final List<Condition> passingConditions = new ArrayList<Condition>();
+    private static final List<Condition> failingConditions = new ArrayList<Condition>();
 
     private static final ContextLocation CONTEXT_LOCATION = new ContextLocation("context:location");
 
@@ -25,8 +29,8 @@ public class RuleTest {
         failingConditions.add(new Condition("6", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
     }
 
-    private Rule passingToTest = new Rule("7", passingConditions, "9");
-    private Rule failingToTest = new Rule("8", failingConditions, "10");
+    private final Rule passingToTest = new Rule("7", passingConditions, "9");
+    private final Rule failingToTest = new Rule("8", failingConditions, "10");
 
     @Test
     public void testPass() throws RegurgitatorException {

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -9,7 +13,7 @@ import static com.emarte.regurgitator.core.CoreTypes.*;
 import static junit.framework.Assert.*;
 
 public class ContainsBehaviourTest {
-    private static ContainsBehaviour toTest = new ContainsBehaviour();
+    private static final ContainsBehaviour toTest = new ContainsBehaviour();
 
     @Test
     public void testThis() {

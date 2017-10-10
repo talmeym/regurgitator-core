@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -19,13 +23,13 @@ public class CreateResponseTest {
     private static final String SOURCE_AND_STATIC_ID = "sourceAndStatic";
     private static final String PROCESSED_ID = "processedId";
 
-    private ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
+    private final ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-    private CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), null);
-    private CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), null);
-    private CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), null);
+    private final CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), null);
+    private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), null);
+    private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), null);
 
-    private ValueProcessor valueProcessor = new ValueProcessor() {
+    private final ValueProcessor valueProcessor = new ValueProcessor() {
         @Override
         public Object process(Object value, Message message) throws RegurgitatorException {
             return PROCESSED_VALUE;
@@ -33,9 +37,9 @@ public class CreateResponseTest {
 
     };
 
-    private CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), valueProcessor);
+    private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), valueProcessor);
 
-    private CollectingResponseCallBack callback = new CollectingResponseCallBack();
+    private final CollectingResponseCallBack callback = new CollectingResponseCallBack();
 
     @Test
     public void testSource() throws RegurgitatorException {

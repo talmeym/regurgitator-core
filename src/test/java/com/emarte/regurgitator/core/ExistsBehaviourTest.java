@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2017 Miles Talmey.
+ * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
+ */
 package com.emarte.regurgitator.core;
 
 import org.junit.Test;
@@ -7,7 +11,7 @@ import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.*;
 
 public class ExistsBehaviourTest {
-    private static ExistsBehaviour toTest = new ExistsBehaviour();
+    private static final ExistsBehaviour toTest = new ExistsBehaviour();
 
     @Test
     public void testExists() throws RegurgitatorException {
