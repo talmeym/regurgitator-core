@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
 
 import static junit.framework.Assert.assertEquals;
 

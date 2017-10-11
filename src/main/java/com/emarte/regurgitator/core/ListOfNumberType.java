@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.CoreTypes.*;
+import static com.emarte.regurgitator.core.CoreTypes.NUMBER;
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static java.util.Collections.singletonList;
 
 public final class ListOfNumberType extends AbstractCollectionType<Long, List<Long>> {

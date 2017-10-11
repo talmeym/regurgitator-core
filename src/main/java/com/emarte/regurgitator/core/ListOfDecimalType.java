@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.CoreTypes.*;
+import static com.emarte.regurgitator.core.CoreTypes.DECIMAL;
+import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static java.util.Collections.singletonList;
 
 public final class ListOfDecimalType extends AbstractCollectionType<Double, List<Double>> {

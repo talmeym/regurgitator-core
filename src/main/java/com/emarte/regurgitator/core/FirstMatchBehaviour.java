@@ -4,7 +4,7 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.List;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static java.util.Collections.singletonList;

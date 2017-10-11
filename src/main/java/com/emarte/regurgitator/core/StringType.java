@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 

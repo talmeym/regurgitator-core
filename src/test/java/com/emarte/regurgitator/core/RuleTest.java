@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static junit.framework.Assert.*;
 

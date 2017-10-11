@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.text.*;
+import java.text.MessageFormat;
+import java.text.ParseException;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;

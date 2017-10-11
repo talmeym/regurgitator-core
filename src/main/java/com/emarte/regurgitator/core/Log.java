@@ -4,7 +4,8 @@
  */
 package com.emarte.regurgitator.core;
 
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Log {
     private Object id;

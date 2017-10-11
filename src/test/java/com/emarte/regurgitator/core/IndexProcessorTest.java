@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.emarte.regurgitator.core.CoreTypes.NUMBER;
 import static junit.framework.Assert.assertEquals;

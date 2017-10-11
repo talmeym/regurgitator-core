@@ -6,7 +6,8 @@ package com.emarte.regurgitator.core;
 
 import java.util.*;
 
-import static com.emarte.regurgitator.core.ContextLocation.*;
+import static com.emarte.regurgitator.core.ContextLocation.PARAMETER_CONTEXT;
+import static com.emarte.regurgitator.core.ContextLocation.SESSION_CONTEXT;
 
 public class Message {
     private final Map<String, Parameters> contextData = new HashMap<String, Parameters>();
