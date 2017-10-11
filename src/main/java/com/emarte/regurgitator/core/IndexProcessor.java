@@ -10,11 +10,11 @@ import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static java.lang.Long.parseLong;
 
-final class IndexProcessor extends CollectionProcessor {
+public final class IndexProcessor extends CollectionProcessor {
     private static final Log log = getLog(IndexProcessor.class);
     private final ValueSource valueSource;
 
-    IndexProcessor(ValueSource valueSource) {
+    public IndexProcessor(ValueSource valueSource) {
         this.valueSource = valueSource;
     }
 

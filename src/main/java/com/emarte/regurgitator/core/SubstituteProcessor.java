@@ -7,13 +7,13 @@ package com.emarte.regurgitator.core;
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
-final class SubstituteProcessor implements ValueProcessor {
+public final class SubstituteProcessor implements ValueProcessor {
     private static final Log log = getLog(SubstituteProcessor.class);
 
     private final String token;
     private final String replacement;
 
-    SubstituteProcessor(String token, String replacement) {
+    public SubstituteProcessor(String token, String replacement) {
         this.token = token;
         this.replacement = replacement;
     }

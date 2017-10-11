@@ -6,11 +6,11 @@ package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class BuildParameter extends ParameterExtractor {
+public final class BuildParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueBuilder valueBuilder;
 
-    BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, ValueProcessor processor) {
+    public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, ValueProcessor processor) {
         super(id, prototype, context, processor);
         this.valueBuilder = builder;
     }

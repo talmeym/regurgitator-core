@@ -6,11 +6,11 @@ package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class IdentifySession extends Identifiable implements Step {
+public final class IdentifySession extends Identifiable implements Step {
     private final Log log = getLog(this);
     private final ValueSource valueSource;
 
-    IdentifySession(Object id, ValueSource valueSource) {
+    public IdentifySession(Object id, ValueSource valueSource) {
         super(id);
         this.valueSource = valueSource;
     }

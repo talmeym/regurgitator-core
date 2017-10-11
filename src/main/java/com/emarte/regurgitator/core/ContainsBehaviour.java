@@ -6,7 +6,7 @@ package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class ContainsBehaviour implements ConditionBehaviour {
+public final class ContainsBehaviour implements ConditionBehaviour {
     private static final Log log = getLog(ContainsBehaviour.class);
 
     @Override

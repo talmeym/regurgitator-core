@@ -6,16 +6,16 @@ package com.emarte.regurgitator.core;
 
 import java.util.Random;
 
-final class NumberGenerator implements ValueGenerator {
+public final class NumberGenerator implements ValueGenerator {
     private static final Random RANDOM = new Random();
 
     private final Integer max;
 
-    NumberGenerator(Integer max) {
+    public NumberGenerator(Integer max) {
         this.max = max;
     }
 
-    NumberGenerator() {
+    public NumberGenerator() {
         max = null;
     }
 

@@ -40,7 +40,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
         return itemsById.containsKey(id);
     }
 
-    protected TYPE get(Object id) {
+    public TYPE get(Object id) {
         return itemsById.get(id);
     }
 

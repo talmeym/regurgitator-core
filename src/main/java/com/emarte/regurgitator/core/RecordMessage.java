@@ -7,10 +7,10 @@ package com.emarte.regurgitator.core;
 import java.io.*;
 import java.util.Collection;
 
-final class RecordMessage extends Identifiable implements Step {
+public final class RecordMessage extends Identifiable implements Step {
     private final String folderPath;
 
-    RecordMessage(Object id, String folderPath) {
+    public RecordMessage(Object id, String folderPath) {
         super(id);
         this.folderPath = folderPath;
     }

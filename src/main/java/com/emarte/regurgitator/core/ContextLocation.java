@@ -8,7 +8,6 @@ public class ContextLocation {
     private static final String SEPARATOR = ":";
     public static final String SESSION_CONTEXT = "session";
     public static final String PARAMETER_CONTEXT = "parameters";
-
     private final String context;
     private final String name;
 

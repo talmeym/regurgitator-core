@@ -11,7 +11,7 @@ public final class CreateResponse extends Identifiable implements Step {
     private final ValueSource valueSource;
     private final ValueProcessor valueProcessor;
 
-    CreateResponse(String id, ValueSource valueSource, ValueProcessor valueProcessor) {
+    public CreateResponse(String id, ValueSource valueSource, ValueProcessor valueProcessor) {
         super(id);
         this.valueSource = valueSource;
         this.valueProcessor = valueProcessor;

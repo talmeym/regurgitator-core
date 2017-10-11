@@ -9,7 +9,7 @@ import java.util.List;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
+public final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
     private static final Log log = getLog(FirstMatchOnwardsBehaviour.class);
 
     @Override

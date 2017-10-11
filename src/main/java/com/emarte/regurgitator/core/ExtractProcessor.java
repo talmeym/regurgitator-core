@@ -10,13 +10,12 @@ import java.text.ParseException;
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
-final class ExtractProcessor implements ValueProcessor {
+public final class ExtractProcessor implements ValueProcessor {
     private static final Log log = getLog(ExtractProcessor.class);
-
     private final String format;
     private final int index;
 
-    ExtractProcessor(String format, int index) {
+    public ExtractProcessor(String format, int index) {
         this.format = format;
         this.index = index;
     }

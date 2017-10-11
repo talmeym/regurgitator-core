@@ -6,14 +6,14 @@ package com.emarte.regurgitator.core;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class Condition extends Identifiable {
+public final class Condition extends Identifiable {
     private final Log log = getLog(this);
     private final ContextLocation location;
     private final String conditionValue;
     private final boolean expectation;
     private final ConditionBehaviour behaviour;
 
-    Condition(Object id, ContextLocation location, String conditionValue, boolean expectation, ConditionBehaviour behaviour) {
+    public Condition(Object id, ContextLocation location, String conditionValue, boolean expectation, ConditionBehaviour behaviour) {
         super(id);
         this.location = location;
         this.conditionValue = conditionValue;

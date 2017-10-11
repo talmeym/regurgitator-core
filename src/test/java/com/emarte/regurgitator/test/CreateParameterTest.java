@@ -2,8 +2,9 @@
  * Copyright (C) 2017 Miles Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
-package com.emarte.regurgitator.core;
+package com.emarte.regurgitator.test;
 
+import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
@@ -52,7 +53,7 @@ public class CreateParameterTest {
         assertEquals(SOURCE_ID, sourceToTest.getId());
         Message message = new Message(null);
         Parameters contextParameters = message.getContext(PARAM_CONTEXT);
-        contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
+        contextParameters.setValue(new Parameter(sourcePrototype, SOURCE_VALUE));
         assertEquals(1, contextParameters.size());
         sourceToTest.execute(message);
         assertParameter(contextParameters, 2, DEST_NAME, STRING, SOURCE_VALUE);
@@ -73,7 +74,7 @@ public class CreateParameterTest {
         assertEquals(SOURCE_AND_STATIC_ID, sourceAndStaticToTest.getId());
         Message message = new Message(null);
         Parameters contextParameters = message.getContext(PARAM_CONTEXT);
-        contextParameters.add(new Parameter(sourcePrototype, SOURCE_VALUE));
+        contextParameters.setValue(new Parameter(sourcePrototype, SOURCE_VALUE));
         assertEquals(1, contextParameters.size());
         sourceAndStaticToTest.execute(message);
         assertParameter(contextParameters, 2, DEST_NAME, STRING, SOURCE_VALUE);

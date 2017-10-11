@@ -8,12 +8,12 @@ import java.util.Collection;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 
-final class IndexOfProcessor extends CollectionProcessor {
+public final class IndexOfProcessor extends CollectionProcessor {
     private static final Log log = getLog(IndexOfProcessor.class);
     private final ValueSource valueSource;
     private final boolean last;
 
-    IndexOfProcessor(ValueSource valueSource, boolean last) {
+    public IndexOfProcessor(ValueSource valueSource, boolean last) {
         this.valueSource = valueSource;
         this.last = last;
     }

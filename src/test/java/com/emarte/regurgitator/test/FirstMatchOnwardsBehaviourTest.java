@@ -2,8 +2,9 @@
  * Copyright (C) 2017 Miles Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
-package com.emarte.regurgitator.core;
+package com.emarte.regurgitator.test;
 
+import com.emarte.regurgitator.core.FirstMatchOnwardsBehaviour;
 import org.junit.Test;
 
 import java.util.ArrayList;

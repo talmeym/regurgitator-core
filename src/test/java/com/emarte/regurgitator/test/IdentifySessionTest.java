@@ -2,8 +2,9 @@
  * Copyright (C) 2017 Miles Talmey.
  * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
  */
-package com.emarte.regurgitator.core;
+package com.emarte.regurgitator.test;
 
+import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
@@ -21,7 +22,7 @@ public class IdentifySessionTest {
     @Test
     public void testHappyPath() throws RegurgitatorException {
         Message message = new Message(null);
-        message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
+        message.getContext(CONTEXT).setValue(new Parameter(new ParameterPrototype(PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
 
         toTest.execute(message);
 
@@ -31,7 +32,7 @@ public class IdentifySessionTest {
     @Test(expected = RegurgitatorException.class)
     public void testUnhappyPath() throws RegurgitatorException {
         Message message = new Message(null);
-        message.getContext(CONTEXT).add(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
+        message.getContext(CONTEXT).setValue(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
 
         toTest.execute(message);
     }
