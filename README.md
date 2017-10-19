@@ -61,4 +61,4 @@ all of the above have list and set types, holding collections of the java type, 
 - ``index-of-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#index-of-processor), [json](https://github.com/talmeym/regurgitator-core-json#index-of-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#index-of-processor)) processes a collection, returning the index of a given data value
 - ``size-processor`` ([xml](https://github.com/talmeym/regurgitator-core-xml#size-processor), [json](https://github.com/talmeym/regurgitator-core-json#size-processor), [yml](https://github.com/talmeym/regurgitator-core-yml#size-processor)) processes a collection, returning its size
 
-more constructs are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs)
+more constructs are available in other modules ([ext](https://github.com/talmeym/regurgitator-extensions#constructs), [web](https://github.com/talmeym/regurgitator-extensions-web#constructs))
