@@ -28,14 +28,6 @@ public final class FileUtil {
         }
     }
 
-    public static void checkResource(String templateName) {
-        try {
-            getInputStreamForFile(templateName);
-        } catch (IOException ioe) {
-            throw new IllegalArgumentException("Error with resource: " + ioe.getMessage());
-        }
-    }
-
     public static String streamToString(InputStream input) throws IOException {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
