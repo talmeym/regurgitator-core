@@ -11,5 +11,6 @@ public interface CacheProvider {
         boolean contains(Object key);
         TYPE get(Object key);
         void set(Object key, TYPE type);
+        void clearCache();
     }
 }

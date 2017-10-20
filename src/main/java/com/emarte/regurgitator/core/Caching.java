@@ -30,7 +30,7 @@ public class Caching {
 
     private static class DefaultCacheProvider implements CacheProvider {
         private static final Log log = getLog(DefaultCacheProvider.class);
-        private static final Map<Object, Object> DEFAULT_CACHE_DATA = new HashMap<Object, Object>();
+        private static final Map<String, Object> DEFAULT_CACHE_DATA = new HashMap<String, Object>();
 
         @Override
         public <TYPE> Cache<TYPE> getCache(Class<TYPE> clazz) {
@@ -64,6 +64,18 @@ public class Caching {
                 String trueKey = trueKey(key);
                 log.debug("Storing object with true key of '{}'", trueKey);
                 DEFAULT_CACHE_DATA.put(trueKey, value);
+            }
+
+            @Override
+            public void clearCache() {
+                for(Iterator<Map.Entry<String, Object>> iterator = DEFAULT_CACHE_DATA.entrySet().iterator(); iterator.hasNext(); ) {
+                    Map.Entry<String, Object> entry = iterator.next();
+
+                    if(entry.getKey().startsWith(clazz.getName() + ":")) {
+                        log.debug("Clearing object with true key of '{}'", entry.getKey());
+                        iterator.remove();
+                    }
+                }
             }
 
             private String trueKey(Object key) {
