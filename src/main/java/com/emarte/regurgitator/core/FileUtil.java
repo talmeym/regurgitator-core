@@ -24,7 +24,7 @@ public final class FileUtil {
             throw new FileNotFoundException("File not found on classpath: " + filePath);
         }
         if (inputStream.available() == 0) {
-            throw new IllegalArgumentException("File invalid - file is empty");
+            throw new EOFException("File invalid - file is empty");
         }
     }
 
