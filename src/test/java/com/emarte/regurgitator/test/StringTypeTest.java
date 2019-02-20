@@ -4,6 +4,7 @@
  */
 package com.emarte.regurgitator.test;
 
+import com.emarte.regurgitator.core.StringType;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
@@ -34,5 +35,17 @@ public class StringTypeTest extends TypeTest {
         assertEquals("125,225,325", STRING.convert(set(125L, 225L, 325L)));
         assertEquals("1.25,2.25", STRING.convert(list(1.25d, 2.25d)));
         assertEquals("1.25,2.25,3.25", STRING.convert(set(1.25d, 2.25d, 3.25d)));
+    }
+
+    @Test
+    public void test_convert_STRING_pipe_separator() {
+        StringType.setSeparator('|');
+
+        assertEquals("ABC|DEF", STRING.convert(list("ABC", "DEF")));
+        assertEquals("ABC|DEF|GHI", STRING.convert(set("ABC", "DEF", "GHI")));
+        assertEquals("125|225", STRING.convert(list(125L, 225L)));
+        assertEquals("125|225|325", STRING.convert(set(125L, 225L, 325L)));
+        assertEquals("1.25|2.25", STRING.convert(list(1.25d, 2.25d)));
+        assertEquals("1.25|2.25|3.25", STRING.convert(set(1.25d, 2.25d, 3.25d)));
     }
 }

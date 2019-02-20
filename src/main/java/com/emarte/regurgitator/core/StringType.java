@@ -10,6 +10,12 @@ import java.util.Iterator;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 
 public final class StringType implements ParameterType<String> {
+    private static char SEPARATOR = ',';
+
+    public static void setSeparator(char separator) {
+        SEPARATOR = separator;
+    }
+
     @Override
     public String createNew() {
         return "";
@@ -50,7 +56,7 @@ public final class StringType implements ParameterType<String> {
 
     @Override
     public <TYPE, COLLECTION extends Collection<TYPE>> COLLECTION toCollectionOf(String value, COLLECTION collection, ParameterType<TYPE> type) {
-        String[] strings = value.split(",");
+        String[] strings = value.split("\\" + SEPARATOR);
 
         for (String string : strings) {
             collection.add(type.convert(string));
@@ -67,7 +73,7 @@ public final class StringType implements ParameterType<String> {
             buffer.append(convert(iterator.next()));
 
             if (iterator.hasNext()) {
-                buffer.append(",");
+                buffer.append(SEPARATOR);
             }
         }
 
