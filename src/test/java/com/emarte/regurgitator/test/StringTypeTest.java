@@ -5,12 +5,18 @@
 package com.emarte.regurgitator.test;
 
 import com.emarte.regurgitator.core.StringType;
+import org.junit.After;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static org.junit.Assert.assertEquals;
 
 public class StringTypeTest extends TypeTest {
+    @After
+    public void teardown() {
+        StringType.setSeparator(StringType.DEFAULT_SEPARATOR);
+    }
+
     @Test
     public void test_concat_STRING() {
         assertEquals("ABCDEF", STRING.concat("ABC", "DEF"));
@@ -29,23 +35,29 @@ public class StringTypeTest extends TypeTest {
         assertEquals("ABC", STRING.convert("ABC"));
         assertEquals("125", STRING.convert(125L));
         assertEquals("1.25", STRING.convert(1.25d));
-        assertEquals("ABC,DEF", STRING.convert(list("ABC", "DEF")));
-        assertEquals("ABC,DEF,GHI", STRING.convert(set("ABC", "DEF", "GHI")));
-        assertEquals("125,225", STRING.convert(list(125L, 225L)));
-        assertEquals("125,225,325", STRING.convert(set(125L, 225L, 325L)));
-        assertEquals("1.25,2.25", STRING.convert(list(1.25d, 2.25d)));
-        assertEquals("1.25,2.25,3.25", STRING.convert(set(1.25d, 2.25d, 3.25d)));
+        testSeparator(StringType.DEFAULT_SEPARATOR);
     }
 
     @Test
-    public void test_convert_STRING_pipe_separator() {
-        StringType.setSeparator('|');
+    public void test_convert_STRING_different_separators() {
+        String PUNCTS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
 
-        assertEquals("ABC|DEF", STRING.convert(list("ABC", "DEF")));
-        assertEquals("ABC|DEF|GHI", STRING.convert(set("ABC", "DEF", "GHI")));
-        assertEquals("125|225", STRING.convert(list(125L, 225L)));
-        assertEquals("125|225|325", STRING.convert(set(125L, 225L, 325L)));
-        assertEquals("1.25|2.25", STRING.convert(list(1.25d, 2.25d)));
-        assertEquals("1.25|2.25|3.25", STRING.convert(set(1.25d, 2.25d, 3.25d)));
+        for (int i = 0; i < PUNCTS.length(); i++) {
+            testSeparator(PUNCTS.charAt(i));
+        }
+    }
+
+    private void testSeparator(char separator) {
+        StringType.setSeparator(separator);
+        assertCollectionConversion(separator);
+    }
+
+    private void assertCollectionConversion(char separator) {
+        assertEquals("ABC" + separator + "DEF", STRING.convert(list("ABC", "DEF")));
+        assertEquals("ABC" + separator + "DEF" + separator + "GHI", STRING.convert(set("ABC", "DEF", "GHI")));
+        assertEquals("125" + separator + "225", STRING.convert(list(125L, 225L)));
+        assertEquals("125" + separator + "225" + separator + "325", STRING.convert(set(125L, 225L, 325L)));
+        assertEquals("1.25" + separator + "2.25", STRING.convert(list(1.25d, 2.25d)));
+        assertEquals("1.25" + separator + "2.25" + separator + "3.25", STRING.convert(set(1.25d, 2.25d, 3.25d)));
     }
 }

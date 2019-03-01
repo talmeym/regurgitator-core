@@ -4,12 +4,19 @@
  */
 package com.emarte.regurgitator.test;
 
+import com.emarte.regurgitator.core.StringType;
+import org.junit.After;
 import org.junit.Test;
 
 import static com.emarte.regurgitator.core.CoreTypes.SET_OF_STRING;
 import static org.junit.Assert.assertEquals;
 
 public class SetOfStringTypeTest extends TypeTest {
+    @After
+    public void teardown() {
+        StringType.setSeparator(StringType.DEFAULT_SEPARATOR);
+    }
+
     @Test
     public void test_concat_SET_STRING() {
         assertEquals(set("A", "B", "C", "D", "E", "F"), SET_OF_STRING.concat(set("A", "B", "C", "D"), set("C", "D", "E", "F")));
@@ -33,5 +40,16 @@ public class SetOfStringTypeTest extends TypeTest {
         assertEquals(set("1.25", "2.25", "3.25"), SET_OF_STRING.convert(list(1.25d, 2.25d, 3.25d, 1.25d)));
         assertEquals(set("125", "225"), SET_OF_STRING.convert(set(125L, 225L)));
         assertEquals(set("1.25", "2.25", "3.25"), SET_OF_STRING.convert(set(1.25d, 2.25d, 3.25d)));
+    }
+
+    @Test
+    public void test_convert_SET_STRING_different_separators() {
+        String PUNCTS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
+
+        for (int i = 0; i < PUNCTS.length(); i++) {
+            char separator = PUNCTS.charAt(i);
+            StringType.setSeparator(separator);
+            assertEquals(set("ABC", "DEF", "GHI"), SET_OF_STRING.convert("ABC" + separator + "DEF" + separator + "GHI" + separator + "ABC"));
+        }
     }
 }
