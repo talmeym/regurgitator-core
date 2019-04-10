@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.ServiceLoader;
 
 import static com.emarte.regurgitator.core.CacheProvider.Cache;
 import static com.emarte.regurgitator.core.Log.getLog;

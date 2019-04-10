@@ -4,7 +4,9 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static com.emarte.regurgitator.core.CoreTypes.DECIMAL;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;

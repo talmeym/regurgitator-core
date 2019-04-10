@@ -4,7 +4,7 @@ import com.emarte.regurgitator.core.NumberGenerator;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class NumberGeneratorTest {
     private static final Integer MAX = 100;

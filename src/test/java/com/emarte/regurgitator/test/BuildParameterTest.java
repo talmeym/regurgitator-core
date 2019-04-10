@@ -7,6 +7,8 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertEquals;
@@ -23,12 +25,12 @@ public class BuildParameterTest {
 
     private final ValueBuilder valueBuilder = new ValueBuilder() {
         @Override
-        public Object build(Message parameters) throws RegurgitatorException {
+        public Object build(Message parameters) {
             return BUILT_VALUE;
         }
     };
 
-    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, null);
+    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, new ArrayList<ValueProcessor>());
 
     @Test
     public void testBasics() throws RegurgitatorException {

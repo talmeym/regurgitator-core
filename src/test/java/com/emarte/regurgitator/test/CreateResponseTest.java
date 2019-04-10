@@ -7,6 +7,9 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 import static junit.framework.Assert.assertEquals;
@@ -26,19 +29,18 @@ public class CreateResponseTest {
 
     private final ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-    private final CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), null);
-    private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), null);
-    private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), null);
+    private final CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), new ArrayList<ValueProcessor>());
+    private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), new ArrayList<ValueProcessor>());
+    private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<ValueProcessor>());
 
     private final ValueProcessor valueProcessor = new ValueProcessor() {
         @Override
-        public Object process(Object value, Message message) throws RegurgitatorException {
+        public Object process(Object value, Message message) {
             return PROCESSED_VALUE;
         }
-
     };
 
-    private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), valueProcessor);
+    private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), Collections.singletonList(valueProcessor));
 
     private final CollectingResponseCallBack callback = new CollectingResponseCallBack();
 

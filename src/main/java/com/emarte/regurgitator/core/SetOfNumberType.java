@@ -4,7 +4,9 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import static com.emarte.regurgitator.core.CoreTypes.NUMBER;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;

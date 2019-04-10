@@ -7,6 +7,9 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.NUMBER;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
@@ -33,20 +36,19 @@ public class CreateParameterTest {
     private final ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, STRING, PARAM_CONFLICT_POL);
     private final ParameterPrototype crossTypePrototype = new ParameterPrototype(DEST_NAME, NUMBER, PARAM_CONFLICT_POL);
 
-    private final CreateParameter sourceToTest = new CreateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, null), null);
-    private final CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), null);
-    private final CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, STATIC_VALUE), null);
+    private final CreateParameter sourceToTest = new CreateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, null), new ArrayList<ValueProcessor>());
+    private final CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), new ArrayList<ValueProcessor>());
+    private final CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<ValueProcessor>());
 
     private final ValueProcessor valueProcessor = new ValueProcessor() {
         @Override
-        public Object process(Object value, Message message) throws RegurgitatorException {
+        public Object process(Object value, Message message) {
             return PROCESSED_VALUE;
         }
-
     };
 
-    private final CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), valueProcessor);
-    private final CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, new ValueSource(null, NUMBER_VALUE), null);
+    private final CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), Collections.singletonList(valueProcessor));
+    private final CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, new ValueSource(null, NUMBER_VALUE), new ArrayList<ValueProcessor>());
 
     @Test
     public void testSource() throws RegurgitatorException {

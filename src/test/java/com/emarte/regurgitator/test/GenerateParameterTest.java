@@ -7,6 +7,8 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static junit.framework.Assert.assertEquals;
 
@@ -20,7 +22,7 @@ public class GenerateParameterTest {
 
     private static final ValueGenerator NUMBER = new NumberGenerator();
 
-    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, null);
+    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, new ArrayList<ValueProcessor>());
 
     @Test
     public void testThis() throws RegurgitatorException {

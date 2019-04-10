@@ -4,17 +4,19 @@
  */
 package com.emarte.regurgitator.core;
 
+import java.util.List;
+
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public final class CreateResponse extends Identifiable implements Step {
     private final Log log = getLog(this);
     private final ValueSource valueSource;
-    private final ValueProcessor valueProcessor;
+    private final List<ValueProcessor> processors;
 
-    public CreateResponse(String id, ValueSource valueSource, ValueProcessor valueProcessor) {
+    public CreateResponse(String id, ValueSource valueSource, List<ValueProcessor> processors) {
         super(id);
         this.valueSource = valueSource;
-        this.valueProcessor = valueProcessor;
+        this.processors = processors;
     }
 
     @Override
@@ -25,8 +27,10 @@ public final class CreateResponse extends Identifiable implements Step {
     public void execute(Message message, Log log) throws RegurgitatorException {
         Object value = valueSource.getValue(message, log);
 
-        if(valueProcessor != null) {
-            value = valueProcessor.process(value, message);
+        if(processors.size() > 0) {
+            for(ValueProcessor processor: processors) {
+                value = processor.process(value, message);
+            }
         }
 
         log.debug("Sending response to callback");

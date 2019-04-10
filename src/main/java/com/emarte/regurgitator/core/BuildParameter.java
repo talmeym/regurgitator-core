@@ -4,14 +4,16 @@
  */
 package com.emarte.regurgitator.core;
 
+import java.util.List;
+
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public final class BuildParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueBuilder valueBuilder;
 
-    public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, ValueProcessor processor) {
-        super(id, prototype, context, processor);
+    public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, List<ValueProcessor> processors) {
+        super(id, prototype, context, processors);
         this.valueBuilder = builder;
     }
 

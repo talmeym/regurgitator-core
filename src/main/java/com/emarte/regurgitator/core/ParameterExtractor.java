@@ -4,16 +4,18 @@
  */
 package com.emarte.regurgitator.core;
 
+import java.util.List;
+
 public abstract class ParameterExtractor extends Identifiable implements Step {
     private final ParameterPrototype prototype;
     private final String context;
-    private final ValueProcessor processor;
+    private final List<ValueProcessor> processors;
 
-    public ParameterExtractor(Object id, ParameterPrototype prototype, String context, ValueProcessor processor) {
+    public ParameterExtractor(Object id, ParameterPrototype prototype, String context, List<ValueProcessor> processors) {
         super(id);
         this.prototype = prototype;
         this.context = context;
-        this.processor = processor;
+        this.processors = processors;
     }
 
     public ParameterPrototype getPrototype() {
@@ -29,8 +31,10 @@ public abstract class ParameterExtractor extends Identifiable implements Step {
         ParameterType type = prototype.getType();
         Object value = extractValue(message);
 
-        if(processor != null) {
-            value = processor.process(value, message);
+        if(processors.size() > 0) {
+            for(ValueProcessor processor: processors) {
+                value = processor.process(value, message);
+            }
         }
 
         message.getContext(context).setValue(new Parameter(prototype, type.convert(value)));

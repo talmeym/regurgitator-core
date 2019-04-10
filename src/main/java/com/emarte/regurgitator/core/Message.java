@@ -4,7 +4,9 @@
  */
 package com.emarte.regurgitator.core;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.emarte.regurgitator.core.ContextLocation.PARAMETER_CONTEXT;
 import static com.emarte.regurgitator.core.ContextLocation.SESSION_CONTEXT;

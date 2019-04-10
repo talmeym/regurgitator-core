@@ -3,7 +3,7 @@ package com.emarte.regurgitator.test;
 import com.emarte.regurgitator.core.*;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ValueSourceTest {
     @Test

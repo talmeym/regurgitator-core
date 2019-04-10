@@ -4,7 +4,9 @@
  */
 package com.emarte.regurgitator.test;
 
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.util.Arrays.asList;
 

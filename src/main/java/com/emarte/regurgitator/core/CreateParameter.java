@@ -4,14 +4,16 @@
  */
 package com.emarte.regurgitator.core;
 
+import java.util.List;
+
 import static com.emarte.regurgitator.core.Log.getLog;
 
 public final class CreateParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueSource valueSource;
 
-    public CreateParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, ValueProcessor processor) {
-        super(id, prototype, context, processor);
+    public CreateParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, List<ValueProcessor> processors) {
+        super(id, prototype, context, processors);
         this.valueSource = valueSource;
     }
 

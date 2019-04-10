@@ -4,7 +4,10 @@
  */
 package com.emarte.regurgitator.test;
 
-import com.emarte.regurgitator.core.*;
+import com.emarte.regurgitator.core.EqualsBehaviour;
+import com.emarte.regurgitator.core.Message;
+import com.emarte.regurgitator.core.Parameter;
+import com.emarte.regurgitator.core.ParameterPrototype;
 import org.junit.Test;
 
 import java.util.Arrays;
