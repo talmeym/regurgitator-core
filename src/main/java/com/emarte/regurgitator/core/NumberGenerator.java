@@ -20,7 +20,7 @@ public final class NumberGenerator implements ValueGenerator {
     }
 
     @Override
-    public Object generate() throws RegurgitatorException {
+    public Object generate() {
         return max != null ? (long) RANDOM.nextInt(max) : RANDOM.nextLong();
     }
 }
