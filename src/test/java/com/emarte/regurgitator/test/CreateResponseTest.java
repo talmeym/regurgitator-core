@@ -33,14 +33,14 @@ public class CreateResponseTest {
     private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), new ArrayList<ValueProcessor>());
     private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<ValueProcessor>());
 
-    private final ValueProcessor valueProcessor = new ValueProcessor() {
+    private final ValueProcessor processor = new ValueProcessor() {
         @Override
         public Object process(Object value, Message message) {
             return PROCESSED_VALUE;
         }
     };
 
-    private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), Collections.singletonList(valueProcessor));
+    private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), Collections.singletonList(processor));
 
     private final CollectingResponseCallBack callback = new CollectingResponseCallBack();
 

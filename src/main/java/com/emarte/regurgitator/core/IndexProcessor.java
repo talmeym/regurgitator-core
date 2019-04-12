@@ -20,9 +20,9 @@ public final class IndexProcessor extends CollectionProcessor {
 
     @Override
     public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
-        Object valueToUse = valueSource.getValue(message, log);
+        Object value = valueSource.getValue(message, log);
 
-        long index = parseLong(stringify(valueToUse)), i = 0L;
+        long index = parseLong(stringify(value)), i = 0L;
         log.debug("Finding index '{}' of value '{}'", index, collection);
 
         if(index < 0 || index >= collection.size()) {

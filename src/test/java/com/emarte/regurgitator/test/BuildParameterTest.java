@@ -23,14 +23,14 @@ public class BuildParameterTest {
 
     private final ParameterPrototype prototype = new ParameterPrototype(PARAM_NAME, PARAM_TYPE, PARAM_CONFLICT_POL);
 
-    private final ValueBuilder valueBuilder = new ValueBuilder() {
+    private final ValueBuilder builder = new ValueBuilder() {
         @Override
         public Object build(Message parameters) {
             return BUILT_VALUE;
         }
     };
 
-    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, valueBuilder, new ArrayList<ValueProcessor>());
+    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, builder, new ArrayList<ValueProcessor>());
 
     @Test
     public void testBasics() throws RegurgitatorException {

@@ -40,14 +40,14 @@ public class CreateParameterTest {
     private final CreateParameter staticToTest = new CreateParameter(STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), new ArrayList<ValueProcessor>());
     private final CreateParameter sourceAndStaticToTest = new CreateParameter(SOURCE_AND_STATIC_ID, destPrototype, PARAM_CONTEXT, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<ValueProcessor>());
 
-    private final ValueProcessor valueProcessor = new ValueProcessor() {
+    private final ValueProcessor processor = new ValueProcessor() {
         @Override
         public Object process(Object value, Message message) {
             return PROCESSED_VALUE;
         }
     };
 
-    private final CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), Collections.singletonList(valueProcessor));
+    private final CreateParameter processorToTest = new CreateParameter(PROCESSED_ID, destPrototype, PARAM_CONTEXT, new ValueSource(null, STATIC_VALUE), Collections.singletonList(processor));
     private final CreateParameter crossTypeToTest = new CreateParameter(CROSS_TYPE_ID, crossTypePrototype, PARAM_CONTEXT, new ValueSource(null, NUMBER_VALUE), new ArrayList<ValueProcessor>());
 
     @Test

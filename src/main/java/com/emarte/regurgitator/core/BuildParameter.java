@@ -10,17 +10,17 @@ import static com.emarte.regurgitator.core.Log.getLog;
 
 public final class BuildParameter extends ParameterExtractor {
     private final Log log = getLog(this);
-    private final ValueBuilder valueBuilder;
+    private final ValueBuilder builder;
 
     public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, List<ValueProcessor> processors) {
         super(id, prototype, context, processors);
-        this.valueBuilder = builder;
+        this.builder = builder;
     }
 
     @Override
     public Object extractValue(Message message) throws RegurgitatorException {
         log.debug("Building parameter value");
-        Object value = valueBuilder.build(message);
+        Object value = builder.build(message);
 
         log.debug("Built value for parameter '{}'", getPrototype().getName());
         return value;
