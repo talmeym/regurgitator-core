@@ -5,12 +5,15 @@
 package com.emarte.regurgitator.core;
 
 import java.io.*;
-import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-public final class RecordMessage extends Identifiable implements Step {
+import static com.emarte.regurgitator.core.StringType.stringify;
+
+final class RecordMessage extends Identifiable implements Step {
     private final String folderPath;
 
-    public RecordMessage(Object id, String folderPath) {
+    RecordMessage(Object id, String folderPath) {
         super(id);
         this.folderPath = folderPath;
     }
@@ -18,20 +21,36 @@ public final class RecordMessage extends Identifiable implements Step {
     @Override
     public void execute(Message message) throws RegurgitatorException {
         try {
-            Writer out = getWriter();
-            Collection<Parameters> contexts = message.contexts();
+            long now = System.currentTimeMillis();
+            Writer out = getWriter(now);
+            out.write("{\r\n");
+            Iterator<Parameters> contextIterator = message.contexts().iterator();
 
-            for(Parameters context: contexts) {
-                out.write("# " + context.getId() + "\n\n");
+            while(contextIterator.hasNext()) {
+                Parameters context = contextIterator.next();
+                out.write("\t\"" + context.getId() + "\": {\r\n");
 
-                for(Object id: context.ids()) {
+
+                List<Object> ids = context.ids();
+
+                for(int i = 0; i < ids.size(); i++) {
+                    Object id = ids.get(i);
                     Parameter parameter = context.get(id);
-                    out.write(context.getId() + "." + parameter.getId() + "=" + parameter.getValue() + "\n");
+                    out.write("\t\t\"" + escape(id) + "\": \"" + escape(parameter.getValue()) + "\"");
+
+                    if(i < ids.size() - 1) {
+                        out.write(",\r\n");
+                    }
                 }
 
-                out.write("\n");
+                out.write("\r\n\t}");
+
+                if(contextIterator.hasNext()) {
+                    out.write(",\r\n");
+                }
             }
 
+            out.write("\r\n}");
             out.flush();
             out.close();
         } catch (IOException e) {
@@ -39,7 +58,7 @@ public final class RecordMessage extends Identifiable implements Step {
         }
     }
 
-    private OutputStreamWriter getWriter() throws IOException {
+    private OutputStreamWriter getWriter(long now) throws IOException {
         if(folderPath != null) {
             File folder = new File(folderPath);
 
@@ -47,7 +66,7 @@ public final class RecordMessage extends Identifiable implements Step {
                 throw new FileNotFoundException("Folder not found: " + folder.getAbsolutePath());
             }
 
-            File file = new File(folder, System.currentTimeMillis() + ".message");
+            File file = new File(folder, now + "." + getId() + ".json");
 
             if(!file.exists()) {
                 if(!file.createNewFile()) {
@@ -59,5 +78,15 @@ public final class RecordMessage extends Identifiable implements Step {
         }
 
         return new OutputStreamWriter(System.out);
+    }
+
+    private String escape(Object value1) {
+        String value = stringify(value1);
+
+        if(value.contains("\"")) {
+            value = value.replace("\"", "\\\"");
+        }
+
+        return value;
     }
 }
