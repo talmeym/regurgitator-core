@@ -5,14 +5,14 @@
 package com.emarte.regurgitator.core;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import static com.emarte.regurgitator.core.ContextLocation.PARAMETER_CONTEXT;
 import static com.emarte.regurgitator.core.ContextLocation.SESSION_CONTEXT;
 
 public class Message {
-    private final Map<String, Parameters> contextData = new HashMap<String, Parameters>();
+    private final Map<String, Parameters> contextData = new TreeMap<String, Parameters>();
     private final ResponseCallBack callback;
 
     public Message(ResponseCallBack callback) {

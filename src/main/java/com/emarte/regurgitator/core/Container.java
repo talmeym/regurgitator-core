@@ -16,7 +16,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
     protected Container(Object id, List<TYPE> items) {
         super(id);
         this.items = items;
-        itemsById = new HashMap<Object, TYPE>();
+        itemsById = new TreeMap<Object, TYPE>();
 
         for (TYPE item : items) {
             itemsById.put(item.getId(), item);
