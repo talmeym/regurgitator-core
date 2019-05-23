@@ -8,7 +8,7 @@ import java.util.UUID;
 
 final class UuidGenerator implements ValueGenerator {
     @Override
-    public Object generate() throws RegurgitatorException {
+    public Object generate() {
         return UUID.randomUUID();
     }
 }
