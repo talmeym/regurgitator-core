@@ -25,33 +25,33 @@ public class IndexOfProcessorTest {
         Message message = new Message(null);
 
         message.getContext("context").setValue("location", STRING, "THIS");
-        assertEquals(0L, sourceToTest.process(values, message));
+        assertEquals(0, sourceToTest.process(values, message));
 
         message.getContext("context").setValue("location", STRING, "THAT");
-        assertEquals(1L, sourceToTest.process(values, message));
+        assertEquals(1, sourceToTest.process(values, message));
 
         message.getContext("context").setValue("location", STRING, "THE OTHER");
-        assertEquals(2L, sourceToTest.process(values, message));
+        assertEquals(2, sourceToTest.process(values, message));
 
         message.getContext("context").setValue("location", STRING, "SOMETHING ELSE");
-        assertEquals(-1L, sourceToTest.process(values, message));
+        assertEquals(-1, sourceToTest.process(values, message));
     }
 
     @Test
     public void testStatic() throws RegurgitatorException {
-        assertEquals(1L, staticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), new Message(null)));
+        assertEquals(1, staticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), new Message(null)));
     }
 
     @Test
     public void testSourceAndStatic_sourceFound() throws RegurgitatorException {
         Message message = new Message(null);
         message.getContext("context").setValue("location", STRING, "THIS");
-        assertEquals(0L, sourceAndStaticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), message));
+        assertEquals(0, sourceAndStaticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), message));
     }
 
     @Test
     public void testSourceAndStatic_sourceNotFound() throws RegurgitatorException {
         List<String> values = Arrays.asList("THIS", "THAT", "THE OTHER");
-        assertEquals(1L, sourceAndStaticToTest.process(values, new Message(null)));
+        assertEquals(1, sourceAndStaticToTest.process(values, new Message(null)));
     }
 }

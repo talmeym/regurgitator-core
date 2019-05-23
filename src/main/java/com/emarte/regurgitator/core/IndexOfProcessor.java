@@ -23,7 +23,7 @@ public final class IndexOfProcessor extends CollectionProcessor {
         Object value = valueSource.getValue(message, log);
 
         log.debug("Finding " + (last ? "last " : "") + "index of '{}' in value '{}'", value, collection);
-        long index = 0L, lastIndex = -1L;
+        int index = 0, lastIndex = -1;
 
         for(Object object: collection) {
             if(object.equals(value)) {

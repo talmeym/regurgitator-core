@@ -8,7 +8,7 @@ import java.util.Collection;
 
 import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
-import static java.lang.Long.parseLong;
+import static java.lang.Integer.parseInt;
 
 public final class IndexProcessor extends CollectionProcessor {
     private static final Log log = getLog(IndexProcessor.class);
@@ -22,7 +22,7 @@ public final class IndexProcessor extends CollectionProcessor {
     public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
         Object value = valueSource.getValue(message, log);
 
-        long index = parseLong(stringify(value)), i = 0L;
+        int index = parseInt(stringify(value)), i = 0;
         log.debug("Finding index '{}' of value '{}'", index, collection);
 
         if(index < 0 || index >= collection.size()) {
