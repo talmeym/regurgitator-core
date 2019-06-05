@@ -10,19 +10,19 @@ import static com.emarte.regurgitator.core.Log.getLog;
 import static com.emarte.regurgitator.core.StringType.stringify;
 import static java.lang.Integer.parseInt;
 
-public final class IndexProcessor extends CollectionProcessor {
-    private static final Log log = getLog(IndexProcessor.class);
-    private final ValueSource valueSource;
+public final class AtIndexProcessor extends CollectionProcessor {
+    private static final Log log = getLog(AtIndexProcessor.class);
+    private final ValueSource indexSource;
 
-    public IndexProcessor(ValueSource valueSource) {
-        this.valueSource = valueSource;
+    public AtIndexProcessor(ValueSource indexSource) {
+        this.indexSource = indexSource;
     }
 
     @Override
     public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
-        Object value = valueSource.getValue(message, log);
+        Object indexObj = indexSource.getValue(message, log);
 
-        int index = parseInt(stringify(value)), i = 0;
+        int index = parseInt(stringify(indexObj)), i = 0;
         log.debug("Finding index '{}' of value '{}'", index, collection);
 
         if(index < 0 || index >= collection.size()) {
