@@ -16,7 +16,7 @@ public class ExistsBehaviourTest {
     private static final ExistsBehaviour toTest = new ExistsBehaviour();
 
     @Test
-    public void testExists() throws RegurgitatorException {
+    public void testExists() {
         assertTrue(toTest.evaluate(new Parameter(new ParameterPrototype("to-test", STRING, REPLACE), "value"), new Message(null), "true", false));
         assertTrue(toTest.evaluate(null, new Message(null), "false", true));
         assertFalse(toTest.evaluate(null, new Message(null), "true", false));

@@ -5,9 +5,11 @@
 package com.emarte.regurgitator.core;
 
 import java.io.*;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.emarte.regurgitator.core.CoreTypes.*;
 import static com.emarte.regurgitator.core.StringType.stringify;
 
 final class RecordMessage extends Identifiable implements Step {
@@ -36,7 +38,14 @@ final class RecordMessage extends Identifiable implements Step {
                 for(int i = 0; i < ids.size(); i++) {
                     Object id = ids.get(i);
                     Parameter parameter = context.get(id);
-                    out.write("\t\t\"" + escape(id) + "\": \"" + escape(parameter.getValue()) + "\"");
+
+                    if(parameter.getType() == STRING) {
+                        out.write("\t\t\"" + escape(id) + "\": \"" + escape(parameter.getValue()) + "\"");
+                    } else if(parameter.getType() == NUMBER || parameter.getType() == DECIMAL) {
+                        out.write("\t\t\"" + escape(id) + "\": " + parameter.getValue());
+                    } else if(parameter.getType() instanceof AbstractCollectionType) {
+                        outputCollection(parameter, out, parameter.getType());
+                    }
 
                     if(i < ids.size() - 1) {
                         out.write(",\r\n");
@@ -56,6 +65,21 @@ final class RecordMessage extends Identifiable implements Step {
         } catch (IOException e) {
             throw new RegurgitatorException("Error recording message", e);
         }
+    }
+
+    private <T> void outputCollection(Parameter parameter, Writer out, ParameterType<Collection<T>> type) throws IOException {
+        out.write("\t\t\"" + escape(parameter.getId()) + "\": [ ");
+        Collection<T> values = type.convert(parameter.getValue());
+
+        for(Iterator<T> iterator = values.iterator(); iterator.hasNext(); ) {
+            out.write(stringify(iterator.next()));
+
+            if(iterator.hasNext()) {
+                out.write(", ");
+            }
+        }
+
+        out.write(" ]");
     }
 
     private OutputStreamWriter getWriter(long now) throws IOException {
@@ -80,8 +104,8 @@ final class RecordMessage extends Identifiable implements Step {
         return new OutputStreamWriter(System.out);
     }
 
-    private String escape(Object value1) {
-        String value = stringify(value1);
+    private String escape(Object obj) {
+        String value = stringify(obj);
 
         if(value.contains("\"")) {
             value = value.replace("\"", "\\\"");

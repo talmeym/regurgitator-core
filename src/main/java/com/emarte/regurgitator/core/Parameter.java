@@ -41,7 +41,6 @@ public final class Parameter implements HasId {
         return prototype.getConflictPolicy();
     }
 
-    @SuppressWarnings("unchecked")
     public Object getValue() {
         if(value instanceof Collection) {
             if (value instanceof List) {

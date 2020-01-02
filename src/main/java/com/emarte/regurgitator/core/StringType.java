@@ -10,7 +10,7 @@ import java.util.Iterator;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
 
 public final class StringType implements ParameterType<String> {
-    public static char DEFAULT_SEPARATOR = ',';
+    public static final char DEFAULT_SEPARATOR = ',';
     private static char SEPARATOR = DEFAULT_SEPARATOR;
 
     public static void setSeparator(char separator) {

@@ -2,8 +2,7 @@ package com.emarte.regurgitator.core;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class IsolateTest {
     @Test
@@ -13,9 +12,9 @@ public class IsolateTest {
         message.setSessionId("hello");
         Parameters parameters = message.getParameters();
         Message newMessage = toTest.getNewMessage(message);
-        assertFalse(newMessage == message);
+        assertNotSame(newMessage, message);
         assertFalse(newMessage.hasSession());
-        assertFalse(parameters == newMessage.getParameters());
+        assertNotSame(parameters, newMessage.getParameters());
     }
 
     @Test
@@ -26,10 +25,10 @@ public class IsolateTest {
         Session session = message.getSession();
         Parameters parameters = message.getParameters();
         Message newMessage = toTest.getNewMessage(message);
-        assertFalse(newMessage == message);
+        assertNotSame(newMessage, message);
         assertTrue(newMessage.hasSession());
-        assertTrue(session == newMessage.getSession());
-        assertFalse(parameters == newMessage.getParameters());
+        assertSame(session, newMessage.getSession());
+        assertNotSame(parameters, newMessage.getParameters());
     }
 
     @Test
@@ -39,9 +38,9 @@ public class IsolateTest {
         message.setSessionId("hello");
         Parameters parameters = message.getParameters();
         Message newMessage = toTest.getNewMessage(message);
-        assertFalse(newMessage == message);
+        assertNotSame(newMessage, message);
         assertFalse(newMessage.hasSession());
-        assertTrue(parameters == newMessage.getParameters());
+        assertSame(parameters, newMessage.getParameters());
     }
 
     @Test
@@ -52,9 +51,9 @@ public class IsolateTest {
         Session session = message.getSession();
         Parameters parameters = message.getParameters();
         Message newMessage = toTest.getNewMessage(message);
-        assertFalse(newMessage == message);
+        assertNotSame(newMessage, message);
         assertTrue(newMessage.hasSession());
-        assertTrue(session == newMessage.getSession());
-        assertTrue(parameters == newMessage.getParameters());
+        assertSame(session, newMessage.getSession());
+        assertSame(parameters, newMessage.getParameters());
     }
 }

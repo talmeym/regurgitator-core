@@ -16,7 +16,7 @@ public class ParametersTest {
     private static final String NEW_NAME = "newName";
 
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testThis() {
         Parameters parameters = new Parameters("parameters");
 
         ParameterPrototype leavePrototype = new ParameterPrototype(NAME, STRING, LEAVE);
@@ -74,7 +74,7 @@ public class ParametersTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testInvalidValueType() throws RegurgitatorException {
+    public void testInvalidValueType() {
         Parameters parameters = new Parameters("parameters");
 
         ParameterPrototype prototype = new ParameterPrototype("name", STRING, REPLACE);

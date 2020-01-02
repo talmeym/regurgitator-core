@@ -14,7 +14,7 @@ public final class MatchesBehaviour implements ConditionBehaviour {
     private static final Log log = getLog(MatchesBehaviour.class);
 
     @Override
-    public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) throws RegurgitatorException {
+    public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
         boolean matches = false;
 
         if(parameter != null) {

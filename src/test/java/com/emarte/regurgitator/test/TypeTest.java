@@ -18,4 +18,12 @@ public abstract class TypeTest {
     protected <CONTENTS> List<CONTENTS> list(CONTENTS... things) {
         return asList(things);
     }
+
+    protected Double objOf(double doub) {
+        return doub;
+    }
+
+    protected Long objOf(long lon) {
+        return lon;
+    }
 }

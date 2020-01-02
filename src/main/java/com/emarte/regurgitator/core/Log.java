@@ -15,7 +15,7 @@ public class Log {
         logger = LoggerFactory.getLogger(clazz);
     }
 
-    public Log(HasId hasId) {
+    private Log(HasId hasId) {
         id = hasId.getId();
         logger = LoggerFactory.getLogger(hasId.getClass());
     }
@@ -41,7 +41,7 @@ public class Log {
     }
 
     private String buildLogEntry(String message) {
-        return "[" + ((id != null ? "'" + id + "'" : "noid") + "/" + Thread.currentThread().getId()) + "]: " + message;
+        return "[" + ((id != null ? "'" + id + "'" : "no-id") + "/" + Thread.currentThread().getId()) + "]: " + message;
     }
 
     public static Log getLog(Class clazz) {

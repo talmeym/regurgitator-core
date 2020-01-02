@@ -16,7 +16,7 @@ public class MatchesBehaviourTest {
     private static final MatchesBehaviour toTest = new MatchesBehaviour();
 
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testThis() {
         Parameter parameter = new Parameter(new ParameterPrototype("to-test", STRING, REPLACE), "value");
 
         assertTrue(toTest.evaluate(parameter, new Message(null), "^[va]{2}lu[e]{1}$", true));
