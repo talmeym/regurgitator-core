@@ -33,9 +33,9 @@ more steps are available in other modules ([ext](https://github.com/talmeym/regu
 regurgitator uses the following set of constructs / concepts to provide it's processing:
 - ``parameter type`` each parameter has a type, which dictates how it is represented, as well as how it can be merged with another parameter. provided types include ``STRING`` ``NUMBER`` and ``DECIMAL`` along with list and set types
 - ``value builder`` aggregates many parameter values into one. provided builders include support for popular templating engines
-- ``value generator`` create a values from scratch, such as a random number or UUID
+- ``value generator`` create a value from scratch, such as a random number or UUID
 - ``value processor`` all steps that involve parameters can have extra processing wired in, to alter their initial value after it has been created, built or generated
-- ``rules behaviour`` while rules determine how ``decision`` steps choose which child step to execute, ``rules behaviour`` govern what to do if more than rule passes
+- ``rules behaviour`` while rules determine how ``decision`` steps choose which child step to execute, ``rules behaviour`` govern what to do if more than one rule passes
 - ``condition behaviour`` all conditions for a rule must be met for it to pass. each condition evaluates a parameter; its behaviour governs the kind of evaluation performed
 
 just as custom steps can be added to extend regurgitator to meet your needs, you can also provide your own construct implementations to further extend the capabilities of the framework. 
