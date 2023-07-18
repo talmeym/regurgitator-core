@@ -13,8 +13,8 @@ public abstract class CollectionProcessor implements ValueProcessor {
             throw new RegurgitatorException("Parameter is not a collection");
         }
 
-        return processCollection((Collection) value, message);
+        return processCollection((Collection<?>) value, message);
     }
 
-    public abstract Object processCollection(Collection collection, Message message) throws RegurgitatorException;
+    public abstract Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException;
 }

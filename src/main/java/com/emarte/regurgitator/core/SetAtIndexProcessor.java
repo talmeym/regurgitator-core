@@ -24,7 +24,7 @@ public class SetAtIndexProcessor extends CollectionProcessor {
     }
 
     @Override
-    public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
+    public Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException {
         List<Object> list = new ArrayList<Object>(collection);
         Object indexObj = indexSource.getValue(message, log);
         int index = parseInt(stringify(indexObj));

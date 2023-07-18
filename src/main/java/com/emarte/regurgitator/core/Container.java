@@ -44,7 +44,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
         return itemsById.get(id);
     }
 
-    protected List<TYPE> get(Collection<Object> ids) {
+    protected List<TYPE> get(Collection<?> ids) {
         List<TYPE> result = new ArrayList<TYPE>();
 
         for(Object id: ids) {

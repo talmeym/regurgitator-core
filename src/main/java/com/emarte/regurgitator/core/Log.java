@@ -11,7 +11,7 @@ public class Log {
     private Object id;
     private final Logger logger;
 
-    private Log(Class clazz) {
+    private Log(Class<?> clazz) {
         logger = LoggerFactory.getLogger(clazz);
     }
 
@@ -44,7 +44,7 @@ public class Log {
         return "[" + ((id != null ? "'" + id + "'" : "no-id") + "/" + Thread.currentThread().getId()) + "]: " + message;
     }
 
-    public static Log getLog(Class clazz) {
+    public static Log getLog(Class<?> clazz) {
         return new Log(clazz);
     }
 

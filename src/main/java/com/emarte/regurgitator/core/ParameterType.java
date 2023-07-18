@@ -21,5 +21,5 @@ public interface ParameterType<TYPE> {
 
     <OTHER, COLLECTION extends Collection<OTHER>> COLLECTION toCollectionOf(TYPE value, COLLECTION collection, ParameterType<OTHER> type);
 
-    TYPE fromCollection(Collection collection);
+    TYPE fromCollection(Collection<?> collection);
 }

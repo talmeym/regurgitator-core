@@ -34,7 +34,7 @@ public class DecimalType extends AbstractSingleType<Double> {
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         return Double.parseDouble(value.toString());

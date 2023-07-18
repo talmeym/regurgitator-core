@@ -19,7 +19,7 @@ public final class AtIndexProcessor extends CollectionProcessor {
     }
 
     @Override
-    public Object processCollection(Collection collection, Message message) throws RegurgitatorException {
+    public Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException {
         Object indexObj = indexSource.getValue(message, log);
 
         int index = parseInt(stringify(indexObj)), i = 0;

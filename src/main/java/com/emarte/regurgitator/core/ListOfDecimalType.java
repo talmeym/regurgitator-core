@@ -24,7 +24,7 @@ public final class ListOfDecimalType extends AbstractCollectionType<Double, List
 
     @Override
     public boolean validate(Object value) {
-        return value instanceof List && validateCollection((Collection) value);
+        return value instanceof List && validateCollection((Collection<?>) value);
     }
 
     @Override
@@ -35,7 +35,7 @@ public final class ListOfDecimalType extends AbstractCollectionType<Double, List
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         if (STRING.validate(value)) {

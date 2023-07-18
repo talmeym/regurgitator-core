@@ -29,7 +29,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
         return result;
     }
 
-    public boolean validateCollection(Collection value) {
+    public boolean validateCollection(Collection<?> value) {
         for(Object obj: value) {
             if(!type.validate(obj)) {
                 return false;
@@ -49,7 +49,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
     }
 
     @Override
-    public TYPE fromCollection(Collection collection) {
+    public TYPE fromCollection(Collection<?> collection) {
         TYPE value = createNew();
 
         for(Object obj : collection) {

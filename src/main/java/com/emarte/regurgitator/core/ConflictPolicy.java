@@ -9,44 +9,47 @@ import static com.emarte.regurgitator.core.Log.getLog;
 public enum ConflictPolicy {
     LEAVE {
         @Override
-        public Object resolveConflict(Object existingValue, Object newValue, ParameterType type) {
-            type.validate(existingValue);
-            type.validate(newValue);
+        public <TYPE> Object resolveConflict(Object existingValue, Object newValue, ParameterType<TYPE> type) {
+            warnIfDoesNotValidate(existingValue, type);
+            warnIfDoesNotValidate(newValue, type);
             log.debug("Keeping existing value '{}'", existingValue);
             return existingValue;
         }
     },
     REPLACE {
         @Override
-        public Object resolveConflict(Object existingValue, Object newValue, ParameterType type) {
-            type.validate(existingValue);
-            type.validate(newValue);
+        public <TYPE> Object resolveConflict(Object existingValue, Object newValue, ParameterType<TYPE> type) {
+            warnIfDoesNotValidate(existingValue, type);
+            warnIfDoesNotValidate(newValue, type);
             log.debug("Replacing '{}' with '{}'", existingValue, newValue);
             return newValue;
         }
     },
     CONCAT {
         @Override
-        @SuppressWarnings("unchecked")
-        public Object resolveConflict(Object existingValue, Object newValue, ParameterType type) {
-            type.validate(existingValue);
-            type.validate(newValue);
+        public <TYPE> Object resolveConflict(Object existingValue, Object newValue, ParameterType<TYPE> type) {
+            warnIfDoesNotValidate(existingValue, type);
+            warnIfDoesNotValidate(newValue, type);
             log.debug("Adding '{}' to '{}'", newValue, existingValue);
-            return type.concat(existingValue, newValue);
+            return type.concat(type.convert(existingValue), type.convert(newValue));
         }
     },
     REMOVE {
         @Override
-        @SuppressWarnings("unchecked")
-        public Object resolveConflict(Object existingValue, Object newValue, ParameterType type) {
-            type.validate(existingValue);
-            type.validate(newValue);
+        public <TYPE> Object resolveConflict(Object existingValue, Object newValue, ParameterType<TYPE> type) {
+            warnIfDoesNotValidate(existingValue, type);
+            warnIfDoesNotValidate(newValue, type);
             log.debug("Removing '{}' from '{}'", newValue, existingValue);
-            return type.remove(existingValue, newValue);
+            return type.remove(type.convert(existingValue), type.convert(newValue));
         }
     };
 
     private static final Log log = getLog(ConflictPolicy.class);
 
-    abstract Object resolveConflict(Object existingValue, Object newValue, ParameterType type);
+    abstract <TYPE> Object resolveConflict(Object existingValue, Object newValue, ParameterType<TYPE> type);
+
+    private static void warnIfDoesNotValidate(Object value, ParameterType<?> parameterType) {
+        if(!parameterType.validate(value))
+            log.warn("Value '" + value + "' does not validate as parameter type " + parameterType.getClass().getSimpleName());
+    }
 }

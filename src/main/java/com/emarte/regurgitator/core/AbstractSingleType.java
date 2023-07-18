@@ -14,7 +14,7 @@ public abstract class AbstractSingleType<TYPE> implements ParameterType<TYPE> {
     }
 
     @Override
-    public TYPE fromCollection(Collection collection) {
+    public TYPE fromCollection(Collection<?> collection) {
         TYPE total = createNew();
 
         for (Object obj : collection) {

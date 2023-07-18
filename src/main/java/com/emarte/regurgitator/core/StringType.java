@@ -44,7 +44,7 @@ public final class StringType implements ParameterType<String> {
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         return String.valueOf(value);
@@ -67,10 +67,10 @@ public final class StringType implements ParameterType<String> {
     }
 
     @Override
-    public String fromCollection(Collection value) {
+    public String fromCollection(Collection<?> value) {
         StringBuilder buffer = new StringBuilder();
 
-        for (Iterator iterator = value.iterator(); iterator.hasNext(); ) {
+        for (Iterator<?> iterator = value.iterator(); iterator.hasNext(); ) {
             buffer.append(convert(iterator.next()));
 
             if (iterator.hasNext()) {

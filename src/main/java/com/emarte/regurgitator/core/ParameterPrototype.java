@@ -6,10 +6,10 @@ package com.emarte.regurgitator.core;
 
 public final class ParameterPrototype {
     private final String name;
-    private final ParameterType type;
+    private final ParameterType<?> type;
     private final ConflictPolicy conflictPolicy;
 
-    public ParameterPrototype(String name, ParameterType type, ConflictPolicy conflictPolicy) {
+    public ParameterPrototype(String name, ParameterType<?> type, ConflictPolicy conflictPolicy) {
         this.name = name;
         this.type = type;
         this.conflictPolicy = conflictPolicy;
@@ -19,7 +19,7 @@ public final class ParameterPrototype {
         return name;
     }
 
-    public ParameterType getType() {
+    public ParameterType<?> getType() {
         return type;
     }
 

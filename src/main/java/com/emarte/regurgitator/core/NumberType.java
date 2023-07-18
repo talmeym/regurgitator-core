@@ -37,7 +37,7 @@ public final class NumberType extends AbstractSingleType<Long> {
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         if (DECIMAL.validate(value)) {

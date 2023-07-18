@@ -24,7 +24,7 @@ public final class ListOfNumberType extends AbstractCollectionType<Long, List<Lo
 
     @Override
     public boolean validate(Object value) {
-        return value instanceof List && validateCollection((Collection) value);
+        return value instanceof List && validateCollection((Collection<?>) value);
     }
 
     @Override
@@ -35,7 +35,7 @@ public final class ListOfNumberType extends AbstractCollectionType<Long, List<Lo
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         if (STRING.validate(value)) {

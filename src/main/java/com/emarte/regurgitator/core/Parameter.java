@@ -33,7 +33,7 @@ public final class Parameter implements HasId {
         return prototype.getName();
     }
 
-    public ParameterType getType() {
+    public ParameterType<?> getType() {
         return prototype.getType();
     }
 
@@ -44,11 +44,11 @@ public final class Parameter implements HasId {
     public Object getValue() {
         if(value instanceof Collection) {
             if (value instanceof List) {
-                return unmodifiableList((List) value);
+                return unmodifiableList((List<?>) value);
             }
 
             if (value instanceof Set) {
-                return unmodifiableSet((Set) value);
+                return unmodifiableSet((Set<?>) value);
             }
         }
 
@@ -56,8 +56,7 @@ public final class Parameter implements HasId {
     }
 
     void merge(Parameter parameter) {
-        Object newValue = getType().convert(parameter.getValue());
-        value = parameter.getConflictPolicy().resolveConflict(value, newValue, getType());
+        value = parameter.getConflictPolicy().resolveConflict(value, parameter.getValue(), getType());
         log.debug("Merge resulted in value '{}'", value);
     }
 }

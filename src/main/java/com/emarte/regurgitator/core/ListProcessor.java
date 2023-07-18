@@ -17,7 +17,7 @@ public class ListProcessor implements ValueProcessor {
 
     @Override
     public Object process(Object value, Message message) throws RegurgitatorException {
-        Collection values = getCollection(value);
+        Collection<?> values = getCollection(value);
         List<Object> result = new ArrayList<Object>(values.size());
 
         for(Object object: values) {
@@ -31,13 +31,13 @@ public class ListProcessor implements ValueProcessor {
         return result;
     }
 
-    private Collection getCollection(Object value) {
+    private Collection<?> getCollection(Object value) {
         if(!(value instanceof Collection)) {
             List<Object> list = new ArrayList<Object>();
             list.add(value);
             return list;
         }
 
-        return (Collection) value;
+        return (Collection<?>) value;
     }
 }

@@ -44,7 +44,7 @@ final class RecordMessage extends Identifiable implements Step {
                     } else if(parameter.getType() == NUMBER || parameter.getType() == DECIMAL) {
                         out.write("\t\t\"" + escape(id) + "\": " + parameter.getValue());
                     } else if(parameter.getType() instanceof AbstractCollectionType) {
-                        outputCollection(parameter, out, parameter.getType());
+                        outputCollection(parameter, out, (AbstractCollectionType) parameter.getType());
                     }
 
                     if(i < ids.size() - 1) {

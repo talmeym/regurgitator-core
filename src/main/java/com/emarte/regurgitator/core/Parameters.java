@@ -22,11 +22,11 @@ public class Parameters extends Container<Parameter> {
         setValue(name, STRING, value);
     }
 
-    public void setValue(String name, ParameterType type, Object value) {
+    public void setValue(String name, ParameterType<?> type, Object value) {
         setValue(name, type, REPLACE, value);
     }
 
-    public void setValue(String name, ParameterType type, ConflictPolicy policy, Object value) {
+    public void setValue(String name, ParameterType<?> type, ConflictPolicy policy, Object value) {
         setValue(new Parameter(new ParameterPrototype(name, type, policy), value));
     }
 

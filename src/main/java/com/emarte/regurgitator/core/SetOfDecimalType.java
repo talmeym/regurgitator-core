@@ -24,7 +24,7 @@ public final class SetOfDecimalType extends AbstractCollectionType<Double, Set<D
 
     @Override
     public boolean validate(Object value) {
-        return value instanceof Set && validateCollection((Collection) value);
+        return value instanceof Set && validateCollection((Collection<?>) value);
     }
 
     @Override
@@ -35,7 +35,7 @@ public final class SetOfDecimalType extends AbstractCollectionType<Double, Set<D
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         if (STRING.validate(value)) {

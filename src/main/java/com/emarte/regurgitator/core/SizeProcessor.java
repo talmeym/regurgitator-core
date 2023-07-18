@@ -17,7 +17,7 @@ public final class SizeProcessor extends CollectionProcessor {
     }
 
     @Override
-    public Object processCollection(Collection collection, Message message) {
+    public Object processCollection(Collection<?> collection, Message message) {
         log.debug("Returning size of '{}'" + (asIndex ? " as last index" : ""), collection);
         return asIndex ? collection.size() - 1 : collection.size();
     }

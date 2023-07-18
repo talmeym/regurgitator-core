@@ -28,7 +28,7 @@ public abstract class ParameterExtractor extends Identifiable implements Step {
 
     @Override
     public final void execute(Message message) throws RegurgitatorException {
-        ParameterType type = prototype.getType();
+        ParameterType<?> type = prototype.getType();
         Object value = extractValue(message);
 
         if(processors.size() > 0) {

@@ -23,7 +23,7 @@ public final class SetOfStringType extends AbstractCollectionType<String, Set<St
 
     @Override
     public boolean validate(Object value) {
-        return value instanceof Set && validateCollection((Collection) value);
+        return value instanceof Set && validateCollection((Collection<?>) value);
     }
 
     @Override
@@ -34,7 +34,7 @@ public final class SetOfStringType extends AbstractCollectionType<String, Set<St
         }
 
         if (value instanceof Collection) {
-            return fromCollection((Collection) value);
+            return fromCollection((Collection<?>) value);
         }
 
         if (STRING.validate(value)) {
