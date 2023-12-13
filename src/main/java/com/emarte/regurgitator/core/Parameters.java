@@ -15,7 +15,7 @@ public class Parameters extends Container<Parameter> {
     private final Log log = getLog(this);
 
     Parameters(Object id) {
-        super(id, new ArrayList<Parameter>());
+        super(id, new ArrayList<>());
     }
 
     public void setValue(String name, Object value) {

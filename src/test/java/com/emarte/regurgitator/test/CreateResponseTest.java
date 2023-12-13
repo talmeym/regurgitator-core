@@ -12,7 +12,7 @@ import java.util.Collections;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class CreateResponseTest {
     private static final String SOURCE_NAME = "name";
@@ -29,16 +29,11 @@ public class CreateResponseTest {
 
     private final ParameterPrototype sourcePrototype = new ParameterPrototype(SOURCE_NAME, STRING, PARAM_CONFLICT_POL);
 
-    private final CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), new ArrayList<ValueProcessor>());
-    private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), new ArrayList<ValueProcessor>());
-    private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<ValueProcessor>());
+    private final CreateResponse sourceToTest = new CreateResponse(SOURCE_ID, new ValueSource(SOURCE, null), new ArrayList<>());
+    private final CreateResponse staticToTest = new CreateResponse(STATIC_ID, new ValueSource(null, STATIC_VALUE), new ArrayList<>());
+    private final CreateResponse sourceAndStaticToTest = new CreateResponse(SOURCE_AND_STATIC_ID, new ValueSource(SOURCE, STATIC_VALUE), new ArrayList<>());
 
-    private final ValueProcessor processor = new ValueProcessor() {
-        @Override
-        public Object process(Object value, Message message) {
-            return PROCESSED_VALUE;
-        }
-    };
+    private final ValueProcessor processor = (value, message) -> PROCESSED_VALUE;
 
     private final CreateResponse processorToTest = new CreateResponse(PROCESSED_ID, new ValueSource(null, STATIC_VALUE), Collections.singletonList(processor));
 
@@ -96,7 +91,7 @@ public class CreateResponseTest {
         assertEquals(PROCESSED_VALUE, callback.getValue());
     }
 
-    private class CollectingResponseCallBack implements ResponseCallBack {
+    private static class CollectingResponseCallBack implements ResponseCallBack {
         private Object value;
 
         @Override

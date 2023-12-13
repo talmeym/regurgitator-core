@@ -10,12 +10,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 public class RuleTest {
 
-    private static final List<Condition> passingConditions = new ArrayList<Condition>();
-    private static final List<Condition> failingConditions = new ArrayList<Condition>();
+    private static final List<Condition> passingConditions = new ArrayList<>();
+    private static final List<Condition> failingConditions = new ArrayList<>();
 
     private static final ContextLocation CONTEXT_LOCATION = new ContextLocation("context:location");
 

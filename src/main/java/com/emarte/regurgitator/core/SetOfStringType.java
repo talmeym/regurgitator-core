@@ -18,7 +18,7 @@ public final class SetOfStringType extends AbstractCollectionType<String, Set<St
 
     @Override
     public Set<String> createNew() {
-        return new LinkedHashSet<String>();
+        return new LinkedHashSet<>();
     }
 
     @Override
@@ -41,6 +41,6 @@ public final class SetOfStringType extends AbstractCollectionType<String, Set<St
             return STRING.toCollectionOf((String) value, createNew(), STRING);
         }
 
-        return new LinkedHashSet<String>(singletonList(STRING.convert(value)));
+        return new LinkedHashSet<>(singletonList(STRING.convert(value)));
     }
 }

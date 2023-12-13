@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import static com.emarte.regurgitator.core.ConflictPolicy.*;
 import static com.emarte.regurgitator.core.CoreTypes.*;
 import static java.util.Arrays.asList;
-import static junit.framework.Assert.assertEquals;
-
+import static org.junit.Assert.assertEquals;
 public class ConflictPolicyTest {
 
     @Test
@@ -22,7 +21,7 @@ public class ConflictPolicyTest {
         assertEquals("existingnew", CONCAT.resolveConflict("existing", "new", STRING));
         assertEquals("exing", REMOVE.resolveConflict("existing", "ist", STRING));
 
-        assertEquals(new ArrayList(), REMOVE.resolveConflict(asList("1", "2", "3", "3"), asList("1", "2", "3"), LIST_OF_STRING));
-        assertEquals(new ArrayList(), REMOVE.resolveConflict(asList(1, 2, 3, 3), asList(1, 2, 3), LIST_OF_NUMBER));
+        assertEquals(new ArrayList<>(), REMOVE.resolveConflict(asList("1", "2", "3", "3"), asList("1", "2", "3"), LIST_OF_STRING));
+        assertEquals(new ArrayList<>(), REMOVE.resolveConflict(asList(1, 2, 3, 3), asList(1, 2, 3), LIST_OF_NUMBER));
     }
 }

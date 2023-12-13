@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class BuildParameterTest {
     private static final String PARAM_NAME = "name";
-    private static final ParameterType PARAM_TYPE = STRING;
+    private static final ParameterType<?> PARAM_TYPE = STRING;
     private static final ConflictPolicy PARAM_CONFLICT_POL = REPLACE;
     private static final String STEP_ID = "id";
     private static final String PARAM_CONTEXT = "context";
@@ -23,14 +23,9 @@ public class BuildParameterTest {
 
     private final ParameterPrototype prototype = new ParameterPrototype(PARAM_NAME, PARAM_TYPE, PARAM_CONFLICT_POL);
 
-    private final ValueBuilder builder = new ValueBuilder() {
-        @Override
-        public Object build(Message parameters) {
-            return BUILT_VALUE;
-        }
-    };
+    private final ValueBuilder builder = parameters -> BUILT_VALUE;
 
-    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, builder, new ArrayList<ValueProcessor>());
+    private final BuildParameter toTest = new BuildParameter(STEP_ID, prototype, PARAM_CONTEXT, builder, new ArrayList<>());
 
     @Test
     public void testBasics() throws RegurgitatorException {

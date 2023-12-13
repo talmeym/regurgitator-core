@@ -17,7 +17,7 @@ class EqualsParamBehaviour implements ConditionBehaviour {
             Parameter comparisonParameter = message.getContextValue(new ContextLocation(conditionValue));
 
             if(comparisonParameter != null) {
-                ParameterType parameterType = parameter.getType();
+                ParameterType<?> parameterType = parameter.getType();
                 equals = parameter.getValue().equals(parameterType.convert(comparisonParameter.getValue()));
             }
         }

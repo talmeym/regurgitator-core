@@ -49,7 +49,7 @@ regurgitator-core provides the following basic constructs:
 - ``NUMBER`` based on the ``java.lang.Long`` java type
 - ``DECIMAL`` based on the ``java.lang.Double`` java type
 
-all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
+all of the above have list and set types, holding collections of the java type, e.g. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
 #### value generators
 - ``number-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#number-generator), [json](https://github.com/talmeym/regurgitator-core-json#number-generator), [yml](https://github.com/talmeym/regurgitator-core-yml#number-generator)) generates a random number parameter value

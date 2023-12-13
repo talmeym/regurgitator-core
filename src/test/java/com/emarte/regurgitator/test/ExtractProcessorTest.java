@@ -8,7 +8,7 @@ import com.emarte.regurgitator.core.ExtractProcessor;
 import com.emarte.regurgitator.core.RegurgitatorException;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class ExtractProcessorTest {
     @Test

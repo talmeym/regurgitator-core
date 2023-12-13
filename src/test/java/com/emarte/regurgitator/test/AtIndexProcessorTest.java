@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.emarte.regurgitator.core.CoreTypes.NUMBER;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class AtIndexProcessorTest {
     private final AtIndexProcessor sourceToTest = new AtIndexProcessor(new ValueSource(new ContextLocation("context:location"), null));

@@ -30,7 +30,7 @@ public final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
     }
 
     private List<Object> idAndSubsequent(Object id, List<Object> allIds) {
-        List<Object> ids = new ArrayList<Object>();
+        List<Object> ids = new ArrayList<>();
         boolean found = false;
 
         for(Object stepId: allIds) {

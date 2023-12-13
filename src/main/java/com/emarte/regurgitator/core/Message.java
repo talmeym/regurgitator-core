@@ -12,7 +12,7 @@ import static com.emarte.regurgitator.core.ContextLocation.PARAMETER_CONTEXT;
 import static com.emarte.regurgitator.core.ContextLocation.SESSION_CONTEXT;
 
 public class Message {
-    private final Map<String, Parameters> contextData = new TreeMap<String, Parameters>();
+    private final Map<String, Parameters> contextData = new TreeMap<>();
     private final ResponseCallBack callback;
 
     public Message(ResponseCallBack callback) {

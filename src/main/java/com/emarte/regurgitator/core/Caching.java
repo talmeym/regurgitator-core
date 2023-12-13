@@ -34,20 +34,20 @@ public class Caching {
     private static class DefaultCacheProvider implements CacheProvider {
         private static final Log log = getLog(DefaultCacheProvider.class);
 
-        private final Map<Class<?>, Cache<?>> CACHES = new HashMap<Class<?>, Cache<?>>();
+        private final Map<Class<?>, Cache<?>> CACHES = new HashMap<>();
 
         @Override
         @SuppressWarnings("unchecked")
         public <TYPE> Cache<TYPE> getCache(Class<TYPE> clazz) {
             if(!CACHES.containsKey(clazz)) {
-                CACHES.put(clazz, new DefaultCache<TYPE>(clazz));
+                CACHES.put(clazz, new DefaultCache<>(clazz));
             }
 
             return (Cache<TYPE>) CACHES.get(clazz);
         }
 
         private static class DefaultCache<TYPE> implements Cache<TYPE> {
-            private final Map<String, TYPE> CACHE_DATA = new HashMap<String, TYPE>();
+            private final Map<String, TYPE> CACHE_DATA = new HashMap<>();
             private final Class<TYPE> clazz;
 
             private DefaultCache(Class<TYPE> clazz) {

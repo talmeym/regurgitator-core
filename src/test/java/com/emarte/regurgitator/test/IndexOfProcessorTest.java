@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.emarte.regurgitator.core.CoreTypes.STRING;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class IndexOfProcessorTest {
     private final IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), null), false);

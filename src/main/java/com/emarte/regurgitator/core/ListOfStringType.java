@@ -18,7 +18,7 @@ public final class ListOfStringType extends AbstractCollectionType<String, List<
 
     @Override
     public List<String> createNew() {
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     @Override

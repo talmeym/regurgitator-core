@@ -14,8 +14,8 @@ import java.util.Arrays;
 
 import static com.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static com.emarte.regurgitator.core.CoreTypes.*;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class ContainsBehaviourTest {
     private static final ContainsBehaviour toTest = new ContainsBehaviour();

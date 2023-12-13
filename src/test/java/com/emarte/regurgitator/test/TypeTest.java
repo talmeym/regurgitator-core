@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 
 public abstract class TypeTest {
     protected <CONTENTS> Set<CONTENTS> set(CONTENTS... things) {
-        return new LinkedHashSet<CONTENTS>(asList(things));
+        return new LinkedHashSet<>(asList(things));
     }
 
     protected <CONTENTS> List<CONTENTS> list(CONTENTS... things) {
