@@ -7,8 +7,8 @@ package com.emarte.regurgitator.core;
 import java.util.List;
 
 public abstract class ParameterExtractor extends Identifiable implements Step {
-    private final ParameterPrototype prototype;
-    private final String context;
+    protected final ParameterPrototype prototype;
+    protected final String context;
     private final List<ValueProcessor> processors;
 
     public ParameterExtractor(Object id, ParameterPrototype prototype, String context, List<ValueProcessor> processors) {
@@ -16,14 +16,6 @@ public abstract class ParameterExtractor extends Identifiable implements Step {
         this.prototype = prototype;
         this.context = context;
         this.processors = processors;
-    }
-
-    public ParameterPrototype getPrototype() {
-        return prototype;
-    }
-
-    public String getContext() {
-        return context;
     }
 
     @Override
