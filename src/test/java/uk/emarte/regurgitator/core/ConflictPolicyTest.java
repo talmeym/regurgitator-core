@@ -10,17 +10,18 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static java.util.Arrays.asList;
+import static uk.emarte.regurgitator.core.ConflictPolicy.*;
 
 public class ConflictPolicyTest {
 
     @Test
     public void testThis() {
-        Assert.assertEquals("existing", ConflictPolicy.LEAVE.resolveConflict("existing", "new", CoreTypes.STRING));
-        Assert.assertEquals("new", ConflictPolicy.REPLACE.resolveConflict("existing", "new", CoreTypes.STRING));
-        Assert.assertEquals("existingnew", ConflictPolicy.CONCAT.resolveConflict("existing", "new", CoreTypes.STRING));
-        Assert.assertEquals("exing", ConflictPolicy.REMOVE.resolveConflict("existing", "ist", CoreTypes.STRING));
+        Assert.assertEquals("existing", LEAVE.resolveConflict("existing", "new", CoreTypes.STRING));
+        Assert.assertEquals("new", REPLACE.resolveConflict("existing", "new", CoreTypes.STRING));
+        Assert.assertEquals("existingnew", CONCAT.resolveConflict("existing", "new", CoreTypes.STRING));
+        Assert.assertEquals("exing", REMOVE.resolveConflict("existing", "ist", CoreTypes.STRING));
 
-        Assert.assertEquals(new ArrayList(), ConflictPolicy.REMOVE.resolveConflict(asList("1", "2", "3", "3"), asList("1", "2", "3"), CoreTypes.LIST_OF_STRING));
-        Assert.assertEquals(new ArrayList(), ConflictPolicy.REMOVE.resolveConflict(asList(1, 2, 3, 3), asList(1, 2, 3), CoreTypes.LIST_OF_NUMBER));
+        Assert.assertEquals(new ArrayList(), REMOVE.resolveConflict(asList("1", "2", "3", "3"), asList("1", "2", "3"), CoreTypes.LIST_OF_STRING));
+        Assert.assertEquals(new ArrayList(), REMOVE.resolveConflict(asList(1, 2, 3, 3), asList(1, 2, 3), CoreTypes.LIST_OF_NUMBER));
     }
 }
