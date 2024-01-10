@@ -5,7 +5,10 @@
 package uk.emarte.regurgitator.test;
 
 import org.junit.Test;
-import uk.emarte.regurgitator.core.*;
+import uk.emarte.regurgitator.core.MatchesBehaviour;
+import uk.emarte.regurgitator.core.Message;
+import uk.emarte.regurgitator.core.Parameter;
+import uk.emarte.regurgitator.core.ParameterPrototype;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
