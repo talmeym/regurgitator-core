@@ -19,7 +19,7 @@ public final class ListOfDecimalType extends AbstractCollectionType<Double, List
 
     @Override
     public List<Double> createNew() {
-        return new ArrayList<Double>();
+        return new ArrayList<>();
     }
 
     @Override

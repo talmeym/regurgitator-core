@@ -20,6 +20,7 @@ final class RecordMessage extends Identifiable implements Step {
         this.folderPath = folderPath;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void execute(Message message) throws RegurgitatorException {
         try {

@@ -5,19 +5,20 @@
 package uk.emarte.regurgitator.core;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class Log {
     private Object id;
     private final Logger logger;
 
     private Log(Class<?> clazz) {
-        logger = LoggerFactory.getLogger(clazz);
+        logger = getLogger(clazz);
     }
 
     private Log(HasId hasId) {
         id = hasId.getId();
-        logger = LoggerFactory.getLogger(hasId.getClass());
+        logger = getLogger(hasId.getClass());
     }
 
     public void debug(String message, Object... objs) {

@@ -14,7 +14,7 @@ public final class EqualsBehaviour implements ConditionBehaviour {
         boolean equals = false;
 
         if(parameter != null) {
-            ParameterType parameterType = parameter.getType();
+            ParameterType<?> parameterType = parameter.getType();
             equals = parameter.getValue().equals(parameterType.convert(conditionValue));
         }
 

@@ -6,7 +6,7 @@ start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitat
 
 ## messages
 
-upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return back a response (or responses) to the incoming request, effectively ending the invocation - job done.
+upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return a response (or responses) to the incoming request, effectively ending the invocation - job done.
 
 **accept request (as message)** => **execute steps (build responses using message data)** => **send back response(s)**
 
@@ -49,7 +49,7 @@ regurgitator-core provides the following basic constructs:
 - ``NUMBER`` based on the ``java.lang.Long`` java type
 - ``DECIMAL`` based on the ``java.lang.Double`` java type
 
-all of the above have list and set types, holding collections of the java type, eg. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
+all of the above have list and set types, holding collections of the java type, e.g. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
 #### value generators
 - ``number-generator`` ([xml](https://github.com/talmeym/regurgitator-core-xml#number-generator), [json](https://github.com/talmeym/regurgitator-core-json#number-generator), [yml](https://github.com/talmeym/regurgitator-core-yml#number-generator)) generates a random number parameter value

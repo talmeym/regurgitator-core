@@ -19,7 +19,7 @@ public final class SetOfNumberType extends AbstractCollectionType<Long, Set<Long
 
     @Override
     public Set<Long> createNew() {
-        return new LinkedHashSet<Long>();
+        return new LinkedHashSet<>();
     }
 
     @Override
@@ -42,6 +42,6 @@ public final class SetOfNumberType extends AbstractCollectionType<Long, Set<Long
             return STRING.toCollectionOf((String) value, createNew(), NUMBER);
         }
 
-        return new LinkedHashSet<Long>(singletonList(NUMBER.convert(value)));
+        return new LinkedHashSet<>(singletonList(NUMBER.convert(value)));
     }
 }

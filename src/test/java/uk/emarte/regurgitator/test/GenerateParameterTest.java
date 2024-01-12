@@ -9,7 +9,7 @@ import uk.emarte.regurgitator.core.*;
 
 import java.util.ArrayList;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 
 public class GenerateParameterTest {
@@ -22,7 +22,7 @@ public class GenerateParameterTest {
 
     private static final ValueGenerator NUMBER = new NumberGenerator();
 
-    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, new ArrayList<ValueProcessor>());
+    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, new ArrayList<>());
 
     @Test
     public void testThis() throws RegurgitatorException {

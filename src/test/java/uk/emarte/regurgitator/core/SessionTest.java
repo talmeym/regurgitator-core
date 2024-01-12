@@ -33,6 +33,6 @@ public class SessionTest {
         Session.getSession(ID);
         assertTrue(Caching.getCache(Session.class).contains(ID));
         Session preLoadedSession = Caching.getCache(Session.class).get(ID);
-        assertTrue(preLoadedSession == Session.getSession(ID));
+        assertSame(preLoadedSession, Session.getSession(ID));
     }
 }

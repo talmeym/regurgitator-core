@@ -24,7 +24,7 @@ final class Decision extends Container<Step> implements Step {
 
     @Override
     public void execute(Message message) throws RegurgitatorException {
-        List<Object> evaluatedIds = new ArrayList<Object>();
+        List<Object> evaluatedIds = new ArrayList<>();
         log.debug("Evaluating rules");
 
         for (Rule rule : rules) {
