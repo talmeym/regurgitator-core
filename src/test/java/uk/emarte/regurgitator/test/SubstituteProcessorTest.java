@@ -7,7 +7,7 @@ package uk.emarte.regurgitator.test;
 import org.junit.Test;
 import uk.emarte.regurgitator.core.SubstituteProcessor;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class SubstituteProcessorTest {
 

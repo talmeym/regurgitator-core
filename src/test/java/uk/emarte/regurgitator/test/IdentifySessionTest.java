@@ -7,7 +7,7 @@ package uk.emarte.regurgitator.test;
 import org.junit.Test;
 import uk.emarte.regurgitator.core.*;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 

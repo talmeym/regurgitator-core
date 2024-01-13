@@ -10,8 +10,8 @@ import uk.emarte.regurgitator.core.Message;
 import uk.emarte.regurgitator.core.Parameter;
 import uk.emarte.regurgitator.core.ParameterPrototype;
 
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
 import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 

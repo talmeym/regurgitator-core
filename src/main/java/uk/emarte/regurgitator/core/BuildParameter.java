@@ -22,7 +22,7 @@ public final class BuildParameter extends ParameterExtractor {
         log.debug("Building parameter value");
         Object value = builder.build(message);
 
-        log.debug("Built value for parameter '{}'", getPrototype().getName());
+        log.debug("Built value for parameter '{}'", prototype.getName());
         return value;
     }
 }

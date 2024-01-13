@@ -19,7 +19,7 @@ public final class ListOfNumberType extends AbstractCollectionType<Long, List<Lo
 
     @Override
     public List<Long> createNew() {
-        return new ArrayList<Long>();
+        return new ArrayList<>();
     }
 
     @Override

@@ -15,7 +15,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
     protected Container(Object id, List<TYPE> items) {
         super(id);
         this.items = items;
-        itemsById = new TreeMap<Object, TYPE>();
+        itemsById = new TreeMap<>();
 
         for (TYPE item : items) {
             itemsById.put(item.getId(), item);
@@ -32,7 +32,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
     }
 
     protected List<Object> ids() {
-        return new ArrayList<Object>(itemsById.keySet());
+        return new ArrayList<>(itemsById.keySet());
     }
 
     protected boolean contains(Object id) {
@@ -44,7 +44,7 @@ public abstract class Container<TYPE extends HasId> extends Identifiable {
     }
 
     protected List<TYPE> get(Collection<?> ids) {
-        List<TYPE> result = new ArrayList<TYPE>();
+        List<TYPE> result = new ArrayList<>();
 
         for(Object id: ids) {
             if(contains(id)) {

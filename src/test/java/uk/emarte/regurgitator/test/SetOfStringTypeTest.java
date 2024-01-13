@@ -44,10 +44,10 @@ public class SetOfStringTypeTest extends TypeTest {
 
     @Test
     public void test_convert_SET_STRING_different_separators() {
-        String PUNCTS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
+        String PUNCTUATIONS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
 
-        for (int i = 0; i < PUNCTS.length(); i++) {
-            char separator = PUNCTS.charAt(i);
+        for (int i = 0; i < PUNCTUATIONS.length(); i++) {
+            char separator = PUNCTUATIONS.charAt(i);
             StringType.setSeparator(separator);
             assertEquals(set("ABC", "DEF", "GHI"), SET_OF_STRING.convert("ABC" + separator + "DEF" + separator + "GHI" + separator + "ABC"));
         }

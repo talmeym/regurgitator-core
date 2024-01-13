@@ -19,7 +19,7 @@ public final class SetOfDecimalType extends AbstractCollectionType<Double, Set<D
 
     @Override
     public Set<Double> createNew() {
-        return new LinkedHashSet<Double>();
+        return new LinkedHashSet<>();
     }
 
     @Override
@@ -42,6 +42,6 @@ public final class SetOfDecimalType extends AbstractCollectionType<Double, Set<D
             return STRING.toCollectionOf((String) value, createNew(), DECIMAL);
         }
 
-        return new LinkedHashSet<Double>(singletonList(DECIMAL.convert(value)));
+        return new LinkedHashSet<>(singletonList(DECIMAL.convert(value)));
     }
 }

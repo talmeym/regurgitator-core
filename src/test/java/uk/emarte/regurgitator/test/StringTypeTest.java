@@ -40,10 +40,10 @@ public class StringTypeTest extends TypeTest {
 
     @Test
     public void test_convert_STRING_different_separators() {
-        String PUNCTS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
+        String PUNCTUATIONS = "`~!@#$%^&*()_+{}|:\"<>?-=[];'.\\/,'";
 
-        for (int i = 0; i < PUNCTS.length(); i++) {
-            testSeparator(PUNCTS.charAt(i));
+        for (int i = 0; i < PUNCTUATIONS.length(); i++) {
+            testSeparator(PUNCTUATIONS.charAt(i));
         }
     }
 
