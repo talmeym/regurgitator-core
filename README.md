@@ -2,7 +2,7 @@
 
 regurgitator is a lightweight, modular, extendable java framework that you configure to 'regurgitate' canned or clever responses to incoming requests; useful for quickly mocking or prototyping services without writing any code. simply configure, deploy and run.
 
-start your reading here: [regurgitator-all](http://github.com/talmeym/regurgitator-all#regurgitator)
+start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
 ## messages
 
@@ -10,7 +10,7 @@ upon invocation, regurgitator models each incoming request as a ``message``, pas
 
 **accept request (as message)** => **execute steps (build responses using message data)** => **send back response(s)**
 
-a message may be pre-populated with input data before regurgitator is invoked, such as metadata about an http call. each data item is stored in the message as a ``parameter``, stored under a ``context``, which groups a set of related parameters together. the default context is simply ``parameters``. some more specific contexts (for [http](http://github.com/talmeym/regurgitator-extensions-web#regurgitator-over-http)) include ``request-headers``, ``response-payload`` and ``global-metadata``. the message also provides the response callback mechanism through which responses are sent back out of regurgitator. see code example [here] (https://talmeym.github.io/regurgitator-all#example-code).
+a message may be pre-populated with input data before regurgitator is invoked, such as metadata about an http call. each data item is stored in the message as a ``parameter``, stored under a ``context``, which groups a set of related parameters together. the default context is simply ``parameters``. some more specific contexts (for [http](https://talmeym.github.io/regurgitator-extensions-web#regurgitator-over-http)) include ``request-headers``, ``response-payload`` and ``global-metadata``. the message also provides the response callback mechanism through which responses are sent back out of regurgitator. see code example [here] (https://talmeym.github.io/regurgitator-all#example-code).
 
 a message can also be auto-populated with data that persists between requests, through the use of [``global data``](https://talmeym.github.io/regurgitator-extensions-web#global-metadata-servlet) and [``sessions``](https://talmeym.github.io/regurgitator-core-xml#identify-session).
 
