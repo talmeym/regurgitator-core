@@ -18,7 +18,7 @@ public class SizeProcessorTest {
     private final SizeProcessor toTestMinusOne = new SizeProcessor(true);
 
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testProcessor() throws RegurgitatorException {
         assertEquals(3, toTest.process(Arrays.asList("one", "two", "three"), null));
         assertEquals(3, toTest.process(new HashSet<>(Arrays.asList("one", "two", "three")), null));
     }

@@ -15,7 +15,7 @@ import static uk.emarte.regurgitator.core.ConflictPolicy.*;
 public class ConflictPolicyTest {
 
     @Test
-    public void testThis() {
+    public void testConflictPolicy() {
         Assert.assertEquals("existing", LEAVE.resolveConflict("existing", "new", CoreTypes.STRING));
         Assert.assertEquals("new", REPLACE.resolveConflict("existing", "new", CoreTypes.STRING));
         Assert.assertEquals("existingnew", CONCAT.resolveConflict("existing", "new", CoreTypes.STRING));

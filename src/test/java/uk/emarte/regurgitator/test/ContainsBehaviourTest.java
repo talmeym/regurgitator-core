@@ -21,7 +21,7 @@ public class ContainsBehaviourTest {
     private static final ContainsBehaviour toTest = new ContainsBehaviour();
 
     @Test
-    public void testThis() {
+    public void testBehaviour() {
         ParameterPrototype stringPrototype = new ParameterPrototype("to-test", STRING, REPLACE);
 
         assertTrue(toTest.evaluate(new Parameter(stringPrototype, "value"), new Message(null), "lue", true));

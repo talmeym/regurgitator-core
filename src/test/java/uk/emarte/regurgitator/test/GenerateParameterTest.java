@@ -25,7 +25,7 @@ public class GenerateParameterTest {
     private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, new ArrayList<>());
 
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testStep() throws RegurgitatorException {
         assertEquals(SOURCE_ID, toTest.getId());
         Message message = new Message(null);
 

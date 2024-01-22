@@ -16,7 +16,7 @@ public class ParametersTest {
     private static final String NEW_NAME = "newName";
 
     @Test
-    public void testThis() {
+    public void testParameters() {
         Parameters parameters = new Parameters("parameters");
 
         ParameterPrototype leavePrototype = new ParameterPrototype(NAME, STRING, LEAVE);

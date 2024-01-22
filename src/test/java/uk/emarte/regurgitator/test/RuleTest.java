@@ -22,13 +22,13 @@ public class RuleTest {
     private static final String VALUE = "value";
 
     static {
-        passingConditions.add(new Condition("1", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
-        passingConditions.add(new Condition("2", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
-        passingConditions.add(new Condition("3", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
+        passingConditions.add(new Condition("1", CONTEXT_LOCATION, VALUE, true, new PassingBehaviour()));
+        passingConditions.add(new Condition("2", CONTEXT_LOCATION, VALUE, true, new PassingBehaviour()));
+        passingConditions.add(new Condition("3", CONTEXT_LOCATION, VALUE, true, new PassingBehaviour()));
 
-        failingConditions.add(new Condition("4", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
-        failingConditions.add(new Condition("5", CONTEXT_LOCATION, VALUE, true, new FailingConditionBehaviour()));
-        failingConditions.add(new Condition("6", CONTEXT_LOCATION, VALUE, true, new PassingConditionBehaviour()));
+        failingConditions.add(new Condition("4", CONTEXT_LOCATION, VALUE, true, new PassingBehaviour()));
+        failingConditions.add(new Condition("5", CONTEXT_LOCATION, VALUE, true, new FailingBehaviour()));
+        failingConditions.add(new Condition("6", CONTEXT_LOCATION, VALUE, true, new PassingBehaviour()));
     }
 
     private final Rule passingToTest = new Rule("7", passingConditions, "9");
@@ -46,14 +46,14 @@ public class RuleTest {
         assertFalse(failingToTest.evaluate(new Message(null)));
     }
 
-    private static class PassingConditionBehaviour implements ConditionBehaviour {
+    private static class PassingBehaviour implements ConditionBehaviour {
         @Override
         public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
             return true;
         }
     }
 
-    private static class FailingConditionBehaviour implements ConditionBehaviour {
+    private static class FailingBehaviour implements ConditionBehaviour {
         @Override
         public boolean evaluate(Parameter parameter, Message message, String conditionValue, boolean expectation) {
             return false;

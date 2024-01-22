@@ -21,7 +21,7 @@ public class EqualsBehaviourTest {
     private static final EqualsBehaviour toTest = new EqualsBehaviour();
 
     @Test
-    public void testthis() {
+    public void testBehaviour() {
         ParameterPrototype stringPrototype = new ParameterPrototype("to-test", STRING, REPLACE);
 
         assertTrue(toTest.evaluate(new Parameter(stringPrototype, "value"), new Message(null), "value", true));

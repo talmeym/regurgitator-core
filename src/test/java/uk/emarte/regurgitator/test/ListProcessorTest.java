@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ListProcessorTest {
     @Test
-    public void testThis() throws RegurgitatorException {
+    public void testProcessor() throws RegurgitatorException {
         ListProcessor listProcessor = new ListProcessor(asList(processor(), processor()));
         List<Integer> input = asList(2, 4, 6);
         assertEquals(asList(4, 6, 8), listProcessor.process(input, null));

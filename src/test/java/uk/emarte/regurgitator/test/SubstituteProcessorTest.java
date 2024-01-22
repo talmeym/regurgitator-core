@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class SubstituteProcessorTest {
 
     @Test
-    public void testThis() {
+    public void testProcessor() {
         SubstituteProcessor toTest = new SubstituteProcessor("token", "nekot");
         assertEquals("1234nekot1234nekot1234nekot1234", toTest.process("1234token1234token1234token1234", null));
     }
