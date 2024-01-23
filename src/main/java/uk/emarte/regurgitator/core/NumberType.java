@@ -6,7 +6,7 @@ package uk.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-import static uk.emarte.regurgitator.core.CoreTypes.DECIMAL;
+import static uk.emarte.regurgitator.core.CoreTypes.*;
 import static uk.emarte.regurgitator.core.StringType.stringify;
 
 public final class NumberType extends AbstractSingleType<Long> {
@@ -50,5 +50,13 @@ public final class NumberType extends AbstractSingleType<Long> {
     @Override
     public boolean contains(Long container, Long contained) {
         return container >= contained;
+    }
+
+    public static Long longify(Parameter parameter) {
+        return parameter != null ? NUMBER.convert(parameter.getValue()) : null;
+    }
+
+    public static Long longify(Object value) {
+        return value != null ? NUMBER.convert(value) : null;
     }
 }

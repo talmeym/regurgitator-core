@@ -17,9 +17,7 @@ public interface ParameterType<TYPE> {
 
     TYPE convert(Object value);
 
-    boolean contains(TYPE container, TYPE value);
-
-    <OTHER, COLLECTION extends Collection<OTHER>> COLLECTION toCollectionOf(TYPE value, COLLECTION collection, ParameterType<OTHER> type);
+    boolean contains(TYPE container, TYPE contained);
 
     TYPE fromCollection(Collection<?> collection);
 }

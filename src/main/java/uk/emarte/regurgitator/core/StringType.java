@@ -56,17 +56,6 @@ public final class StringType implements ParameterType<String> {
     }
 
     @Override
-    public <TYPE, COLLECTION extends Collection<TYPE>> COLLECTION toCollectionOf(String value, COLLECTION collection, ParameterType<TYPE> type) {
-        String[] strings = value.split("\\" + SEPARATOR);
-
-        for (String string : strings) {
-            collection.add(type.convert(string));
-        }
-
-        return collection;
-    }
-
-    @Override
     public String fromCollection(Collection<?> value) {
         StringBuilder buffer = new StringBuilder();
 
@@ -79,6 +68,16 @@ public final class StringType implements ParameterType<String> {
         }
 
         return buffer.toString();
+    }
+
+    public <TYPE, COLLECTION extends Collection<TYPE>> COLLECTION toCollectionOf(String value, COLLECTION collection, ParameterType<TYPE> type) {
+        String[] strings = value.split("\\" + SEPARATOR);
+
+        for (String string : strings) {
+            collection.add(type.convert(string));
+        }
+
+        return collection;
     }
 
     public static String stringify(Parameter parameter) {
