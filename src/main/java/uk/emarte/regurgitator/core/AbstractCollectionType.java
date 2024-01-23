@@ -27,7 +27,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
      * @see uk.emarte.regurgitator.core.ParameterType#concat(Object, Object)
      * @param prefix The prefix collection to be concatenated
      * @param suffix The suffix collection to be concatenated
-     * @return A new java collection of type <TYPE>, containing both the inputted collections
+     * @return A new java collection of type &lt;TYPE&gt;, containing both the inputted collections
      */
     @Override
     public TYPE concat(TYPE prefix, TYPE suffix) {
@@ -42,7 +42,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
      * @see ParameterType#remove(Object, Object)
      * @param existingValue The exiting collection
      * @param newValue The new collection to remove from it
-     * @return A new java collection of type <TYPE>, containing the existing collection, minus the contents of the new
+     * @return A new java collection of type &lt;TYPE&gt;, containing the existing collection, minus the contents of the new
      */
     @Override
     public TYPE remove(TYPE existingValue, TYPE newValue) {
@@ -70,7 +70,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
     /**
      * Convert to this collection type from another collection
      * @param collection The collection of unknown type
-     * @return A collection of type <TYPE>
+     * @return A collection of type &lt;TYPE&gt;
      */
     @Override
     public TYPE fromCollection(Collection<?> collection) {
