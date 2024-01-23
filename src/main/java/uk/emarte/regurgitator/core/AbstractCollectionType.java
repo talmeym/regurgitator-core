@@ -9,14 +9,14 @@ import java.util.Collection;
 /**
  * Abstract base class for all collection types, e.g. LIST_OF_STRING
  * @param <INNER> The java type that the underlying java collection will hold, e.g. String
- * @param <TYPE> The underlying java collection (including INNER), e.g. List<String>
+ * @param <TYPE> The underlying java collection (including INNER), e.g. java.util.List<java.lang.String>
  */
 public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNER>> implements ParameterType<TYPE> {
     private final ParameterType<INNER> type;
 
     /**
      * Constructor
-     * @param type ParameterType for this collections INNER java type, e.g. ParameterType<String>
+     * @param type ParameterType for this collections INNER java type, e.g. uk.emarte.regurgitator.core.ParameterType<java.lang.String>
      */
     public AbstractCollectionType(ParameterType<INNER> type) {
         this.type = type;
@@ -24,7 +24,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
 
     /**
      * Concatenates two collections together
-     * @see ParameterType#concat(Object, Object)
+     * @see uk.emarte.regurgitator.core.ParameterType#concat(Object, Object)
      * @param prefix The prefix collection to be concatenated
      * @param suffix The suffix collection to be concatenated
      * @return A new java collection of type <TYPE>, containing both the inputted collections
