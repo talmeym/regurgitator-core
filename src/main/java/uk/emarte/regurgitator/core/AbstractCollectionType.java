@@ -55,7 +55,7 @@ public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNE
     /**
      * Validates that the contents of a collection of unknown type
      * @param value The collection of unknown type
-     * @return Whether all elements of the collection are of type <INNER>
+     * @return Whether all elements of the collection are of type &lt;INNER&gt;
      */
     public boolean validateCollection(Collection<?> value) {
         for(Object obj: value) {
