@@ -9,14 +9,14 @@ import java.util.Collection;
 /**
  * Abstract base class for all collection types, e.g. LIST_OF_STRING
  * @param <INNER> The java type that the underlying java collection will hold, e.g. String
- * @param <TYPE> The underlying java collection (including INNER), e.g. java.util.List<java.lang.String>
+ * @param <TYPE> The underlying java collection (including INNER), e.g. java.util.List&lt;java.lang.String&gt;
  */
 public abstract class AbstractCollectionType<INNER, TYPE extends Collection<INNER>> implements ParameterType<TYPE> {
     private final ParameterType<INNER> type;
 
     /**
      * Constructor
-     * @param type ParameterType for this collections INNER java type, e.g. uk.emarte.regurgitator.core.ParameterType<java.lang.String>
+     * @param type ParameterType for this collections INNER java type, e.g. uk.emarte.regurgitator.core.ParameterType&lt;java.lang.String&gt;
      */
     public AbstractCollectionType(ParameterType<INNER> type) {
         this.type = type;
