@@ -73,7 +73,7 @@ all of the above have list and set types, holding collections of the java type, 
 - ``first-match``
 - ``first-match-onwards``
 
-rules behaviours are explained alongside decision step here: [xml](https://talmeym.github.io/regurgitator-core-xml#rules-behaviours), [json](https://talmeym.github.io/regurgitator-core-json#rules-behaviours), [yml](https://talmeym.github.io/regurgitator-core-yml#rules-behaviours)
+rules behaviours are explained alongside decision steps here: [xml](https://talmeym.github.io/regurgitator-core-xml#decision), [json](https://talmeym.github.io/regurgitator-core-json#decision), [yml](https://talmeym.github.io/regurgitator-core-yml#decision)
 
 #### condition behaviours
 
@@ -84,6 +84,6 @@ rules behaviours are explained alongside decision step here: [xml](https://talme
 - ``contains-param``
 - ``matches``
 
-condition behaviours are explained alongside decision step here: [xml](https://talmeym.github.io/regurgitator-core-xml#condition-behaviours), [json](https://talmeym.github.io/regurgitator-core-json#condition-behaviours), [yml](https://talmeym.github.io/regurgitator-core-yml#condition-behaviours)
+condition behaviours are explained alongside decision steps here: [xml](https://talmeym.github.io/regurgitator-core-xml#decision), [json](https://talmeym.github.io/regurgitator-core-json#decision), [yml](https://talmeym.github.io/regurgitator-core-yml#decision)
 
 more constructs are available in other modules ([ext](https://talmeym.github.io/regurgitator-extensions#constructs), [web](https://talmeym.github.io/regurgitator-extensions-web#constructs))
