@@ -47,6 +47,7 @@ just as custom steps can be added to extend regurgitator to meet your needs, you
 regurgitator-core provides the following basic constructs:
 
 #### parameter types
+
 - ``STRING`` based on the ``java.lang.String`` java type
 - ``NUMBER`` based on the ``java.lang.Long`` java type
 - ``DECIMAL`` based on the ``java.lang.Double`` java type
@@ -54,14 +55,35 @@ regurgitator-core provides the following basic constructs:
 all of the above have list and set types, holding collections of the java type, e.g. ``LIST_OF_STRING``, ``SET_OF_DECIMAL``
 
 #### value generators
+
 - ``number-generator`` ([xml](https://talmeym.github.io/regurgitator-core-xml#number-generator), [json](https://talmeym.github.io/regurgitator-core-json#number-generator), [yml](https://talmeym.github.io/regurgitator-core-yml#number-generator)) generates a random number parameter value
 - ``uuid-generator`` ([xml](https://talmeym.github.io/regurgitator-core-xml#uuid-generator), [json](https://talmeym.github.io/regurgitator-core-json#uuid-generator), [yml](https://talmeym.github.io/regurgitator-core-yml#uuid-generator)) generates a unique UUID parameter value
 
 #### value processors
+
 - ``extract-processor`` ([xml](https://talmeym.github.io/regurgitator-core-xml#extract-processor), [json](https://talmeym.github.io/regurgitator-core-json#extract-processor), [yml](https://talmeym.github.io/regurgitator-core-yml#extract-processor)) extract one value from another, using java's java.text.MessageFormat syntax
 - ``substitute-processor`` ([xml](https://talmeym.github.io/regurgitator-core-xml#substitute-processor), [json](https://talmeym.github.io/regurgitator-core-json#substitute-processor), [yml](https://talmeym.github.io/regurgitator-core-yml#substitute-processor)) processes a string value, replacing instances of one string with another
 - ``index-processor`` ([xml](https://talmeym.github.io/regurgitator-core-xml#index-processor), [json](https://talmeym.github.io/regurgitator-core-json#index-processor), [yml](https://talmeym.github.io/regurgitator-core-yml#index-processor)) processes a collection, returning the data item at a given index
 - ``index-of-processor`` ([xml](https://talmeym.github.io/regurgitator-core-xml#index-of-processor), [json](https://talmeym.github.io/regurgitator-core-json#index-of-processor), [yml](https://talmeym.github.io/regurgitator-core-yml#index-of-processor)) processes a collection, returning the index of a given data value
 - ``size-processor`` ([xml](https://talmeym.github.io/regurgitator-core-xml#size-processor), [json](https://talmeym.github.io/regurgitator-core-json#size-processor), [yml](https://talmeym.github.io/regurgitator-core-yml#size-processor)) processes a collection, returning its size
+
+#### rules behaviours
+
+- ``all-matches``
+- ``first-match``
+- ``first-match-onwards``
+
+rules behaviours are explained alongside decision step here: [xml](https://talmeym.github.io/regurgitator-core-xml#rules-behaviours), [json](https://talmeym.github.io/regurgitator-core-json#rules-behaviours), [yml](https://talmeym.github.io/regurgitator-core-yml#rules-behaviours)
+
+#### condition behaviours
+
+- ``equals``
+- ``equals-param``
+- ``exists``
+- ``contains``
+- ``contains-param``
+- ``matches``
+
+condition behaviours are explained alongside decision step here: [xml](https://talmeym.github.io/regurgitator-core-xml#condition-behaviours), [json](https://talmeym.github.io/regurgitator-core-json#condition-behaviours), [yml](https://talmeym.github.io/regurgitator-core-yml#condition-behaviours)
 
 more constructs are available in other modules ([ext](https://talmeym.github.io/regurgitator-extensions#constructs), [web](https://talmeym.github.io/regurgitator-extensions-web#constructs))
