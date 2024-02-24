@@ -6,7 +6,8 @@ package uk.emarte.regurgitator.core;
 
 import java.util.Collection;
 
-import static uk.emarte.regurgitator.core.CoreTypes.*;
+import static uk.emarte.regurgitator.core.CoreTypes.DECIMAL;
+import static uk.emarte.regurgitator.core.CoreTypes.NUMBER;
 import static uk.emarte.regurgitator.core.StringType.stringify;
 
 public final class NumberType extends AbstractSingleType<Long> {

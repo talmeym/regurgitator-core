@@ -7,26 +7,21 @@ package uk.emarte.regurgitator.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static uk.emarte.regurgitator.core.Log.getLog;
 
 public final class FirstMatchOnwardsBehaviour implements RulesBehaviour {
     private static final Log log = getLog(FirstMatchOnwardsBehaviour.class);
 
     @Override
-    public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds, Object defaultStepId) {
+    public List<Object> evaluate(List<Object> evaluatedStepIds, List<Object> allStepIds) {
         if(evaluatedStepIds.size() > 0) {
             List<Object> ids = idAndSubsequent(evaluatedStepIds.get(0), allStepIds);
             log.debug("Returning first rule match and subsequent steps '{}'", ids);
             return ids;
         }
 
-        if(defaultStepId != null) {
-            List<Object> ids = idAndSubsequent(defaultStepId, allStepIds);
-            log.debug("Returning default and subsequent steps '{}'", ids);
-            return ids;
-        }
-
-        throw new IllegalStateException("No rules evaluated true and no default specified in decision");
+        return emptyList();
     }
 
     private List<Object> idAndSubsequent(Object id, List<Object> allIds) {

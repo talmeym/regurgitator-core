@@ -37,7 +37,16 @@ final class Decision extends Container<Step> implements Step {
         }
 
         log.debug("Applying rules behaviour");
-        List<Step> steps = get(behaviour.evaluate(evaluatedIds, ids(), defaultStepId));
+        List<Step> steps = get(behaviour.evaluate(evaluatedIds, ids()));
+
+        if(steps.isEmpty()) {
+            if(defaultStepId != null) {
+                log.debug("Using default step '{}'", defaultStepId);
+                steps.add(get(defaultStepId));
+            } else {
+                throw new RegurgitatorException("No rules evaluated true and no default specified in decision");
+            }
+        }
 
         for(Step step : steps) {
             log.debug("Executing '{}'", step.getId());
