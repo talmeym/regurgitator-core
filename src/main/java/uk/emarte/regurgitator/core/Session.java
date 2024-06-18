@@ -16,7 +16,7 @@ public final class Session extends Parameters {
 
     static Session getSession(Object id) {
         if(id == null) {
-            throw new IllegalArgumentException("Cannot retrieve session: session id not known");
+            throw new IllegalArgumentException("Cannot retrieve session: session id not found");
         }
 
         Cache<Session> cache = Caching.getCache(Session.class);

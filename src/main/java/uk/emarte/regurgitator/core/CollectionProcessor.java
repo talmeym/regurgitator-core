@@ -7,13 +7,20 @@ package uk.emarte.regurgitator.core;
 import java.util.Collection;
 
 public abstract class CollectionProcessor implements ValueProcessor {
+    private final Log log = Log.getLog(CollectionProcessor.class);
+
     @Override
     public final Object process(Object value, Message message) throws RegurgitatorException {
-        if(!(value instanceof Collection)) {
-            throw new RegurgitatorException("Parameter is not a collection");
+        if(value != null) {
+            if(value instanceof Collection) {
+                return processCollection((Collection<?>) value, message);
+            }
+
+            throw new RegurgitatorException("Value is not a collection");
         }
 
-        return processCollection((Collection<?>) value, message);
+        log.warn("No value to process");
+        return null;
     }
 
     public abstract Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException;

@@ -43,7 +43,7 @@ public class Message {
         Parameters session = contextData.get(SESSION_CONTEXT);
 
         if(session == null) {
-            throw new IllegalArgumentException("Session not found");
+            throw new IllegalStateException("Session not found");
         }
 
         return (Session) session;

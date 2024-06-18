@@ -14,44 +14,56 @@ import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
 public class IndexOfProcessorTest {
-    private final IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), null), false);
-    private final IndexOfProcessor staticToTest = new IndexOfProcessor(new ValueSource(null, "THAT"), false);
-    private final IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ValueSource(new ContextLocation("context:location"), "THAT"), false);
+    private static final String THIS = "THIS";
+    private static final String THAT = "THAT";
+    private static final String THE_OTHER = "THE OTHER";
+    private static final List<String> VALUES = Arrays.asList(THIS, THAT, THE_OTHER);
+
+    private static final String CONTEXT = "context";
+    private static final String LOCATION = "location";
+    private static final ContextLocation SOURCE = new ContextLocation(CONTEXT + ":" + LOCATION);
+
+    private final IndexOfProcessor sourceToTest = new IndexOfProcessor(new ValueSource(SOURCE, null), false);
+    private final IndexOfProcessor staticToTest = new IndexOfProcessor(new ValueSource(null, THAT), false);
+    private final IndexOfProcessor sourceAndStaticToTest = new IndexOfProcessor(new ValueSource(SOURCE, THAT), false);
 
     @Test
     public void testSource() throws RegurgitatorException {
-        List<String> values = Arrays.asList("THIS", "THAT", "THE OTHER");
-
         Message message = new Message(null);
 
-        message.getContext("context").setValue("location", STRING, "THIS");
-        assertEquals(0, sourceToTest.process(values, message));
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, THIS);
+        assertEquals(0, sourceToTest.process(VALUES, message));
 
-        message.getContext("context").setValue("location", STRING, "THAT");
-        assertEquals(1, sourceToTest.process(values, message));
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, THAT);
+        assertEquals(1, sourceToTest.process(VALUES, message));
 
-        message.getContext("context").setValue("location", STRING, "THE OTHER");
-        assertEquals(2, sourceToTest.process(values, message));
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, THE_OTHER);
+        assertEquals(2, sourceToTest.process(VALUES, message));
 
-        message.getContext("context").setValue("location", STRING, "SOMETHING ELSE");
-        assertEquals(-1, sourceToTest.process(values, message));
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, "SOMETHING ELSE");
+        assertEquals(-1, sourceToTest.process(VALUES, message));
+    }
+
+    @Test(expected = RegurgitatorException.class)
+    public void testInvalidValue_noParam() throws RegurgitatorException {
+        Message message = new Message(null);
+        sourceToTest.process(VALUES, message);
     }
 
     @Test
     public void testStatic() throws RegurgitatorException {
-        assertEquals(1, staticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), new Message(null)));
+        assertEquals(1, staticToTest.process(VALUES, new Message(null)));
     }
 
     @Test
     public void testSourceAndStatic_sourceFound() throws RegurgitatorException {
         Message message = new Message(null);
-        message.getContext("context").setValue("location", STRING, "THIS");
-        assertEquals(0, sourceAndStaticToTest.process(Arrays.asList("THIS", "THAT", "THE OTHER"), message));
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, THIS);
+        assertEquals(0, sourceAndStaticToTest.process(VALUES, message));
     }
 
     @Test
     public void testSourceAndStatic_sourceNotFound() throws RegurgitatorException {
-        List<String> values = Arrays.asList("THIS", "THAT", "THE OTHER");
-        assertEquals(1, sourceAndStaticToTest.process(values, new Message(null)));
+        assertEquals(1, sourceAndStaticToTest.process(VALUES, new Message(null)));
     }
 }

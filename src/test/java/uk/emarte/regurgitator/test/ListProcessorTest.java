@@ -13,7 +13,6 @@ import uk.emarte.regurgitator.core.ValueProcessor;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
 
 public class ListProcessorTest {
@@ -25,10 +24,10 @@ public class ListProcessorTest {
         assertEquals(asList(2, 4, 6), input); // double check input not changed
     }
 
-    @Test
+    @Test(expected = RegurgitatorException.class)
     public void testNotList() throws RegurgitatorException {
         ListProcessor listProcessor = new ListProcessor(asList(processor(), processor()));
-        assertEquals(singletonList(6), listProcessor.process(4, null));
+        listProcessor.process(4, null);
     }
 
     private ValueProcessor processor() {

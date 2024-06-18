@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.CoreTypes.NUMBER;
 import static uk.emarte.regurgitator.core.CoreTypes.STRING;
 
-public class AtIndexProcessorTest {
+public class RemoveAtIndexProcessorTest {
     private static final String THIS = "THIS";
     private static final String THAT = "THAT";
     private static final String THE_OTHER = "THE OTHER";
@@ -24,24 +24,22 @@ public class AtIndexProcessorTest {
     private static final String CONTEXT = "context";
     private static final ContextLocation SOURCE = new ContextLocation(CONTEXT + ":" + LOCATION);
 
-    public static final String NAN = "abc";
-
-    private final AtIndexProcessor sourceToTest = new AtIndexProcessor(new ValueSource(SOURCE, null));
-    private final AtIndexProcessor valueToTest = new AtIndexProcessor(new ValueSource(null, "1"));
-    private final AtIndexProcessor sourceAndValueToTest = new AtIndexProcessor(new ValueSource(SOURCE, "1"));
+    private final RemoveAtIndexProcessor sourceToTest = new RemoveAtIndexProcessor(new ValueSource(SOURCE, null));
+    private final RemoveAtIndexProcessor valueToTest = new RemoveAtIndexProcessor(new ValueSource(null, "1"));
+    private final RemoveAtIndexProcessor sourceAndValueToTest = new RemoveAtIndexProcessor(new ValueSource(SOURCE, "1"));
 
     @Test
     public void testSource() throws RegurgitatorException {
         Message message = new Message(null);
 
         message.getContext(CONTEXT).setValue(LOCATION, NUMBER, 0L);
-        assertEquals(THIS, sourceToTest.process(VALUES, message));
+        assertEquals(Arrays.asList(THAT, THE_OTHER), sourceToTest.process(VALUES, message));
 
         message.getContext(CONTEXT).setValue(LOCATION, NUMBER, 1L);
-        assertEquals(THAT, sourceToTest.process(VALUES, message));
+        assertEquals(Arrays.asList(THIS, THE_OTHER), sourceToTest.process(VALUES, message));
 
         message.getContext(CONTEXT).setValue(LOCATION, NUMBER, 2L);
-        assertEquals(THE_OTHER, sourceToTest.process(VALUES, message));
+        assertEquals(Arrays.asList(THIS, THAT), sourceToTest.process(VALUES, message));
     }
 
     @Test(expected = RegurgitatorException.class)
@@ -52,7 +50,7 @@ public class AtIndexProcessorTest {
     @Test(expected = RegurgitatorException.class)
     public void testInvalidIndex_NaN() throws RegurgitatorException {
         Message message = new Message(null);
-        message.getContext(CONTEXT).setValue(LOCATION, STRING, NAN);
+        message.getContext(CONTEXT).setValue(LOCATION, STRING, "abc");
         sourceToTest.process(VALUES, message);
     }
 
@@ -72,18 +70,18 @@ public class AtIndexProcessorTest {
 
     @Test
     public void testValue() throws RegurgitatorException {
-        assertEquals(THAT, valueToTest.process(VALUES, new Message(null)));
+        assertEquals(Arrays.asList(THIS, THE_OTHER), valueToTest.process(VALUES, new Message(null)));
     }
 
     @Test
     public void testSourceAndValue_sourceFound() throws RegurgitatorException {
         Message message = new Message(null);
         message.getContext(CONTEXT).setValue(LOCATION, NUMBER, 0L);
-        assertEquals(THIS, sourceAndValueToTest.process(VALUES, message));
+        assertEquals(Arrays.asList(THAT, THE_OTHER), sourceAndValueToTest.process(VALUES, message));
     }
 
     @Test
     public void testSourceAndValue_sourceNotFound() throws RegurgitatorException {
-        assertEquals(THAT, sourceAndValueToTest.process(VALUES, new Message(null)));
+        assertEquals(Arrays.asList(THIS, THE_OTHER), sourceAndValueToTest.process(VALUES, new Message(null)));
     }
 }

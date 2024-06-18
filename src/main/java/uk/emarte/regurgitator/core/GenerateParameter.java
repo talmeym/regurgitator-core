@@ -12,13 +12,14 @@ public final class GenerateParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueGenerator generator;
 
-    public GenerateParameter(Object id, ParameterPrototype prototype, String context, ValueGenerator generator, List<ValueProcessor> processors) {
-        super(id, prototype, context, processors);
+    public GenerateParameter(Object id, ParameterPrototype prototype, String context, ValueGenerator generator, List<ValueProcessor> processors, boolean optional) {
+        super(id, prototype, context, processors, optional);
         this.generator = generator;
     }
 
     @Override
     public Object extractValue(Message message) throws RegurgitatorException {
+        log.debug("Generating parameter value");
         Object value = generator.generate();
         log.debug("Generated value '{}' for parameter '{}'", value, prototype.getName());
         return value;

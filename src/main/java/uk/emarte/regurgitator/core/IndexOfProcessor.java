@@ -22,21 +22,25 @@ public final class IndexOfProcessor extends CollectionProcessor {
     public Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException {
         Object value = valueSource.getValue(message, log);
 
-        log.debug("Finding " + (last ? "last " : "") + "index of '{}' in value '{}'", value, collection);
-        int index = 0, lastIndex = -1;
+        if(value != null) {
+            log.debug("Finding " + (last ? "last " : "") + "index of '{}' in value '{}'", value, collection);
+            int index = 0, lastIndex = -1;
 
-        for(Object object: collection) {
-            if(object.equals(value)) {
-                if(!last) {
-                    return index;
+            for (Object object : collection) {
+                if (object.equals(value)) {
+                    if (!last) {
+                        return index;
+                    }
+
+                    lastIndex = index;
                 }
 
-                lastIndex = index;
+                index++;
             }
 
-            index++;
+            return lastIndex;
         }
 
-        return lastIndex;
+        throw new RegurgitatorException("Value to index could not be found");
     }
 }

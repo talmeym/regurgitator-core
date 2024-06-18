@@ -11,31 +11,56 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static uk.emarte.regurgitator.core.ConflictPolicy.REPLACE;
+import static uk.emarte.regurgitator.core.CoreTypes.NUMBER;
 
 public class GenerateParameterTest {
-    private static final String DEST_NAME = "newName";
-    private static final ConflictPolicy PARAM_CONFLICT_POL = REPLACE;
-    private static final String PARAM_CONTEXT = "context";
-    private static final String SOURCE_ID = "sourceId";
-
-    private final ParameterPrototype destPrototype = new ParameterPrototype(DEST_NAME, CoreTypes.NUMBER, PARAM_CONFLICT_POL);
-
-    private static final ValueGenerator NUMBER = new NumberGenerator();
-
-    private final GenerateParameter toTest = new GenerateParameter(SOURCE_ID, destPrototype, PARAM_CONTEXT, NUMBER, new ArrayList<>());
+    private static final String NAME = "paramName";
+    private static final String CONTEXT = "context";
+    private static final String ID = "id";
+    private static final Long GENERATED_VALUE = 123L;
+    private static final ParameterPrototype PROTOTYPE = new ParameterPrototype(NAME, NUMBER, REPLACE);
 
     @Test
     public void testStep() throws RegurgitatorException {
-        assertEquals(SOURCE_ID, toTest.getId());
-        Message message = new Message(null);
+        GenerateParameter toTest = new GenerateParameter(ID, PROTOTYPE, CONTEXT, () -> GENERATED_VALUE, new ArrayList<>(), false);
+        assertEquals(ID, toTest.getId());
 
-        Parameters contextParameters = message.getContext(PARAM_CONTEXT);
+        Message message = new Message(null);
+        Parameters contextParameters = message.getContext(CONTEXT);
         assertEquals(0, contextParameters.size());
 
         toTest.execute(message);
 
         assertEquals(1, contextParameters.size());
-        Parameter parameter = contextParameters.get(DEST_NAME);
-        assertEquals(CoreTypes.NUMBER, parameter.getType());
+        Parameter parameter = contextParameters.get(NAME);
+        assertEquals(NAME, parameter.getName());
+        assertEquals(NUMBER, parameter.getType());
+        assertEquals(GENERATED_VALUE, parameter.getValue());
+    }
+
+    @Test
+    public void testNullGeneratorOutputOptional() throws RegurgitatorException {
+        GenerateParameter toTest = new GenerateParameter(ID, PROTOTYPE, CONTEXT, () -> null, new ArrayList<>(), true);
+        assertEquals(ID, toTest.getId());
+
+        Message message = new Message(null);
+        Parameters contextParameters = message.getContext(CONTEXT);
+        assertEquals(0, contextParameters.size());
+
+        toTest.execute(message);
+
+        assertEquals(0, contextParameters.size());
+    }
+
+    @Test(expected = RegurgitatorException.class)
+    public void testNullGeneratorOutputMandatory() throws RegurgitatorException {
+        GenerateParameter toTest = new GenerateParameter(ID, PROTOTYPE, CONTEXT, () -> null, new ArrayList<>(), false);
+        assertEquals(ID, toTest.getId());
+
+        Message message = new Message(null);
+        Parameters contextParameters = message.getContext(CONTEXT);
+        assertEquals(0, contextParameters.size());
+
+        toTest.execute(message);
     }
 }

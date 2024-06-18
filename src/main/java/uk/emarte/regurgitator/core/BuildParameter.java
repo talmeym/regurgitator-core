@@ -12,8 +12,8 @@ public final class BuildParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueBuilder builder;
 
-    public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, List<ValueProcessor> processors) {
-        super(id, prototype, context, processors);
+    public BuildParameter(Object id, ParameterPrototype prototype, String context, ValueBuilder builder, List<ValueProcessor> processors, boolean optional) {
+        super(id, prototype, context, processors, optional);
         this.builder = builder;
     }
 
