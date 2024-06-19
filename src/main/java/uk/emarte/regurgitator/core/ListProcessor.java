@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ListProcessor implements ValueProcessor {
+public class ListProcessor extends CollectionProcessor {
     private final List<ValueProcessor> processors;
 
     public ListProcessor(List<ValueProcessor> processors) {
@@ -16,11 +16,10 @@ public class ListProcessor implements ValueProcessor {
     }
 
     @Override
-    public Object process(Object value, Message message) throws RegurgitatorException {
-        Collection<?> values = getCollection(value);
-        List<Object> result = new ArrayList<>(values.size());
+    public Object processCollection(Collection<?> collection, Message message) throws RegurgitatorException {
+        List<Object> result = new ArrayList<>(collection.size());
 
-        for(Object object: values) {
+        for (Object object : collection) {
             for (ValueProcessor processor : processors) {
                 object = processor.process(object, message);
             }
@@ -29,15 +28,5 @@ public class ListProcessor implements ValueProcessor {
         }
 
         return result;
-    }
-
-    private Collection<?> getCollection(Object value) {
-        if(!(value instanceof Collection)) {
-            List<Object> list = new ArrayList<>();
-            list.add(value);
-            return list;
-        }
-
-        return (Collection<?>) value;
     }
 }

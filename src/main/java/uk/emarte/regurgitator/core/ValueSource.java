@@ -26,7 +26,8 @@ public final class ValueSource {
                 return value;
             }
 
-            throw new RegurgitatorException("No value found at context location '" + source + "'");
+            log.debug("No value found at context location '" + source + "'");
+            return null;
         }
 
         log.debug("Using static value '{}'", value);

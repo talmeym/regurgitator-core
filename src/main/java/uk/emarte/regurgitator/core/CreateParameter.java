@@ -12,8 +12,8 @@ public final class CreateParameter extends ParameterExtractor {
     private final Log log = getLog(this);
     private final ValueSource valueSource;
 
-    public CreateParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, List<ValueProcessor> processors) {
-        super(id, prototype, context, processors);
+    public CreateParameter(Object id, ParameterPrototype prototype, String context, ValueSource valueSource, List<ValueProcessor> processors, boolean optional) {
+        super(id, prototype, context, processors, optional);
         this.valueSource = valueSource;
     }
 

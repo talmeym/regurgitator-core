@@ -16,6 +16,7 @@ public class IdentifySessionTest {
     private static final String PARAM_VALUE = "value";
     private static final String CONTEXT = "context";
     private static final String PARAM_NAME = "name";
+    private static final String OTHER_PARAM_NAME = "other_name";
 
     private final IdentifySession toTest = new IdentifySession("ID", new ValueSource(new ContextLocation(CONTEXT, PARAM_NAME), null));
 
@@ -29,10 +30,10 @@ public class IdentifySessionTest {
         assertEquals(PARAM_VALUE, message.getSession().getId());
     }
 
-    @Test(expected = RegurgitatorException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testUnhappyPath() throws RegurgitatorException {
         Message message = new Message(null);
-        message.getContext(CONTEXT).setValue(new Parameter(new ParameterPrototype("other_name", STRING, REPLACE), PARAM_VALUE));
+        message.getContext(CONTEXT).setValue(new Parameter(new ParameterPrototype(OTHER_PARAM_NAME, STRING, REPLACE), PARAM_VALUE));
 
         toTest.execute(message);
     }
