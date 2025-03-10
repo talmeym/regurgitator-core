@@ -86,4 +86,6 @@ condition behaviours are explained alongside decision steps here: [xml](https://
 
 more constructs are available in other modules ([ext](https://talmeym.github.io/regurgitator-extensions#constructs), [web](https://talmeym.github.io/regurgitator-extensions-web#constructs))
 
+---
+
 api docs: [``0.1.5``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.5/){:target="_blank"} [``0.1.4``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.4/){:target="_blank"} [``0.1.3``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.3/){:target="_blank"} [``0.1.2``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.2/){:target="_blank"}
