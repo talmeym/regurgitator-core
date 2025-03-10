@@ -4,8 +4,6 @@ regurgitator is a lightweight, modular, extendable java framework that you confi
 
 start your reading here: [regurgitator-all](https://talmeym.github.io/regurgitator-all#regurgitator)
 
-[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.3/) 
-
 ## messages
 
 upon invocation, regurgitator models each incoming request as a ``message``, passed to regurgitator for processing. this message holds all data accessible by the steps configured to run, and is passed to each step as it is executed. depending on its type, a step might read from, add to, or aggregate together data from within the message. when the processing required is complete (and if configured to do so) a step will return a response (or responses) to the incoming request, effectively ending the invocation - job done.
@@ -87,3 +85,5 @@ rules behaviours are explained alongside decision steps here: [xml](https://talm
 condition behaviours are explained alongside decision steps here: [xml](https://talmeym.github.io/regurgitator-core-xml#decision), [json](https://talmeym.github.io/regurgitator-core-json#decision), [yml](https://talmeym.github.io/regurgitator-core-yml#decision)
 
 more constructs are available in other modules ([ext](https://talmeym.github.io/regurgitator-extensions#constructs), [web](https://talmeym.github.io/regurgitator-extensions-web#constructs))
+
+[``apidocs``](https://regurgitator.emarte.uk/apidocs/regurgitator-core/0.1.3/){:target="_blank"}
